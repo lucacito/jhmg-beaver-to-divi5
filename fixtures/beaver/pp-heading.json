@@ -1,0 +1,168 @@
+{
+    "nodes": {
+        "row1": {
+            "node": "row1",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": []
+        },
+        "grp1": {
+            "node": "grp1",
+            "type": "column-group",
+            "parent": "row1",
+            "position": 0,
+            "settings": ""
+        },
+        "col1": {
+            "node": "col1",
+            "type": "column",
+            "parent": "grp1",
+            "position": 0,
+            "settings": {
+                "size": 100
+            }
+        },
+        "mod1": {
+            "node": "mod1",
+            "type": "module",
+            "parent": "col1",
+            "position": 0,
+            "settings": {
+                "prefix_tag": "div",
+                "prefix_text": "get started",
+                "heading_tag": "h2",
+                "heading_title": "Download the Beginner Kit for Free, Today!",
+                "dual_heading": "no",
+                "heading_title2": "Secondary Title",
+                "heading_style": "inline-block",
+                "heading_alignment": "left",
+                "enable_link": "no",
+                "heading_link_nofollow": "no",
+                "heading_sub_title": "<p>Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Ultricies mi quis hendrerit dolor magna eget est lorem. Faucibus a pellentesque sit amet. Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse.</p>",
+                "heading_separator": "no_spacer",
+                "heading_separator_postion": "middle",
+                "heading_line_style": "solid",
+                "font_title_line_space": "20",
+                "hide_separator": "none",
+                "heading_icon_select": "font_icon_select",
+                "font_icon_line_space": "20",
+                "line_width": "100",
+                "line_width_unit": "px",
+                "line_height": "1",
+                "font_icon_font_size": "16",
+                "font_icon_border_width": "0",
+                "font_icon_border_style": "none",
+                "font_icon_border_radius": "100",
+                "heading_color_type": "solid",
+                "heading_gradient_setting": {
+                    "type": "linear",
+                    "angle": "90",
+                    "position": "center center",
+                    "stops": [
+                        "0",
+                        "100"
+                    ]
+                },
+                "heading_border_style": "none",
+                "heading_border_color": "000000",
+                "heading_top_margin": "0",
+                "heading_bottom_margin": "10",
+                "heading2_color_type": "solid",
+                "heading2_gradient_setting": {
+                    "type": "linear",
+                    "angle": "90",
+                    "position": "center center",
+                    "stops": [
+                        "0",
+                        "100"
+                    ]
+                },
+                "heading2_border_style": "none",
+                "heading2_border_color": "000000",
+                "heading2_left_margin": "0",
+                "sub_heading_top_margin": "0",
+                "sub_heading_bottom_margin": "0",
+                "prefix_typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "unit": "px"
+                    },
+                    "text_transform": "uppercase"
+                },
+                "prefix_typography_medium": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "prefix_typography_responsive": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "title_typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "unit": "em"
+                    }
+                },
+                "title_typography_medium": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "title_typography_responsive": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "title2_typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "title2_typography_medium": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "title2_typography_responsive": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "desc_typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "desc_typography_medium": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "desc_typography_responsive": {
+                    "font_size": {
+                        "unit": "px"
+                    }
+                },
+                "responsive_display": "desktop,large,medium,mobile",
+                "font_icon_padding_top": "0",
+                "font_icon_padding_right": "0",
+                "font_icon_padding_bottom": "0",
+                "font_icon_padding_left": "0",
+                "margin_unit": "px",
+                "margin_medium_unit": "px",
+                "margin_responsive_unit": "px",
+                "type": "pp-heading",
+                "heading_link_target": "_self"
+            }
+        }
+    }
+}

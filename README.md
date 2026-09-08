@@ -27,6 +27,10 @@ npx playwright test                     # end-to-end against the container
   with `php scripts/update-expected.php <name>`.
 - `fixtures/beaver-templates/*.json`: Beaver Builder Lite's bundled layouts (`scripts/bb-dat-to-json.php`).
 - `fixtures/beaver-import/*`: upload formats (WXR, .dat, JSON).
+- `beaver templates/*.xml`: real Beaver Builder exports from a site running Ultimate Addons, PowerPack and
+  Beaver Builder Pro. `tests/ThirdPartyTemplateConversionTest.php` requires each to convert validator-clean with
+  no placeholder and no skipped setting; drop more exports in to widen the net. Single-module fixtures for the
+  modules they introduced (`list`, `progress-bar`, `pp-heading`, `pp-icon-list`, `pp-fluent-form`) were cut from them.
 
 ## Adding a module handler
 

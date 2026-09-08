@@ -34,13 +34,14 @@ class SeparatorConverter extends BaseBeaverConverter {
         if ( $width !== '' ) {
             $attrs['module']['decoration']['sizing']['desktop']['value']['width'] = $width;
         }
-        $alignment = $this->text( $settings, 'alignment' );
-        if ( in_array( $alignment, [ 'left', 'center', 'right' ], true ) ) {
-            $attrs['module']['decoration']['sizing']['desktop']['value']['alignment'] = $alignment;
+        // Beaver Builder stores the alignment as `align`; `auto` is its centred default.
+        $alignment = $this->text( $settings, 'align' ) ?: $this->text( $settings, 'alignment' );
+        if ( $width !== '' && $width !== '100%' ) {
+            $this->alignSizedModule( $attrs, $alignment === 'auto' || $alignment === '' ? 'center' : $alignment );
         }
 
         $this->engine->logConverted( 'divider' );
-        $this->logUnmappedSettings( $id, $settings, array_merge( [ 'color', 'style', 'height', 'height_unit', 'width', 'width_unit', 'alignment' ], $style['handled_keys'] ) );
+        $this->logUnmappedSettings( $id, $settings, array_merge( [ 'color', 'style', 'height', 'height_unit', 'width', 'width_unit', 'align', 'alignment' ], $style['handled_keys'] ) );
 
         return $this->block( $id, 'divi/divider', $attrs );
     }

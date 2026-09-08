@@ -30,6 +30,17 @@ class RowConverter extends BaseBeaverConverter {
         $style         = $this->mapStyle( 'row', $node );
         $section_attrs = $style['divi_attrs'];
 
+        // A side the row leaves blank gets Beaver Builder's global row padding,
+        // exactly as Beaver Builder renders it; Divi's section default (54px) would not.
+        $padding = $section_attrs['module']['decoration']['spacing']['desktop']['value']['padding'] ?? [];
+        $global  = GlobalSettingsResolver::rowPadding();
+        foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+            if ( ! isset( $padding[ $side ] ) || $padding[ $side ] === '' ) {
+                $padding[ $side ] = $global[ $side ];
+            }
+        }
+        $section_attrs['module']['decoration']['spacing']['desktop']['value']['padding'] = $padding + [ 'syncVertical' => 'off', 'syncHorizontal' => 'off' ];
+
         // Min-height and vertical alignment belong on the Divi row, the content
         // layer, not on the section: Divi sizes sections by their content.
         [ $section_attrs, $row_extra ] = $this->extractRowSizingLayout( $section_attrs );

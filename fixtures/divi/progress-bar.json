@@ -1,0 +1,237 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/counters",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "right": "20px",
+                                                                    "bottom": "0px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "barProgress": {
+                                                "advanced": {
+                                                    "usePercentages": {
+                                                        "desktop": {
+                                                            "value": "off"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "mod1-1",
+                                                "name": "divi/counter",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Just one more step"
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "font": {
+                                                                "font": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "weight": "700",
+                                                                            "textAlign": "center",
+                                                                            "color": "#ffffff"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "barProgress": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "100"
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "background": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "gradient": {
+                                                                            "enabled": "on",
+                                                                            "type": "linear",
+                                                                            "direction": "90deg",
+                                                                            "stops": [
+                                                                                {
+                                                                                    "color": "#006d77",
+                                                                                    "position": "0"
+                                                                                },
+                                                                                {
+                                                                                    "color": "#009960",
+                                                                                    "position": "100"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "font": {
+                                                                "font": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "color": "#aec3b0"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "barCounter": {
+                                                        "decoration": {
+                                                            "background": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "color": "#fff8f0"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "sizing": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "height": "10px"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "border": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "radius": {
+                                                                            "topLeft": "30px",
+                                                                            "topRight": "30px",
+                                                                            "bottomRight": "30px",
+                                                                            "bottomLeft": "30px"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

@@ -26,6 +26,8 @@ class ConverterEngine {
     private array $skippedSettings    = [];
     private array $unresolvedGlobals  = [];
     private array $notCarriedOver     = [];
+    /** @var array<string, string[]> add-on family label => node ids that carried it at its defaults */
+    private array $addonDefaults      = [];
     private bool  $countingApproximate = false;
     /** @var array<int,array<string,string>> Colours rows and columns force on their descendants. */
     private array $inheritedColors = [];
@@ -104,13 +106,13 @@ class ConverterEngine {
             return $this->section( $id, [ $block ] );
         }
         if ( $name === 'divi/column' ) {
-            return $this->section( $id, [ [ 'id' => $id . '-row', 'name' => 'divi/row', 'settings' => [], 'elements' => [ $block ] ] ] );
+            return $this->section( $id, [ [ 'id' => $id . '-row', 'name' => 'divi/row', 'settings' => BaseBeaverConverter::ROW_RESET, 'elements' => [ $block ] ] ] );
         }
 
         return $this->section( $id, [ [
             'id'       => $id . '-row',
             'name'     => 'divi/row',
-            'settings' => [],
+            'settings' => BaseBeaverConverter::ROW_RESET,
             'elements' => [ [ 'id' => $id . '-col', 'name' => 'divi/column', 'settings' => [], 'elements' => [ $block ] ] ],
         ] ] );
     }
@@ -226,6 +228,13 @@ class ConverterEngine {
         $this->skippedSettings[] = $message;
     }
 
+    /** An add-on settings family found at its defaults on a node (nothing to convert, nothing lost). */
+    public function logAddonDefaults( string $label, string $node_id ): void {
+        if ( ! in_array( $node_id, $this->addonDefaults[ $label ] ?? [], true ) ) {
+            $this->addonDefaults[ $label ][] = $node_id;
+        }
+    }
+
     /** @param string $kind animation | visibility | shapes | background | lightbox | hover | custom_code | interaction */
     public function logNotCarriedOver( string $kind, string $node_id, string $detail ): void {
         $entry = [ 'kind' => $kind, 'node_id' => $node_id, 'detail' => $detail ];
@@ -259,7 +268,9 @@ class ConverterEngine {
 
     public function getReport(): array {
         $converted   = array_sum( $this->counts );
-        $approximate = array_sum( $this->approximateCounts );
+        // One approximate module may emit several Divi blocks (a PowerPack heading
+        // becomes prefix + heading + sub-title); coverage counts source modules.
+        $approximate = count( $this->approximateMatches );
         $unsupported = count( $this->unsupported );
         $all         = $converted + $approximate + $unsupported;
 
@@ -271,6 +282,7 @@ class ConverterEngine {
             'skipped_settings'    => $this->skippedSettings,
             'unresolved_globals'  => $this->unresolvedGlobals,
             'not_carried_over'    => $this->notCarriedOver,
+            'addon_settings_ignored' => array_map( 'count', $this->addonDefaults ),
             'quality'             => [
                 'module_coverage' => $all > 0 ? (int) round( $converted / $all * 100 ) : 100,
                 'settings_issues' => count( $this->skippedSettings ),

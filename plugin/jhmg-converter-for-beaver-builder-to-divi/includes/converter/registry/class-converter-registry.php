@@ -172,6 +172,21 @@ class ConverterRegistry {
                 $this->registerModule( $slug, $class, true );
             }
         }
+
+        // Beaver Builder Pro modules added after 2.6 and PowerPack (third-party)
+        // modules — field names read from exported layouts; reported as approximate.
+        $addons = [
+            'list'           => Handlers\ListConverter::class,
+            'progress-bar'   => Handlers\ProgressBarConverter::class,
+            'pp-heading'     => Handlers\PpHeadingConverter::class,
+            'pp-iconlist'    => Handlers\PpIconListConverter::class,
+            'pp-fluent-form' => Handlers\PpFluentFormConverter::class,
+        ];
+        foreach ( $addons as $slug => $class ) {
+            if ( class_exists( $class ) ) {
+                $this->registerModule( $slug, $class, true );
+            }
+        }
     }
 
     private function placeholder( string $slug ): \Closure {

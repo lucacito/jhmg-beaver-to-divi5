@@ -60,7 +60,7 @@ class ColumnGroupConverter extends BaseBeaverConverter {
 
         $columns = $this->ensureColumnChildren( $id, $columns );
 
-        return $this->block( $id, 'divi/row', $this->rowSettingsFromColumns( $columns ), $columns );
+        return $this->block( $id, 'divi/row', $this->deepMergeSettings( self::ROW_RESET, $this->rowSettingsFromColumns( $columns ) ), $columns );
     }
 
     private function allFractionsClean( array $column_nodes ): bool {
@@ -91,10 +91,11 @@ class ColumnGroupConverter extends BaseBeaverConverter {
         $column = $this->block( $id . '-col', 'divi/column', [
             'module' => [
                 'advanced'   => [ 'type' => [ 'desktop' => [ 'value' => '4_4' ] ] ],
-                'decoration' => [ 'layout' => [ 'desktop' => [ 'value' => [ 'display' => 'flex', 'flexDirection' => 'row', 'flexWrap' => 'wrap', 'alignItems' => 'stretch' ] ] ] ],
+                // Divi's default 30px module gap would push 45% + 55% past 100% and wrap the groups.
+                'decoration' => [ 'layout' => [ 'desktop' => [ 'value' => [ 'display' => 'flex', 'flexDirection' => 'row', 'flexWrap' => 'wrap', 'alignItems' => 'stretch', 'columnGap' => '0px', 'rowGap' => '0px' ] ] ] ],
             ],
         ], $groups );
 
-        return $this->block( $id, 'divi/row', [ 'module' => [ 'advanced' => [ 'columnStructure' => [ 'desktop' => [ 'value' => '4_4' ] ] ] ] ], [ $column ] );
+        return $this->block( $id, 'divi/row', $this->deepMergeSettings( self::ROW_RESET, [ 'module' => [ 'advanced' => [ 'columnStructure' => [ 'desktop' => [ 'value' => '4_4' ] ] ] ] ] ), [ $column ] );
     }
 }

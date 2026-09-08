@@ -1,0 +1,80 @@
+{
+    "nodes": {
+        "row1": {
+            "node": "row1",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": []
+        },
+        "grp1": {
+            "node": "grp1",
+            "type": "column-group",
+            "parent": "row1",
+            "position": 0,
+            "settings": ""
+        },
+        "col1": {
+            "node": "col1",
+            "type": "column",
+            "parent": "grp1",
+            "position": 0,
+            "settings": {
+                "size": 100
+            }
+        },
+        "mod1": {
+            "node": "mod1",
+            "type": "module",
+            "parent": "col1",
+            "position": 0,
+            "settings": {
+                "list_type": "icon",
+                "list_icon": "fas fa-check",
+                "list_items": [
+                    "Consectetur sed do incididunt ut dolore aliqua. Turpis tincidunt id aliquet risus feugiat.",
+                    "Feugiat nibh sed pulvinar proin gravida.  Lacus vel facilisis volutpat est velit egestas dui id.",
+                    "Condimentum id condimentum  tristique sollicitudin nibh .",
+                    "Semper sed pulvinar proin hendrerit.  condimentum id condimentum vitae. cursus in quisque. Pulvinar mattis blandit volutpat."
+                ],
+                "item_margin": "10",
+                "icon_space": "10",
+                "icon_color": "124559",
+                "icon_size": "18",
+                "icon_padding": "0",
+                "text_typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "unit": "em"
+                    },
+                    "letter_spacing": {
+                        "unit": "px"
+                    }
+                },
+                "text_typography_medium": {
+                    "font_size": {
+                        "unit": "px"
+                    },
+                    "letter_spacing": {
+                        "unit": "px"
+                    }
+                },
+                "text_typography_responsive": {
+                    "font_size": {
+                        "unit": "px"
+                    },
+                    "letter_spacing": {
+                        "unit": "px"
+                    }
+                },
+                "responsive_display": "desktop,large,medium,mobile",
+                "margin_top": "0",
+                "margin_unit": "px",
+                "margin_medium_unit": "px",
+                "margin_responsive_unit": "px",
+                "type": "pp-iconlist"
+            }
+        }
+    }
+}

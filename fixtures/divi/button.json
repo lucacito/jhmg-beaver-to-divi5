@@ -4,7 +4,26 @@
             {
                 "id": "row1",
                 "name": "divi/section",
-                "settings": [],
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "elements": [
                     {
                         "id": "grp1",
@@ -16,6 +35,20 @@
                                         "desktop": {
                                             "value": {
                                                 "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
                                             }
                                         }
                                     }
@@ -39,6 +72,22 @@
                                             "type": {
                                                 "desktop": {
                                                     "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
                                                 }
                                             }
                                         }
@@ -146,6 +195,18 @@
                                                                     "right": "",
                                                                     "bottom": "5px",
                                                                     "left": "",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        },
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
                                                                     "syncVertical": "off",
                                                                     "syncHorizontal": "off"
                                                                 }

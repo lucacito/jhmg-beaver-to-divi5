@@ -2,7 +2,9 @@
 
 namespace BeaverDivi5Converter\Converter;
 
+use BeaverDivi5Converter\Helpers\AddonSettings;
 use BeaverDivi5Converter\Helpers\Color;
+use BeaverDivi5Converter\StyleMapper\GlobalSettingsResolver;
 use BeaverDivi5Converter\StyleMapper\StyleMapper;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -130,7 +132,29 @@ abstract class BaseBeaverConverter implements ConverterInterface {
 
         $attrs = $this->applyInheritedColors( $kind, $result['divi_attrs'] );
 
+        // A module side left blank in Beaver Builder takes the site's global module
+        // margin (20px by default). Blocks a composite handler delegates are pieces
+        // of one module and carry only their own explicit spacing.
+        if ( ! in_array( $kind, [ 'row', 'column', 'group' ], true ) && empty( $node['delegated'] ) ) {
+            $attrs = $this->fillDefaultMargins( $attrs );
+        }
+
         return [ 'divi_attrs' => $attrs, 'handled_keys' => $result['handled_keys'] ];
+    }
+
+    private function fillDefaultMargins( array $attrs ): array {
+        $global = GlobalSettingsResolver::moduleMargins();
+        if ( $global === null ) {
+            return $attrs;
+        }
+        $margin = $attrs['module']['decoration']['spacing']['desktop']['value']['margin'] ?? [];
+        foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+            if ( ! isset( $margin[ $side ] ) || $margin[ $side ] === '' ) {
+                $margin[ $side ] = $global[ $side ];
+            }
+        }
+        $attrs['module']['decoration']['spacing']['desktop']['value']['margin'] = $margin + [ 'syncVertical' => 'off', 'syncHorizontal' => 'off' ];
+        return $attrs;
     }
 
     /**
@@ -139,16 +163,24 @@ abstract class BaseBeaverConverter implements ConverterInterface {
      * colour: Beaver Builder's button rule outranks the row rule.
      */
     private function applyInheritedColors( string $kind, array $attrs ): array {
+        // Beaver Builder's row/column rules: text_color colours everything, and
+        // headings/links follow it unless heading_color / link_color say otherwise.
         $text    = $this->engine->inheritedColor( 'text_color' );
         $heading = $this->engine->inheritedColor( 'heading_color' ) ?? $text;
-        if ( $text === null && $heading === null ) {
+        $link    = $this->engine->inheritedColor( 'link_color' ) ?? $text;
+        if ( $text === null && $heading === null && $link === null ) {
             return $attrs;
+        }
+
+        $text_headings = [];
+        foreach ( [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ] as $level ) {
+            $text_headings[ "content.decoration.headingFont.{$level}.font" ] = $heading;
         }
 
         $targets = [
             'heading' => [ 'title.decoration.font.font' => $heading ],
-            'text'    => [ 'content.decoration.bodyFont.body.font' => $text ],
-            'blurb'   => [ 'title.decoration.font.font' => $heading, 'content.decoration.bodyFont.body.font' => $text ],
+            'text'    => [ 'content.decoration.bodyFont.body.font' => $text, 'content.decoration.bodyFont.link.font' => $link ] + $text_headings,
+            'blurb'   => [ 'title.decoration.font.font' => $heading, 'content.decoration.bodyFont.body.font' => $text, 'content.decoration.bodyFont.link.font' => $link ],
             'cta'     => [ 'title.decoration.font.font' => $heading, 'content.decoration.bodyFont.body.font' => $text ],
             'counter' => [ 'number.decoration.font.font' => $text, 'title.decoration.font.font' => $text ],
             'icon'    => [ 'icon.advanced.color' => $text ],
@@ -237,6 +269,81 @@ abstract class BaseBeaverConverter implements ConverterInterface {
         return $this->block( $id, 'divi/code', [ 'content' => [ 'innerContent' => [ 'desktop' => [ 'value' => $html ] ] ] ] );
     }
 
+    /**
+     * Runs another handler over settings shaped like the Lite module it expects.
+     * Composite add-on modules (PowerPack headings, lists) are built from Lite
+     * pieces this way, so every piece is mapped by its source-verified handler.
+     *
+     * @param class-string<BaseBeaverConverter> $handler
+     */
+    protected function delegate( string $handler, string $id, array $settings, bool $as_module = false ): array {
+        return ( new $handler( $this->engine ) )->convert( [ 'id' => $id, 'type' => 'module', 'settings' => $settings, 'delegated' => ! $as_module ] );
+    }
+
+    /**
+     * Aligns a module narrower than its column (a divider, a separator) the way
+     * Beaver Builder does with `margin: auto`. Divi 5's sizing declaration only
+     * emits `align-self` when the module's styles are told the parent is a flex
+     * layout, so the auto margins are written as CSS too; the module's default
+     * side margins are cleared on the sides that must be `auto`.
+     */
+    protected function alignSizedModule( array &$attrs, string $align ): void {
+        $align = in_array( $align, [ 'left', 'center', 'right' ], true ) ? $align : 'center';
+        $attrs['module']['decoration']['sizing']['desktop']['value']['alignment'] = $align;
+        $attrs['module']['decoration']['sizing']['desktop']['value']['alignSelf'] = [ 'left' => 'flex-start', 'center' => 'center', 'right' => 'flex-end' ][ $align ];
+
+        $auto = [ 'left' => [ 'right' ], 'center' => [ 'left', 'right' ], 'right' => [ 'left' ] ][ $align ];
+        foreach ( $auto as $side ) {
+            unset( $attrs['module']['decoration']['spacing']['desktop']['value']['margin'][ $side ] );
+        }
+        $rule     = 'selector { ' . implode( ' ', array_map( static fn( string $s ) => "margin-{$s}: auto !important;", $auto ) ) . ' }';
+        $existing = $attrs['css']['desktop']['value']['freeForm'] ?? '';
+        $attrs['css']['desktop']['value']['freeForm'] = trim( $existing . ' ' . $rule );
+    }
+
+    /**
+     * Settings for a Divi row that stands in for something Beaver Builder gives
+     * no padding: a column group, or the row wrapped around an inline group of
+     * buttons/icons. Divi's own row default (27px top and bottom) would add space
+     * the source never had.
+     */
+    const ROW_RESET = [ 'module' => [ 'decoration' => [ 'spacing' => [ 'desktop' => [ 'value' => [ 'padding' => [ 'top' => '0px', 'right' => '0px', 'bottom' => '0px', 'left' => '0px', 'syncVertical' => 'off', 'syncHorizontal' => 'off' ] ] ] ] ] ] ];
+
+    /**
+     * Moves the module-level top margin onto the first block and the bottom
+     * margin onto the last, for handlers that emit several blocks in a column.
+     *
+     * @param array $blocks Blocks in document order; edited in place.
+     * @param array $module The `module` attrs StyleMapper produced for the source node.
+     */
+    protected function spreadModuleSpacing( array &$blocks, array $module ): void {
+        if ( $blocks === [] ) {
+            return;
+        }
+        $margin = $module['decoration']['spacing']['desktop']['value']['margin'] ?? [];
+        if ( ! is_array( $margin ) ) {
+            return;
+        }
+        $first = array_key_first( $blocks );
+        $last  = array_key_last( $blocks );
+        foreach ( [ 'top' => $first, 'bottom' => $last ] as $side => $index ) {
+            if ( isset( $margin[ $side ] ) && $margin[ $side ] !== '' ) {
+                StyleMapper::write( $blocks[ $index ]['settings'], "module.decoration.spacing.desktop.value.margin.{$side}", $margin[ $side ] );
+            }
+        }
+        foreach ( [ 'left', 'right' ] as $side ) {
+            if ( isset( $margin[ $side ] ) && $margin[ $side ] !== '' ) {
+                foreach ( array_keys( $blocks ) as $index ) {
+                    // A block that aligns itself (a centred divider) keeps its auto margins.
+                    if ( isset( $blocks[ $index ]['settings']['module']['decoration']['sizing']['desktop']['value']['alignment'] ) ) {
+                        continue;
+                    }
+                    StyleMapper::write( $blocks[ $index ]['settings'], "module.decoration.spacing.desktop.value.margin.{$side}", $margin[ $side ] );
+                }
+            }
+        }
+    }
+
     // -------------------------------------------------------------------------
     // Reporting
     // -------------------------------------------------------------------------
@@ -255,11 +362,29 @@ abstract class BaseBeaverConverter implements ConverterInterface {
             'bg_parallax_speed', 'bg_repeat', 'top_edge_transform', 'bottom_edge_transform',
         ];
 
+        // Add-on families: inert keys are counted, active ones reported once per node.
+        $addons = AddonSettings::classify( $settings, isset( $settings['type'] ) );
+        foreach ( array_unique( $addons['ignored'] ) as $label ) {
+            $this->engine->logAddonDefaults( $label, $node_id );
+        }
+        $addon_keys = array_keys( $addons['ignored'] );
+        foreach ( $addons['active'] as $family ) {
+            $this->engine->logNotCarriedOver( $family['kind'], $node_id, $family['label'] . ' (' . $family['addon'] . ')' );
+            $addon_keys = array_merge( $addon_keys, $family['keys'] );
+        }
+
         foreach ( $settings as $key => $value ) {
-            if ( ! is_string( $key ) || in_array( $key, $mapped_keys, true ) || in_array( $key, $always_ignore, true ) ) {
+            if ( ! is_string( $key ) || in_array( $key, $mapped_keys, true ) || in_array( $key, $always_ignore, true ) || in_array( $key, $addon_keys, true ) ) {
                 continue;
             }
             if ( $value === '' || $value === null || $value === [] || $value === false ) {
+                continue;
+            }
+            if ( AddonSettings::isRuntimeKey( $key, $value ) ) {
+                continue;
+            }
+            // An unmapped toggle that is switched off describes nothing the page loses.
+            if ( is_string( $value ) && in_array( strtolower( $value ), [ 'no', 'none', 'off', 'false' ], true ) ) {
                 continue;
             }
             if ( is_array( $value ) && $this->isAllEmpty( $value ) ) {
@@ -268,12 +393,32 @@ abstract class BaseBeaverConverter implements ConverterInterface {
             if ( str_ends_with( $key, '_large' ) || str_ends_with( $key, '_large_unit' ) || str_ends_with( $key, '_unit' ) ) {
                 continue;
             }
+            if ( ( $key === 'bb_css_code' || $key === 'bb_js_code' ) && is_string( $value ) && trim( $value ) !== '' ) {
+                $this->engine->logNotCarriedOver( 'custom_code', $node_id, $key === 'bb_css_code' ? 'node CSS' : 'node JavaScript' );
+                continue;
+            }
             $this->engine->logSkippedSetting( "{$node_id}: {$key}" );
         }
     }
 
+    /**
+     * True when a compound setting carries nothing the user chose: every leaf is
+     * blank once the form's own scaffolding is set aside — unit selectors, the
+     * "Default" font family/weight, and a gradient's angle/position/stops when
+     * no colour was picked.
+     */
     private function isAllEmpty( array $value ): bool {
-        foreach ( $value as $v ) {
+        $is_gradient = array_key_exists( 'colors', $value ) && is_array( $value['colors'] );
+        foreach ( $value as $key => $v ) {
+            if ( $key === 'unit' || str_ends_with( (string) $key, '_unit' ) ) {
+                continue;
+            }
+            if ( $is_gradient && in_array( $key, [ 'type', 'angle', 'position', 'stops' ], true ) ) {
+                continue;
+            }
+            if ( ( $key === 'font_family' && $v === 'Default' ) || ( $key === 'font_weight' && $v === 'default' ) ) {
+                continue;
+            }
             if ( is_array( $v ) ) {
                 if ( ! $this->isAllEmpty( $v ) ) {
                     return false;

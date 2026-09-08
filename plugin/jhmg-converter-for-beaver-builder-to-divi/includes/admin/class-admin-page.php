@@ -342,7 +342,7 @@ class AdminPage {
                 foreach ( $report['skipped_settings'] ?? [] as $setting ) {
                     $html .= '<li class="bdc-issue bdc-issue--skipped">' . esc_html__( 'Skipped:', 'jhmg-converter-for-beaver-builder-to-divi' ) . ' <code>' . esc_html( $setting ) . '</code></li>';
                 }
-                $html .= '</ul>' . NotCarriedOverRenderer::render( $report['not_carried_over'] ?? [], $report['approximate_matches'] ?? [], $report['unresolved_globals'] ?? [] ) . '</details>';
+                $html .= '</ul>' . NotCarriedOverRenderer::render( $report['not_carried_over'] ?? [], $report['approximate_matches'] ?? [], $report['unresolved_globals'] ?? [], $report['addon_settings_ignored'] ?? [] ) . '</details>';
             } elseif ( ! empty( $result['success'] ) ) {
                 $html .= '<span class="bdc-status--clean">&#10003; ' . esc_html__( 'Clean', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</span>';
             } else {

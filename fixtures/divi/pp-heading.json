@@ -1,0 +1,248 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1-prefix",
+                                        "name": "divi/text",
+                                        "settings": {
+                                            "module": {
+                                                "advanced": {
+                                                    "text": {
+                                                        "text": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "orientation": "left"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "decoration": {
+                                                    "bodyFont": {
+                                                        "body": {
+                                                            "font": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "style": [
+                                                                            "uppercase"
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>get started</p>"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "right": "20px",
+                                                                    "bottom": "10px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Download the Beginner Kit for Free, Today!"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "textAlign": "left",
+                                                                    "headingLevel": "h2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-sub",
+                                        "name": "divi/text",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "text": {
+                                                        "text": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "orientation": "left"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Ultricies mi quis hendrerit dolor magna eget est lorem. Faucibus a pellentesque sit amet. Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse.</p>"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

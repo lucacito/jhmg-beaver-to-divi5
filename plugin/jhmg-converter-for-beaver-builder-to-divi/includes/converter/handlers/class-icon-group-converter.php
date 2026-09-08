@@ -61,6 +61,6 @@ class IconGroupConverter extends BaseBeaverConverter {
         $this->engine->logConverted( 'row' );
         $this->engine->logConverted( 'column' );
 
-        return $this->block( $id, 'divi/row', [ 'module' => [ 'advanced' => [ 'columnStructure' => [ 'desktop' => [ 'value' => '4_4' ] ] ] ] ], [ $column ] );
+        return $this->block( $id, 'divi/row', $this->deepMergeSettings( self::ROW_RESET, [ 'module' => [ 'advanced' => [ 'columnStructure' => [ 'desktop' => [ 'value' => '4_4' ] ] ] ] ] ), [ $column ] );
     }
 }

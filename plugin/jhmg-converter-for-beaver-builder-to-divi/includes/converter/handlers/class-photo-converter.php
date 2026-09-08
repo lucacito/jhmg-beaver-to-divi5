@@ -60,7 +60,7 @@ class PhotoConverter extends BaseBeaverConverter {
 
         $this->engine->logConverted( 'image' );
         $this->logUnmappedSettings( $id, $settings, array_merge(
-            [ 'photo', 'photo_src', 'photo_source', 'photo_url', 'link_type', 'crop', 'show_caption', 'caption', 'caption_typography', 'fill_container' ],
+            [ 'photo', 'photo_src', 'photo_source', 'photo_url', 'link_type', 'crop', 'show_caption', 'caption', 'caption_typography', 'fill_container', 'alt', 'description', 'title' ],
             $this->linkKeys( 'link_url' ),
             $style['handled_keys']
         ) );

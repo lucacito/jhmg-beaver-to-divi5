@@ -16,6 +16,7 @@
 
 namespace BeaverDivi5Converter\StyleMapper;
 
+use BeaverDivi5Converter\Helpers\AddonSettings;
 use BeaverDivi5Converter\Helpers\Color;
 use BeaverDivi5Converter\Helpers\Size;
 
@@ -48,6 +49,30 @@ class StyleMapper {
         '1_5' => 20,
         '1_6' => 16.66,
     ];
+
+    /**
+     * Divi 5 sizes flex-row columns from `module.decoration.sizing.flexType`
+     * on a 24-column grid (class `et_flex_column_<n>_24`, fifths kept as
+     * `<n>_5`), not from the legacy `module.advanced.type` fraction. Without it
+     * a column falls back to `24_24` and shrinks to its content.
+     */
+    const FLEX_TYPE = [
+        '4_4' => '24_24',
+        '4_5' => '4_5',
+        '3_4' => '18_24',
+        '2_3' => '16_24',
+        '3_5' => '3_5',
+        '1_2' => '12_24',
+        '2_5' => '2_5',
+        '1_3' => '8_24',
+        '1_4' => '6_24',
+        '1_5' => '1_5',
+        '1_6' => '4_24',
+    ];
+
+    public static function flexTypeFor( string $fraction ): ?string {
+        return self::FLEX_TYPE[ $fraction ] ?? null;
+    }
 
     /**
      * Beaver Builder gradient position ("left top", "center center") ⇒ Divi
@@ -370,9 +395,31 @@ class StyleMapper {
     // -------------------------------------------------------------------------
 
     private function mapSpacing( string $kind, array $settings, array &$attrs, array &$handled ): void {
-        // Divi rows manage inter-column spacing through gutters; a column margin
-        // written with !important breaks that layout, so columns keep padding only.
-        $props = $kind === 'column' ? [ 'padding' ] : [ 'margin', 'padding' ];
+        // A Beaver Builder column's margin sits on .fl-col-content, inside the
+        // column's width slot, so it insets the content the way padding does. A
+        // Divi column margin would change the column's share of the row instead,
+        // so the margin is carried as padding on any side that has none of its own.
+        if ( $kind === 'column' ) {
+            $scratch = [];
+            $this->applySpacing( $settings, 'margin', 'module.decoration.spacing', $scratch, $handled, 'padding' );
+            $this->applySpacing( $settings, 'padding', 'module.decoration.spacing', $attrs, $handled );
+            foreach ( self::BREAKPOINTS as $bp ) {
+                $from = $scratch['module']['decoration']['spacing'][ $bp ]['value']['padding'] ?? null;
+                if ( ! is_array( $from ) ) {
+                    continue;
+                }
+                $to = $attrs['module']['decoration']['spacing'][ $bp ]['value']['padding'] ?? [ 'top' => '', 'right' => '', 'bottom' => '', 'left' => '', 'syncVertical' => 'off', 'syncHorizontal' => 'off' ];
+                foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+                    if ( ( $to[ $side ] ?? '' ) === '' && ( $from[ $side ] ?? '' ) !== '' ) {
+                        $to[ $side ] = $from[ $side ];
+                    }
+                }
+                self::write( $attrs, "module.decoration.spacing.{$bp}.value.padding", $to );
+            }
+            return;
+        }
+
+        $props = [ 'margin', 'padding' ];
 
         // The button module's own padding is the button face, not the wrapper.
         if ( $kind === 'button' ) {
@@ -382,15 +429,6 @@ class StyleMapper {
 
         foreach ( $props as $prop ) {
             $this->applySpacing( $settings, $prop, 'module.decoration.spacing', $attrs, $handled );
-        }
-
-        if ( $kind === 'column' ) {
-            foreach ( array_merge( array_keys( self::BREAKPOINTS ), self::IGNORED_SUFFIXES ) as $suffix ) {
-                foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
-                    $handled[] = 'margin_' . $side . $suffix;
-                }
-                $handled[] = 'margin' . $suffix . '_unit';
-            }
         }
     }
 
@@ -426,6 +464,13 @@ class StyleMapper {
         }
 
         if ( $type === 'none' ) {
+            return;
+        }
+
+        if ( AddonSettings::isAddonBackgroundType( $type ) ) {
+            // A background type an add-on (Ultimate Addons, PowerPack) registered;
+            // its settings live in the add-on's own keys, reported by AddonSettings.
+            $notes[] = [ 'kind' => 'background', 'detail' => "add-on background type '{$type}' dropped" ];
             return;
         }
 
@@ -627,6 +672,14 @@ class StyleMapper {
             $color     = Color::normalize( $raw );
             if ( $color !== null ) {
                 self::write( $attrs, "{$font_path}.{$bp}.value.color", $color );
+                if ( $kind === 'text' ) {
+                    // Beaver Builder's text colour rule targets `.fl-rich-text *`, so
+                    // links and headings take it too; Divi styles those separately.
+                    self::write( $attrs, "content.decoration.bodyFont.link.font.{$bp}.value.color", $color );
+                    foreach ( [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ] as $level ) {
+                        self::write( $attrs, "content.decoration.headingFont.{$level}.font.{$bp}.value.color", $color );
+                    }
+                }
             } elseif ( $this->isUnresolvedGlobal( $raw ) ) {
                 $notes[] = [ 'kind' => 'unresolved_global', 'detail' => $key . '=' . $raw ];
             }
@@ -812,7 +865,10 @@ class StyleMapper {
             $notes[] = [ 'kind' => 'animation', 'detail' => $animation ];
         }
 
-        foreach ( [ 'top_shape', 'bottom_shape' ] as $shape ) {
+        // Beaver Builder stores row edge shapes as top_edge_shape / bottom_edge_shape (2.2+);
+        // the remaining shape keys are acknowledged by AddonSettings, which reports the
+        // family once per row when a shape is set.
+        foreach ( [ 'top_shape', 'bottom_shape', 'top_edge_shape', 'bottom_edge_shape' ] as $shape ) {
             if ( is_string( $settings[ $shape ] ?? '' ) && ( $settings[ $shape ] ?? '' ) !== '' && ( $settings[ $shape ] ?? '' ) !== 'none' ) {
                 $notes[] = [ 'kind' => 'shapes', 'detail' => $shape . '=' . $settings[ $shape ] ];
             }

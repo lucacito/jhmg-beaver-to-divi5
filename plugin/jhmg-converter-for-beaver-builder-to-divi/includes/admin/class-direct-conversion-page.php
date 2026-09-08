@@ -198,7 +198,7 @@ class DirectConversionPage {
                     $html .= '<p class="bdc-direct-unsupported"><strong>' . esc_html__( 'Could not be converted:', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</strong> ' . esc_html( implode( ', ', $names ) ) . '</p>';
                 }
             }
-            $html .= NotCarriedOverRenderer::render( $item['report']['not_carried_over'] ?? [], $item['report']['approximate_matches'] ?? [], $item['report']['unresolved_globals'] ?? [] );
+            $html .= NotCarriedOverRenderer::render( $item['report']['not_carried_over'] ?? [], $item['report']['approximate_matches'] ?? [], $item['report']['unresolved_globals'] ?? [], $item['report']['addon_settings_ignored'] ?? [] );
         }
 
         if ( ! empty( $ids ) ) {

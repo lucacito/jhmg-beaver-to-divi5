@@ -4,7 +4,26 @@
             {
                 "id": "row1",
                 "name": "divi/section",
-                "settings": [],
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "elements": [
                     {
                         "id": "grp1",
@@ -24,6 +43,20 @@
                                         "desktop": {
                                             "value": {
                                                 "alignItems": "center"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
                                             }
                                         }
                                     }
@@ -49,6 +82,22 @@
                                                     "value": "4_4"
                                                 }
                                             }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 },
@@ -57,6 +106,24 @@
                                         "id": "h1",
                                         "name": "divi/heading",
                                         "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "title": {
                                                 "innerContent": {
                                                     "desktop": {
@@ -94,6 +161,20 @@
                                                 "maxWidth": "1100px"
                                             }
                                         }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
                                     }
                                 },
                                 "advanced": {
@@ -117,6 +198,22 @@
                                                     "value": "1_2"
                                                 }
                                             }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "12_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 },
@@ -125,6 +222,24 @@
                                         "id": "h2",
                                         "name": "divi/heading",
                                         "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "title": {
                                                 "innerContent": {
                                                     "desktop": {
@@ -159,6 +274,22 @@
                                                     "value": "1_2"
                                                 }
                                             }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "12_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 },
@@ -167,6 +298,24 @@
                                         "id": "h3",
                                         "name": "divi/heading",
                                         "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "title": {
                                                 "innerContent": {
                                                     "desktop": {

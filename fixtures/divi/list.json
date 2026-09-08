@@ -1,0 +1,553 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1-1",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "imageIcon": {
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#009960"
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "unicode": "&#xf058;",
+                                                                "type": "fa",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "iconFontSize": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non neque in nunc eleifend ultricies. Curabitur scelerisque auctor sem, quis ultrices sem placerat scelerisque.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .et_pb_main_blurb_image { width: 40px; flex: 0 0 40px; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "15px",
+                                                                    "right": "0px",
+                                                                    "bottom": "15px",
+                                                                    "left": "0px"
+                                                                },
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-2",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "imageIcon": {
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#009960"
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "unicode": "&#xf058;",
+                                                                "type": "fa",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "iconFontSize": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non neque in nunc eleifend ultricies. Curabitur scelerisque auctor sem, quis ultrices sem placerat scelerisque.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .et_pb_main_blurb_image { width: 40px; flex: 0 0 40px; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "15px",
+                                                                    "right": "0px",
+                                                                    "bottom": "15px",
+                                                                    "left": "0px"
+                                                                },
+                                                                "margin": {
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-3",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "imageIcon": {
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#009960"
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "unicode": "&#xf058;",
+                                                                "type": "fa",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "iconFontSize": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non neque in nunc eleifend ultricies. Curabitur scelerisque auctor sem, quis ultrices sem placerat scelerisque.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .et_pb_main_blurb_image { width: 40px; flex: 0 0 40px; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "15px",
+                                                                    "right": "0px",
+                                                                    "bottom": "15px",
+                                                                    "left": "0px"
+                                                                },
+                                                                "margin": {
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-4",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "imageIcon": {
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#009960"
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "unicode": "&#xf058;",
+                                                                "type": "fa",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "iconFontSize": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non neque in nunc eleifend ultricies. Curabitur scelerisque auctor sem, quis ultrices sem placerat scelerisque.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .et_pb_main_blurb_image { width: 40px; flex: 0 0 40px; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "15px",
+                                                                    "right": "0px",
+                                                                    "bottom": "15px",
+                                                                    "left": "0px"
+                                                                },
+                                                                "margin": {
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-5",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "imageIcon": {
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#009960"
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "unicode": "&#xf058;",
+                                                                "type": "fa",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "iconFontSize": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non neque in nunc eleifend ultricies. Curabitur scelerisque auctor sem, quis ultrices sem placerat scelerisque.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .et_pb_main_blurb_image { width: 40px; flex: 0 0 40px; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "15px",
+                                                                    "right": "0px",
+                                                                    "bottom": "15px",
+                                                                    "left": "0px"
+                                                                },
+                                                                "margin": {
+                                                                    "bottom": "0px",
+                                                                    "left": "20px",
+                                                                    "right": "20px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

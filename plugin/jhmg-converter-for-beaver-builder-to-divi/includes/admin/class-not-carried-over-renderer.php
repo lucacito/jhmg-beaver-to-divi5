@@ -17,9 +17,9 @@ class NotCarriedOverRenderer {
      * @param array $approximate From the report's `approximate_matches` key.
      * @param array $unresolved  From the report's `unresolved_globals` key.
      */
-    public static function render( array $entries, array $approximate = [], array $unresolved = [] ): string {
+    public static function render( array $entries, array $approximate = [], array $unresolved = [], array $addon_defaults = [] ): string {
         if ( empty( $entries ) && empty( $approximate ) && empty( $unresolved ) ) {
-            return '';
+            return self::addonDefaults( $addon_defaults );
         }
 
         $html = '<div class="bdc-not-carried"><h3>' . esc_html__( 'Not carried over', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</h3>';
@@ -52,7 +52,30 @@ class NotCarriedOverRenderer {
             $html .= '</ul>';
         }
 
-        return $html . '</div>';
+        return $html . '</div>' . self::addonDefaults( $addon_defaults );
+    }
+
+    /**
+     * Add-on settings (Ultimate Addons, PowerPack) that every row and column of
+     * such a site carries at their defaults. Nothing was lost; the count shows
+     * why the page held so many settings the converter did not need to map.
+     *
+     * @param array<string, int> $addon_defaults From the report's `addon_settings_ignored` key.
+     */
+    public static function addonDefaults( array $addon_defaults ): string {
+        if ( empty( $addon_defaults ) ) {
+            return '';
+        }
+        $parts = [];
+        foreach ( $addon_defaults as $label => $count ) {
+            $parts[] = sprintf(
+                /* translators: 1: add-on feature, 2: number of rows/columns */
+                _n( '%1$s (%2$d node)', '%1$s (%2$d nodes)', (int) $count, 'jhmg-converter-for-beaver-builder-to-divi' ),
+                (string) $label,
+                (int) $count
+            );
+        }
+        return '<p class="bdc-addon-defaults"><strong>' . esc_html__( 'Add-on settings left at their defaults were ignored:', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</strong> ' . esc_html( implode( '; ', $parts ) ) . '</p>';
     }
 
     private static function groups(): array {

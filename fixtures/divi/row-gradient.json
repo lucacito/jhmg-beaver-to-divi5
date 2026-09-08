@@ -27,6 +27,20 @@
                                         }
                                     }
                                 }
+                            },
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -42,6 +56,20 @@
                                         "desktop": {
                                             "value": {
                                                 "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
                                             }
                                         }
                                     }
@@ -93,6 +121,20 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -102,6 +144,24 @@
                                         "id": "h1",
                                         "name": "divi/heading",
                                         "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "20px",
+                                                                    "right": "20px",
+                                                                    "bottom": "20px",
+                                                                    "left": "20px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "title": {
                                                 "innerContent": {
                                                     "desktop": {

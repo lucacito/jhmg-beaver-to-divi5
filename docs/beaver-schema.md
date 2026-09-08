@@ -95,3 +95,44 @@ field names from Beaver Builder's public documentation. The registry marks them 
 `fixtures/beaver-templates/*.json` are the node maps of Beaver Builder Lite's own layout templates
 (`data/layout-*-lite.dat`, regenerated with `scripts/bb-dat-to-json.php`). They use heading, rich-text,
 photo, button, icon and html across 3–8 rows each and are the smoke-test corpus.
+
+## Pro modules seen in exported layouts (documentation-based, registered approximate)
+
+- **list** (2.6+): `list_items[]` `{heading, content, list_item_icon, heading_text_color, content_text_color, bg_color, icon_color, list_item_padding_*}`; `list_type` `ul|ol|div`; `ul_icon`, `ol_icon` (CSS list-style keywords); `div_icon` (FA class); `list_icon_placement` (`content_left`…); `heading_tag`; `list_icon_color`; `icon_size`; `icon_width`; `heading_typography`, `content_typography`, `heading_color`, `content_color`; `separator_style`, `separator_color`, `separator_size`; `common_list_item_padding_*`; `list_bg_color`, `list_border`, `list_padding_*`.
+- **progress-bar**: `layout` `horizontal|vertical|circular`; one repeater per layout (`horizontal[]` …) with `<layout>_number`, `<layout>_before_number`, `circular_after_number`, `progress_bg_type` `color|gradient|image`, `gradient_field {color_one, color_two, direction, angle}`, `gradient_color` (the solid fill), `background_color` (the track); `<layout>_thickness`; `progress_border`; `stripped`; `text_position`; `overall_alignment`, `title_alignment`; `text_typo`, `text_color`, `number_typo`, `number_color`.
+
+## Third-party modules (PowerPack for Beaver Builder)
+
+- **pp-heading**: `prefix_text`, `prefix_tag`, `prefix_text_color`, `prefix_typography`; `heading_title`, `heading_tag`, `heading_alignment`, `heading_color_type` (`solid|gradient`), `heading_color`, `title_typography`, `heading_bg_color`, `heading_top_margin`, `heading_bottom_margin`, `heading_padding_*`; `dual_heading`, `heading_title2`, `heading2_color`, `heading2_left_margin`; `enable_link`, `heading_link`, `heading_link_target`, `heading_link_nofollow`; `heading_separator` (`no_spacer|line|…icon…`), `heading_separator_postion` (`top|middle|bottom`), `heading_line_style`, `line_width` (+unit), `line_height`, `line_color`, `font_title_line_space`, `heading_icon_select`, `heading_font_icon_select`, `heading_custom_icon_select_src`, `font_icon_*`; `heading_sub_title` (HTML), `sub_heading_color`, `desc_typography`, `sub_heading_top_margin`, `sub_heading_bottom_margin`.
+- **pp-iconlist**: `list_type` (`icon`), `list_icon` (FA class), `list_items[]` (strings, or `{text|list_item_text, icon|list_item_icon}`), `item_margin`, `icon_space`, `icon_color`, `icon_size`, `icon_bg`, `icon_padding`, `icon_border`, `text_typography`, `text_color`, hover colours.
+- **pp-fluent-form**: `select_form_field` (Fluent Forms id); `form_custom_title_desc`, `custom_title`, `title_tag`, `custom_description`; container `form_bg_type/color/image_src/size/repeat`, `form_border`, `form_padding_*`; `display_labels`, `label_color`, `label_typography`; inputs `input_field_text_color`, `input_field_bg_color`, `input_border`, `input_field_height`, `input_textarea_height`, `input_field_padding_*`, `input_field_margin`, `input_placeholder_display/color`, `input_field_focus_color`, `input_typography`; button `button_text_color(_hover)`, `button_bg_color`, `button_background_color_hover`, `button_border`, `button_typography`, `button_padding_*`, `button_width`, `button_alignment`; messages `error_*`, `success_message_*`; radio/checkbox `radio_cb_*`.
+
+## Add-on settings injected on every row and column
+
+Ultimate Addons for Beaver Builder and PowerPack extend the row/column forms; every saved node then carries
+their keys at defaults. Families and gates (see `Helpers\AddonSettings`):
+
+| Family | Keys | Active when |
+|---|---|---|
+| UABB row gradient | `uabb_row_gradient_*`, `uabb_row_radial_*`, `uabb_row_linear_*`, `uabb_row_uabb_direction` | `bg_type = uabb_gradient` |
+| UABB column gradient | `uabb_col_*` | `bg_type = uabb_gradient` |
+| UABB animated background | `animation_type`, `bird_*`, `fog_*`, `waves_*`, `net_*`, `dots_*`, `rings_*`, `cells_*` | `bg_type` contains `anim` |
+| Particle background | `enable_particles`, `uabb_row_particles_*`, `uabb_particles_*`, `part_*` | `enable_particles = yes` or `bg_type` contains `particle` |
+| PowerPack scrolling image | `pp_bg_image*`, `pp_infinite_overlay`, `scrolling_*` | `bg_type` contains `scroll` |
+| PowerPack overlay width | `pp_bg_overlay_type` | value other than `full_width` |
+| UABB shape separator | `separator_shape*`, `uabb_row_separator_*`, `bot_separator_*` | `separator_shape` / `bot_separator_shape` set |
+| UABB border separator | `enable_separator`, `separator_type/color/shadow/height/position/tablet/mobile/opacity*` | `enable_separator = yes` |
+| UABB expandable row | `enable_expandable`, `er_*` | `enable_expandable = yes` |
+| UABB down arrow | `enable_down_arrow`, `da_*` | `enable_down_arrow = yes` |
+| UABB column shadow | `col_drop_shadow`, `col_hover_shadow`, `col_responsive_shadow`, `col_small_shadow`, `col_shadow_*` | either shadow toggle `yes` |
+| Beaver Builder row edge shapes | `top_edge_*`, `bottom_edge_*` | `top_edge_shape` / `bottom_edge_shape` set (reported under `shapes`) |
+
+Runtime keys never listed: `responsive_display_filtered`, `undefined`, `bt_default_module`, `visibility_logic = "[]"`,
+`flrich<digits>_*` (editor scratch), `field_separator_*`, `*-search`, `as_values_*`.
+
+## Global settings used for defaults
+
+`_fl_builder_settings` (shipped defaults in `includes/global-settings.php`): `row_width` 1100px, `row_padding` 20
+(dimension: `row_padding_top`… + `row_padding_unit`), `column_padding` blank, `module_margins` 20. Every blank
+row/column/module side is rendered with these values by `FLBuilder::render_global_css`, so the converter fills
+them in the same way (`StyleMapper\GlobalSettingsResolver`).

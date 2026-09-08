@@ -3,6 +3,7 @@
 namespace BeaverDivi5Converter\Converter\Handlers;
 
 use BeaverDivi5Converter\Converter\BaseBeaverConverter;
+use BeaverDivi5Converter\StyleMapper\GlobalSettingsResolver;
 use BeaverDivi5Converter\StyleMapper\StyleMapper;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,6 +28,26 @@ class ColumnConverter extends BaseBeaverConverter {
         $fraction = $this->fraction( $settings );
         if ( $fraction !== null ) {
             $attrs = $this->deepMergeSettings( [ 'module' => [ 'advanced' => [ 'type' => [ 'desktop' => [ 'value' => $fraction ] ] ] ] ], $attrs );
+            $flex  = StyleMapper::flexTypeFor( $fraction );
+            if ( $flex !== null ) {
+                $attrs['module']['decoration']['sizing']['desktop']['value']['flexType'] = $flex;
+            }
+        }
+
+        // Beaver Builder stacks modules with their own margins only (its clearfix
+        // stops margins collapsing); Divi's 30px column gap would add to them.
+        $attrs['module']['decoration']['layout']['desktop']['value']['rowGap'] = '0px';
+
+        // A side the column leaves blank takes the site's global column padding.
+        $global_padding = GlobalSettingsResolver::columnPadding();
+        if ( $global_padding !== null ) {
+            $padding = $attrs['module']['decoration']['spacing']['desktop']['value']['padding'] ?? [];
+            foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
+                if ( ! isset( $padding[ $side ] ) || $padding[ $side ] === '' ) {
+                    $padding[ $side ] = $global_padding[ $side ];
+                }
+            }
+            $attrs['module']['decoration']['spacing']['desktop']['value']['padding'] = $padding + [ 'syncVertical' => 'off', 'syncHorizontal' => 'off' ];
         }
 
         $this->engine->pushInheritedColors( $this->containerColors( $settings, $id ) );
@@ -62,9 +83,16 @@ class ColumnConverter extends BaseBeaverConverter {
 
         $size = $settings['size'] ?? null;
         if ( is_numeric( $size ) ) {
-            $pct   = (float) $size;
-            $attrs = $this->deepMergeSettings( $attrs, [
-                'css' => [ 'desktop' => [ 'value' => [ 'freeForm' => "selector { flex: 0 0 {$pct}%; max-width: {$pct}%; min-width: 0; box-sizing: border-box; margin-left: 0; margin-right: 0; }" ] ] ],
+            // Beaver Builder puts a column's margins inside its width slot (they sit
+            // on .fl-col-content); a flex item's margins add to its basis, so the
+            // basis gives them back or the groups no longer fit on one line.
+            $pct    = (float) $size;
+            $margin = $attrs['module']['decoration']['spacing']['desktop']['value']['margin'] ?? [];
+            $sides  = array_filter( [ $margin['left'] ?? '', $margin['right'] ?? '' ], static fn( $v ) => is_string( $v ) && $v !== '' && $v !== '0px' && $v !== '0' );
+            $basis  = $sides === [] ? "{$pct}%" : "calc({$pct}% - " . implode( ' - ', $sides ) . ')';
+            $reset  = $sides === [] ? ' margin-left: 0; margin-right: 0;' : '';
+            $attrs  = $this->deepMergeSettings( $attrs, [
+                'css' => [ 'desktop' => [ 'value' => [ 'freeForm' => "selector { flex: 0 0 {$basis}; max-width: {$basis}; min-width: 0; box-sizing: border-box;{$reset} }" ] ] ],
             ] );
         }
 

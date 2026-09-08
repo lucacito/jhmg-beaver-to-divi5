@@ -10,3 +10,9 @@
 - Before claiming anything works: `vendor/bin/phpunit` (and `npx playwright test` when the Docker site is up). Report failures with output.
 - The version lives in three places for free and two for Pro; the tests check them.
 - Row/column `text_color` / `heading_color` / `link_color` cascade into child modules through the engine's inherited-colour stack (`pushInheritedColors` in Row/Column converters, applied in `BaseBeaverConverter::mapStyle`).
+- Reproduce Beaver Builder's box model, not Divi's defaults: section padding ← global `row_padding` (20px), Divi rows padding 0, module margins ← global `module_margins` (20px) on blank sides, column `rowGap` 0, column margins carried as padding. Blocks built by `delegate()` are pieces of one module and get no default margins.
+- Divi 5.12 sizes flex columns from `module.decoration.sizing.flexType` on a 24-grid (`StyleMapper::FLEX_TYPE`); `module.advanced.type` alone renders `24_24`. Flex-group fallbacks need `columnGap: 0px` on their column or Divi's 30px module gap wraps them.
+- Icon settings are written `unicode, type, weight` in that order: Divi's asset detector regex matches `"unicode"…"type":"fa"` and otherwise never enqueues Font Awesome.
+- Add-on keys (Ultimate Addons, PowerPack) are classified by `Helpers\AddonSettings`; inert families are counted under `addon_settings_ignored`, active ones reported once per node. Unknown keys switched off (`no|none|off|false`) are never "skipped settings".
+- Beaver's `text_color` on a row/column also colours links and headings unless `link_color` / `heading_color` say otherwise; rich-text `color` targets `.fl-rich-text *`. Both are mirrored into Divi's `bodyFont.link` and `headingFont.h1…h6`.
+- Real add-on exports live in `beaver templates/*.xml`; `tests/ThirdPartyTemplateConversionTest.php` requires them to convert validator-clean with zero skipped settings.

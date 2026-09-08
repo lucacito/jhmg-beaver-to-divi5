@@ -1,0 +1,143 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/code",
+                                        "settings": {
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "[fluentform id=\"4\"]"
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector .fluentform { padding: 15px 15px 15px 15px; } selector .fluentform .ff-el-input--label label { color: #000000; } selector .fluentform .ff-el-section-break { margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; } selector .fluentform .ff-el-form-control { padding: 10px 10px 10px 10px; } selector .fluentform input.ff-el-form-control:not([type=checkbox]):not([type=radio]), selector .fluentform select.ff-el-form-control { height: 40px; } selector .fluentform .ff-el-group { margin-bottom: 0px; } selector .fluentform .ff-el-form-control::placeholder { opacity: 0; } selector .fluentform .ff-btn-submit { color: #ffffff; background-color: #124559; padding: 10px 20px 10px 20px; width: 100%; border-style: solid; border-color: #124559; border-width: 3px 3px 3px 3px; border-radius: 4px 4px 4px 4px; font-weight: 700; } selector .fluentform .ff-btn-submit:hover { color: #ffffff; background-color: #366476; } selector .fluentform .ff_submit_btn_wrapper { text-align: left; }"
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "bottom": "0px",
+                                                                    "left": "10px",
+                                                                    "right": "10px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

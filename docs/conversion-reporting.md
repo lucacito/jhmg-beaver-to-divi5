@@ -22,9 +22,10 @@ Every conversion produces a report, shown on the check screen and the results sc
 | `converted` | Count per Divi module produced by a source-verified handler. |
 | `approximate` / `approximate_matches` | Beaver Builder Pro modules handled from documentation. Counted in the denominator of coverage, not the numerator. |
 | `warnings` | Non-fatal issues: empty rows/columns, missing alt text, missing sources, layouts that had to be approximated. |
-| `skipped_settings` | Setting keys no handler consumed (`node: key`). Bookkeeping keys and `_large` breakpoints are excluded. |
+| `skipped_settings` | Setting keys no handler consumed (`node: key`). Excluded: bookkeeping keys, `_large` breakpoints, compound values that only hold form scaffolding (units, `Default` fonts, a gradient with no colours), toggles that are off (`no`, `none`, `off`, `false`), Beaver's runtime flags and editor scratch keys, and add-on families at their defaults (see below). |
+| `addon_settings_ignored` | Ultimate Addons / PowerPack setting families found at their defaults, as `label => number of rows/columns`. Nothing was lost; the count explains why the page carried so many settings the converter did not need. An add-on feature that is switched on appears under `not_carried_over` (kind `addon`) instead, once per node. |
 | `unresolved_globals` | Beaver Builder global colours the site could not resolve; the property was left unset, never guessed. |
-| `not_carried_over` | Things Divi cannot express, by kind: `animation`, `visibility`, `shapes`, `background`, `lightbox`, `hover`, `interaction`, `integration`, `custom_code`. |
+| `not_carried_over` | Things Divi cannot express, by kind: `animation`, `visibility`, `shapes`, `background`, `lightbox`, `hover`, `interaction`, `integration`, `custom_code`, `addon` (an Ultimate Addons / PowerPack feature that was switched on). |
 | `unsupported` | Modules with no handler; each left a labelled placeholder. |
 | `quality.module_coverage` | converted ÷ (converted + approximate + unsupported), percent. |
 
