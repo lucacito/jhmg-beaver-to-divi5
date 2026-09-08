@@ -1,0 +1,5 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": { "bg_type": "color", "bg_color": "ff0000" } }
+  }
+}

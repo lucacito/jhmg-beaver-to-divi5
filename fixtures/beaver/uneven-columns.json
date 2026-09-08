@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 37, "bg_type": "color", "bg_color": "eeeeee" } },
+    "col2": { "node": "col2", "type": "column", "parent": "grp1", "position": 1, "settings": { "size": 63 } },
+    "h1":   { "node": "h1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "Narrow", "tag": "h3" } },
+    "h2":   { "node": "h2", "type": "module", "parent": "col2", "position": 0, "settings": { "type": "heading", "heading": "Wide", "tag": "h3" } }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": { "full_height": "custom", "min_height": "50", "min_height_unit": "vh", "content_alignment": "center" } },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "grp2": { "node": "grp2", "type": "column-group", "parent": "row1", "position": 1, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "col2": { "node": "col2", "type": "column", "parent": "grp2", "position": 0, "settings": { "size": 50 } },
+    "col3": { "node": "col3", "type": "column", "parent": "grp2", "position": 1, "settings": { "size": 50 } },
+    "h1":   { "node": "h1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "Top", "tag": "h1" } },
+    "h2":   { "node": "h2", "type": "module", "parent": "col2", "position": 0, "settings": { "type": "heading", "heading": "Bottom left", "tag": "h4" } },
+    "h3":   { "node": "h3", "type": "module", "parent": "col3", "position": 0, "settings": { "type": "heading", "heading": "Bottom right", "tag": "h4" } }
+  }
+}
