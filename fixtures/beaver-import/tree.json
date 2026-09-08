@@ -1,0 +1,69 @@
+{
+    "title": "From JSON",
+    "nodes": {
+        "row1": {
+            "node": "row1",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": {
+                "width": "full",
+                "content_width": "fixed",
+                "bg_type": "color",
+                "bg_color": "102a43",
+                "padding_top": "60",
+                "padding_bottom": "60",
+                "padding_unit": "px"
+            }
+        },
+        "grp1": {
+            "node": "grp1",
+            "type": "column-group",
+            "parent": "row1",
+            "position": 0,
+            "settings": ""
+        },
+        "col1": {
+            "node": "col1",
+            "type": "column",
+            "parent": "grp1",
+            "position": 0,
+            "settings": {
+                "size": 66.66
+            }
+        },
+        "col2": {
+            "node": "col2",
+            "type": "column",
+            "parent": "grp1",
+            "position": 1,
+            "settings": {
+                "size": 33.34,
+                "bg_type": "color",
+                "bg_color": "ffffff"
+            }
+        },
+        "h1": {
+            "node": "h1",
+            "type": "module",
+            "parent": "col1",
+            "position": 0,
+            "settings": {
+                "type": "heading",
+                "heading": "Left",
+                "tag": "h3"
+            }
+        },
+        "h2": {
+            "node": "h2",
+            "type": "module",
+            "parent": "col2",
+            "position": 0,
+            "settings": {
+                "type": "heading",
+                "heading": "Right",
+                "tag": "h3"
+            }
+        }
+    }
+}

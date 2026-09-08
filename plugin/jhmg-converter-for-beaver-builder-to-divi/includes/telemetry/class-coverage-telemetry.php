@@ -1,0 +1,98 @@
+<?php
+/**
+ * Opt-in, anonymous report of Beaver Builder modules this site could not convert.
+ *
+ * Sends module slugs only — no counts, no versions, no site identifier, no URLs,
+ * no post content. Off by default; nothing leaves the site until the user turns
+ * it on from the coverage panel.
+ */
+
+namespace BeaverDivi5Converter\Telemetry;
+
+use BeaverDivi5Converter\History\ImportHistory;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+class CoverageTelemetry {
+
+    const CONSENT_OPTION   = 'bdc_telemetry_consent';
+    const LAST_SENT_OPTION = 'bdc_telemetry_last_sent';
+    const QUERY_ACTION     = 'bdc_telemetry_consent_set';
+    const NONCE_ACTION     = 'bdc_telemetry_consent';
+    const PRODUCT          = 'beaver-to-divi5';
+    const ENDPOINT         = 'https://divi5lab.com/api/plugin/coverage';
+    const INTERVAL_DAYS    = 7;
+
+    // Mirror the receiving endpoint's schema: widget_types: string(1..64)[1..100].
+    const MAX_TYPE_LENGTH = 64;
+    const MAX_TYPES       = 100;
+
+    private ImportHistory $history;
+    private string $today;
+
+    public function __construct( ?ImportHistory $history = null, ?string $today = null ) {
+        $this->history = $history ?? new ImportHistory();
+        $this->today   = $today ?? gmdate( 'Y-m-d' );
+    }
+
+    public function init(): void {
+        add_action( 'admin_init', [ $this, 'maybe_handle_consent' ] );
+        // Never during a conversion: a slow endpoint must not delay the user's work.
+        add_action( 'admin_init', [ $this, 'maybe_send' ] );
+    }
+
+    public function has_consent(): bool {
+        return (string) get_option( self::CONSENT_OPTION, '' ) === '1';
+    }
+
+    public function due(): bool {
+        $last = (string) get_option( self::LAST_SENT_OPTION, '' );
+        if ( $last === '' ) {
+            return true;
+        }
+        return $this->today >= gmdate( 'Y-m-d', strtotime( $last . ' +' . self::INTERVAL_DAYS . ' days' ) );
+    }
+
+    /** @return array{product:string, widget_types:string[]} */
+    public function payload(): array {
+        $types = array_column( $this->history->coverage(), 'type' );
+        $types = array_values( array_filter( $types, static fn( string $t ): bool => strlen( $t ) <= self::MAX_TYPE_LENGTH ) );
+
+        return [ 'product' => self::PRODUCT, 'widget_types' => array_slice( $types, 0, self::MAX_TYPES ) ];
+    }
+
+    public function maybe_send(): void {
+        if ( ! $this->has_consent() || ! $this->due() ) {
+            return;
+        }
+        $payload = $this->payload();
+        if ( empty( $payload['widget_types'] ) ) {
+            return;
+        }
+
+        wp_remote_post( self::ENDPOINT, [
+            'timeout'  => 5,
+            'blocking' => false,
+            'headers'  => [ 'content-type' => 'application/json' ],
+            'body'     => wp_json_encode( $payload ),
+        ] );
+
+        update_option( self::LAST_SENT_OPTION, $this->today );
+    }
+
+    public function maybe_handle_consent(): void {
+        if ( ! isset( $_GET[ self::QUERY_ACTION ] ) ) {
+            return;
+        }
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+        $nonce = isset( $_GET['_wpnonce'] ) ? sanitize_key( wp_unslash( $_GET['_wpnonce'] ) ) : '';
+        if ( ! wp_verify_nonce( $nonce, self::NONCE_ACTION ) ) {
+            return;
+        }
+        update_option( self::CONSENT_OPTION, sanitize_key( wp_unslash( $_GET[ self::QUERY_ACTION ] ) ) === '1' ? '1' : '0' );
+    }
+}
