@@ -1,0 +1,24 @@
+{
+  "name": "jhmg/beaver-to-divi5",
+  "description": "Converts Beaver Builder layouts into native Divi 5 pages.",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^13.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "BeaverDivi5Converter\\": "plugin/jhmg-converter-for-beaver-builder-to-divi/includes/",
+      "BeaverDivi5Converter\\Pro\\": "plugin/jhmg-converter-for-beaver-builder-to-divi-pro/includes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BeaverDivi5Converter\\Tests\\": "tests/",
+      "Divi5Validator\\": "tests/support/divi5-validator/"
+    }
+  }
+}
