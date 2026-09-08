@@ -1,0 +1,1844 @@
+{
+    "name": "About",
+    "nodes": {
+        "5e3b3afcdec5a": {
+            "node": "5e3b3afcdec5a",
+            "type": "row",
+            "parent": null,
+            "position": 1,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_color": "f7f9fb",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b3afcdeca1": {
+            "node": "5e3b3afcdeca1",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 1,
+            "settings": ""
+        },
+        "5e3b3afcdece2": {
+            "node": "5e3b3afcdece2",
+            "type": "column",
+            "parent": "5e3b3afcdeca1",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_unit": "%",
+                "padding_right": "10",
+                "padding_left": "10"
+            }
+        },
+        "5e3b3afcded1d": {
+            "node": "5e3b3afcded1d",
+            "type": "module",
+            "parent": "5e3b3afcdece2",
+            "position": 0,
+            "settings": {
+                "heading": "The board of Directors",
+                "tag": "h3",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcded58": {
+            "node": "5e3b3afcded58",
+            "type": "module",
+            "parent": "5e3b3afcdece2",
+            "position": 1,
+            "settings": {
+                "text": "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcded96": {
+            "node": "5e3b3afcded96",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 2,
+            "settings": ""
+        },
+        "5e3b3afcdedd3": {
+            "node": "5e3b3afcdedd3",
+            "type": "column",
+            "parent": "5e3b3afcded96",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdee11": {
+            "node": "5e3b3afcdee11",
+            "type": "column-group",
+            "parent": "5e3b3afcdedd3",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdee51": {
+            "node": "5e3b3afcdee51",
+            "type": "column",
+            "parent": "5e3b3afcdee11",
+            "position": 0,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdee94": {
+            "node": "5e3b3afcdee94",
+            "type": "module",
+            "parent": "5e3b3afcdee51",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Log-an Doe, CEO</strong><br />Quisque velit nisi, pretium ut lacinia convallis quis ac lectus.",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdeed1": {
+            "node": "5e3b3afcdeed1",
+            "type": "column",
+            "parent": "5e3b3afcdee11",
+            "position": 1,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdef0c": {
+            "node": "5e3b3afcdef0c",
+            "type": "module",
+            "parent": "5e3b3afcdeed1",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Dave Beaver, CTO</strong><br />Quisque velit nisi, pretium ut lacinia convallis quis ac lectus.",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdef46": {
+            "node": "5e3b3afcdef46",
+            "type": "column",
+            "parent": "5e3b3afcdee11",
+            "position": 2,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdef81": {
+            "node": "5e3b3afcdef81",
+            "type": "module",
+            "parent": "5e3b3afcdef46",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Lucy Van Dam, Marketing Director</strong><br />Quisque velit nisi, pretium ut lacinia convallis quis ac lectus.",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdefbb": {
+            "node": "5e3b3afcdefbb",
+            "type": "column",
+            "parent": "5e3b3afcdf361",
+            "position": 0,
+            "settings": {
+                "size": 33.333,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdeff6": {
+            "node": "5e3b3afcdeff6",
+            "type": "column",
+            "parent": "5e3b3afcdf361",
+            "position": 1,
+            "settings": {
+                "size": 33.333,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf033": {
+            "node": "5e3b3afcdf033",
+            "type": "column",
+            "parent": "5e3b3afcdf361",
+            "position": 2,
+            "settings": {
+                "size": 33.333,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf076": {
+            "node": "5e3b3afcdf076",
+            "type": "module",
+            "parent": "5e3b3afcdf0f5",
+            "position": 0,
+            "settings": {
+                "heading": "Meet the Team",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "center",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_unit": "%",
+                "margin_bottom": "6",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf0b6": {
+            "node": "5e3b3afcdf0b6",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdf0f5": {
+            "node": "5e3b3afcdf0f5",
+            "type": "column",
+            "parent": "5e3b3afcdf0b6",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf13b": {
+            "node": "5e3b3afcdf13b",
+            "type": "column",
+            "parent": "5e3b3afcdf2e1",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_unit": "%",
+                "padding_right": "10",
+                "padding_left": "10"
+            }
+        },
+        "5e3b3afcdf176": {
+            "node": "5e3b3afcdf176",
+            "type": "module",
+            "parent": "5e3b3afcdf13b",
+            "position": 0,
+            "settings": {
+                "heading": "Marketing, Sales & Tech",
+                "tag": "h3",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_top": "6",
+                "margin_unit": "%",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf1b2": {
+            "node": "5e3b3afcdf1b2",
+            "type": "module",
+            "parent": "5e3b3afcdf13b",
+            "position": 1,
+            "settings": {
+                "text": "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur non nulla sit amet nisl tempus.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdf1ed": {
+            "node": "5e3b3afcdf1ed",
+            "type": "column",
+            "parent": "5e3b3afcdf322",
+            "position": 0,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf228": {
+            "node": "5e3b3afcdf228",
+            "type": "module",
+            "parent": "5e3b3afcdf1ed",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdf263": {
+            "node": "5e3b3afcdf263",
+            "type": "column",
+            "parent": "5e3b3afcdf322",
+            "position": 1,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf2a0": {
+            "node": "5e3b3afcdf2a0",
+            "type": "column",
+            "parent": "5e3b3afcdf322",
+            "position": 2,
+            "settings": {
+                "size": 33.333,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf2e1": {
+            "node": "5e3b3afcdf2e1",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 3,
+            "settings": ""
+        },
+        "5e3b3afcdf322": {
+            "node": "5e3b3afcdf322",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 4,
+            "settings": ""
+        },
+        "5e3b3afcdf361": {
+            "node": "5e3b3afcdf361",
+            "type": "column-group",
+            "parent": "5e3b3afcdec5a",
+            "position": 5,
+            "settings": ""
+        },
+        "5e3b3afcdf3a2": {
+            "node": "5e3b3afcdf3a2",
+            "type": "module",
+            "parent": "5e3b3afcdf66e",
+            "position": 0,
+            "settings": {
+                "heading": "Looking for a new challenge?",
+                "responsive_display": "",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf3e1": {
+            "node": "5e3b3afcdf3e1",
+            "type": "module",
+            "parent": "5e3b3afcdeed1",
+            "position": 0,
+            "settings": {
+                "photo": 795,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/austin-distel-7uoMmzPd2JA-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdf41e": {
+            "node": "5e3b3afcdf41e",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": {
+                "width": "full",
+                "full_height": "custom",
+                "min_height": "70",
+                "min_height_unit": "vh",
+                "min_height_medium": "50",
+                "min_height_medium_unit": "vh",
+                "min_height_responsive": "50",
+                "min_height_responsive_unit": "vh",
+                "text_color": "ffffff",
+                "bg_type": "photo",
+                "bg_image": 796,
+                "bg_image_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/you-x-ventures-NdZ08c-zu0c-unsplash-1920x1300-1.jpg",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_overlay_type": "gradient",
+                "bg_overlay_color": "rgba(16,42,67,0.8)",
+                "bg_overlay_gradient": {
+                    "type": "linear",
+                    "angle": "135",
+                    "position": "center center",
+                    "colors": [
+                        "rgba(16,42,67,0.95)",
+                        "rgba(56,190,201,0.75)"
+                    ],
+                    "stops": [
+                        "23",
+                        "94"
+                    ]
+                },
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b3afcdf459": {
+            "node": "5e3b3afcdf459",
+            "type": "column-group",
+            "parent": "5e3b3afcdf41e",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdf494": {
+            "node": "5e3b3afcdf494",
+            "type": "column",
+            "parent": "5e3b3afcdf459",
+            "position": 0,
+            "settings": {
+                "size": "55",
+                "size_medium": "70",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf4d1": {
+            "node": "5e3b3afcdf4d1",
+            "type": "column",
+            "parent": "5e3b3afcdf459",
+            "position": 1,
+            "settings": {
+                "size": "45",
+                "size_medium": "30",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "desktop-medium",
+                "responsive_order": "default",
+                "margin_unit": "%",
+                "margin_left_medium": "0"
+            }
+        },
+        "5e3b3afcdf50d": {
+            "node": "5e3b3afcdf50d",
+            "type": "module",
+            "parent": "5e3b3afcdf494",
+            "position": 0,
+            "settings": {
+                "heading": "We're passionate about one thing... Your success",
+                "tag": "h1",
+                "responsive_display": "",
+                "margin_bottom": "10",
+                "margin_bottom_responsive": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf549": {
+            "node": "5e3b3afcdf549",
+            "type": "module",
+            "parent": "5e3b3afcdf494",
+            "position": 1,
+            "settings": {
+                "text": "Our mission curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar.",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "1.1",
+                        "unit": "em"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdf584": {
+            "node": "5e3b3afcdf584",
+            "type": "row",
+            "parent": null,
+            "position": 5,
+            "settings": {
+                "width": "full",
+                "full_height": "custom",
+                "min_height": "50",
+                "min_height_unit": "vh",
+                "min_height_medium": "50",
+                "min_height_medium_unit": "vh",
+                "min_height_responsive": "50",
+                "min_height_responsive_unit": "vh",
+                "text_color": "rgba(255,255,255,0.9)",
+                "bg_type": "photo",
+                "bg_image": 797,
+                "bg_image_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/you-x-ventures-CDq4ChZouXw-unsplash-1920x1280-1.jpg",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_overlay_type": "gradient",
+                "bg_overlay_gradient": {
+                    "type": "linear",
+                    "angle": "90",
+                    "position": "center center",
+                    "colors": [
+                        "rgba(16,42,67,0.95)",
+                        "rgba(56,190,201,0.75)"
+                    ],
+                    "stops": [
+                        "23",
+                        "94"
+                    ]
+                },
+                "bg_color": "F0F4F8",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b3afcdf5be": {
+            "node": "5e3b3afcdf5be",
+            "type": "column-group",
+            "parent": "5e3b3afcdf584",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdf5f8": {
+            "node": "5e3b3afcdf5f8",
+            "type": "column",
+            "parent": "5e3b3afcdf5be",
+            "position": 0,
+            "settings": {
+                "size": "50",
+                "size_medium": "30",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "desktop-medium",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf634": {
+            "node": "5e3b3afcdf634",
+            "type": "module",
+            "parent": "5e3b3afcdf66e",
+            "position": 1,
+            "settings": {
+                "text": "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur non nulla sit amet nisl tempus convallis lorem ipsum doror quis ac lectus. Proin eget tortor risus.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdf66e": {
+            "node": "5e3b3afcdf66e",
+            "type": "column",
+            "parent": "5e3b3afcdf5be",
+            "position": 1,
+            "settings": {
+                "size": 50,
+                "size_medium": "70",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf6a9": {
+            "node": "5e3b3afcdf6a9",
+            "type": "row",
+            "parent": null,
+            "position": 3,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "3",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b3afcdf6e3": {
+            "node": "5e3b3afcdf6e3",
+            "type": "column-group",
+            "parent": "5e3b3afcdf6a9",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdf71e": {
+            "node": "5e3b3afcdf71e",
+            "type": "column",
+            "parent": "5e3b3afcdf6e3",
+            "position": 0,
+            "settings": {
+                "size": 50,
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_unit": "%",
+                "padding_right": "10",
+                "padding_right_medium": "0"
+            }
+        },
+        "5e3b3afcdf758": {
+            "node": "5e3b3afcdf758",
+            "type": "column",
+            "parent": "5e3b3afcdf6e3",
+            "position": 1,
+            "settings": {
+                "size": "50",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdf793": {
+            "node": "5e3b3afcdf793",
+            "type": "module",
+            "parent": "5e3b3afcdf758",
+            "position": 0,
+            "settings": {
+                "heading": "Come visit our grade 2 listed company studios",
+                "responsive_display": "",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf7cd": {
+            "node": "5e3b3afcdf7cd",
+            "type": "module",
+            "parent": "5e3b3afcdf758",
+            "position": 1,
+            "settings": {
+                "text": "Quisque commodo id mi non porttitor. Aenean sapien eros, commodo in lectus eu, auctor pretium diam. Mauris non orci quis est hendrerit laoreet id eget purus. Vivamus id ex non urna pulvinar consequat.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdf808": {
+            "node": "5e3b3afcdf808",
+            "type": "module",
+            "parent": "5e3b3afcdf71e",
+            "position": 0,
+            "settings": {
+                "photo": 798,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/office-1024x684-1.jpg",
+                "crop": "landscape",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdf842": {
+            "node": "5e3b3afcdf842",
+            "type": "row",
+            "parent": null,
+            "position": 2,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "3"
+            }
+        },
+        "5e3b3afcdf87d": {
+            "node": "5e3b3afcdf87d",
+            "type": "column-group",
+            "parent": "5e3b3afcdf842",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdf8b7": {
+            "node": "5e3b3afcdf8b7",
+            "type": "column",
+            "parent": "5e3b3afcdf87d",
+            "position": 0,
+            "settings": {
+                "size": "50",
+                "size_medium": "50",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "reversed",
+                "padding_unit": "%",
+                "padding_right_medium": "0"
+            }
+        },
+        "5e3b3afcdf8f2": {
+            "node": "5e3b3afcdf8f2",
+            "type": "module",
+            "parent": "5e3b3afcdf92d",
+            "position": 0,
+            "settings": {
+                "photo": 799,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/jon-tyson-8MMtYM_3xMY-unsplash-1024x768-1.jpg",
+                "crop": "landscape",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdf92d": {
+            "node": "5e3b3afcdf92d",
+            "type": "column",
+            "parent": "5e3b3afcdf87d",
+            "position": 1,
+            "settings": {
+                "size": 50,
+                "size_medium": "50",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "reversed",
+                "padding_unit": "%",
+                "padding_left": "10",
+                "padding_left_medium": "0"
+            }
+        },
+        "5e3b3afcdf967": {
+            "node": "5e3b3afcdf967",
+            "type": "module",
+            "parent": "5e3b3afcdf8b7",
+            "position": 0,
+            "settings": {
+                "heading": "Get in touch, let's have a coffee together & talk abot your project",
+                "responsive_display": "",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b3afcdf9a2": {
+            "node": "5e3b3afcdf9a2",
+            "type": "module",
+            "parent": "5e3b3afcdf66e",
+            "position": 2,
+            "settings": {
+                "text": "View current vacancies",
+                "icon": "fas fa-clipboard-list",
+                "icon_position": "after",
+                "bg_color": "64a6bd",
+                "bg_hover_color": "0c7489",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.2)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "padding_top": "15",
+                "padding_right": "30",
+                "padding_bottom": "15",
+                "padding_left": "30",
+                "type": "button"
+            }
+        },
+        "5e3b3afcdf9e8": {
+            "node": "5e3b3afcdf9e8",
+            "type": "module",
+            "parent": "5e3b3afcdf8b7",
+            "position": 1,
+            "settings": {
+                "text": "Quisque commodo id mi non porttitor. Aenean sapien eros, commodo in lectus eu, auctor pretium diam. Mauris non orci quis est hendrerit laoreet id eget purus. Vivamus id ex non urna pulvinar consequat.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfa23": {
+            "node": "5e3b3afcdfa23",
+            "type": "module",
+            "parent": "5e3b3afcdef46",
+            "position": 0,
+            "settings": {
+                "photo": 800,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/kelly-sikkema-UUNoXZ8H56Q-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfa5e": {
+            "node": "5e3b3afcdfa5e",
+            "type": "module",
+            "parent": "5e3b3afcdf2a0",
+            "position": 0,
+            "settings": {
+                "photo": 801,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/sarah-cervantes-79GLX12EY98-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfa99": {
+            "node": "5e3b3afcdfa99",
+            "type": "module",
+            "parent": "5e3b3afcdf263",
+            "position": 0,
+            "settings": {
+                "photo": 802,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/maria-badasian-N99uOo_BOoc-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfad5": {
+            "node": "5e3b3afcdfad5",
+            "type": "module",
+            "parent": "5e3b3afcdee51",
+            "position": 0,
+            "settings": {
+                "photo": 803,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/harps-joseph-tAvpDE7fXgY-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfb0f": {
+            "node": "5e3b3afcdfb0f",
+            "type": "module",
+            "parent": "5e3b3afcdf1ed",
+            "position": 0,
+            "settings": {
+                "photo": 804,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/blake-barlow-StkOOEV4ycI-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfb4a": {
+            "node": "5e3b3afcdfb4a",
+            "type": "module",
+            "parent": "5e3b3afcdf033",
+            "position": 0,
+            "settings": {
+                "photo": 805,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/hichem-dahmani-9VcFGAlf1lc-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfb84": {
+            "node": "5e3b3afcdfb84",
+            "type": "module",
+            "parent": "5e3b3afcdefbb",
+            "position": 0,
+            "settings": {
+                "photo": 806,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/jamie-brown-JWLZSw9xQb4-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfbc0": {
+            "node": "5e3b3afcdfbc0",
+            "type": "module",
+            "parent": "5e3b3afcdeff6",
+            "position": 0,
+            "settings": {
+                "photo": 807,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/austin-pacheco-7-9EtjwXotc-unsplash-768x768-1.jpg",
+                "crop": "square",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdfbfa": {
+            "node": "5e3b3afcdfbfa",
+            "type": "module",
+            "parent": "5e3b3afcdf758",
+            "position": 2,
+            "settings": {
+                "text": "Get in touch today",
+                "icon": "fas fa-coffee",
+                "icon_position": "after",
+                "bg_color": "5cab7d",
+                "bg_hover_color": "4C8C67",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.2)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "padding_top": "15",
+                "padding_right": "30",
+                "padding_bottom": "15",
+                "padding_left": "30",
+                "type": "button"
+            }
+        },
+        "5e3b3afcdfc35": {
+            "node": "5e3b3afcdfc35",
+            "type": "module",
+            "parent": "5e3b3afcdf2a0",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfc72": {
+            "node": "5e3b3afcdfc72",
+            "type": "module",
+            "parent": "5e3b3afcdf263",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfcae": {
+            "node": "5e3b3afcdfcae",
+            "type": "module",
+            "parent": "5e3b3afcdf033",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfce9": {
+            "node": "5e3b3afcdfce9",
+            "type": "module",
+            "parent": "5e3b3afcdefbb",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfd24": {
+            "node": "5e3b3afcdfd24",
+            "type": "module",
+            "parent": "5e3b3afcdeff6",
+            "position": 1,
+            "settings": {
+                "text": "<strong>Quisque velit nisi, Designer</strong>",
+                "responsive_display": "",
+                "margin_top": "10",
+                "margin_top_responsive": "20",
+                "margin_right": "40",
+                "margin_left": "40",
+                "type": "rich-text"
+            }
+        },
+        "5e3b3afcdfd5e": {
+            "node": "5e3b3afcdfd5e",
+            "type": "column-group",
+            "parent": "5e3b3afce0065",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b3afcdfd99": {
+            "node": "5e3b3afcdfd99",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 0,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdfdda": {
+            "node": "5e3b3afcdfdda",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 1,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdfe16": {
+            "node": "5e3b3afcdfe16",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 3,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdfe53": {
+            "node": "5e3b3afcdfe53",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 4,
+            "settings": {
+                "size": 16.665,
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdfe8f": {
+            "node": "5e3b3afcdfe8f",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 5,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdfeca": {
+            "node": "5e3b3afcdfeca",
+            "type": "column",
+            "parent": "5e3b3afcdfd5e",
+            "position": 2,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b3afcdff05": {
+            "node": "5e3b3afcdff05",
+            "type": "module",
+            "parent": "5e3b3afcdfd99",
+            "position": 0,
+            "settings": {
+                "photo": 808,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-mountain-dams.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdff3f": {
+            "node": "5e3b3afcdff3f",
+            "type": "module",
+            "parent": "5e3b3afcdfdda",
+            "position": 0,
+            "settings": {
+                "photo": 809,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-jett-3.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdff7a": {
+            "node": "5e3b3afcdff7a",
+            "type": "module",
+            "parent": "5e3b3afcdfe16",
+            "position": 0,
+            "settings": {
+                "photo": 810,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-travel-7.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdffb4": {
+            "node": "5e3b3afcdffb4",
+            "type": "module",
+            "parent": "5e3b3afcdfe53",
+            "position": 0,
+            "settings": {
+                "photo": 811,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-justin-3.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afcdffef": {
+            "node": "5e3b3afcdffef",
+            "type": "module",
+            "parent": "5e3b3afcdfe8f",
+            "position": 0,
+            "settings": {
+                "photo": 812,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-atr.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afce0029": {
+            "node": "5e3b3afce0029",
+            "type": "module",
+            "parent": "5e3b3afcdfeca",
+            "position": 0,
+            "settings": {
+                "photo": 813,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-youngs-coffee-1.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b3afce0065": {
+            "node": "5e3b3afce0065",
+            "type": "row",
+            "parent": null,
+            "position": 4,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_color": "f7f9fb",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": ""
+            }
+        }
+    },
+    "settings": {
+        "css": "",
+        "js": ""
+    }
+}

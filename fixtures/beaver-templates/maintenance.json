@@ -1,0 +1,202 @@
+{
+    "name": "Maintenance",
+    "nodes": {
+        "5e3b40d4146cd": {
+            "node": "5e3b40d4146cd",
+            "type": "module",
+            "parent": "5e3b40d41478a",
+            "position": 1,
+            "settings": {
+                "text": "Pharetra cursus. Sed a tellus ac mauris ultricies dignissim et vitae urna. Sed nisi nulla, commodo ut sem non. Cras venenatis ipsum vehicula eleifend.",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "300",
+                    "font_size": {
+                        "length": "20",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "center",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b40d414713": {
+            "node": "5e3b40d414713",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": {
+                "width": "full",
+                "max_content_width": "860",
+                "full_height": "full",
+                "min_height_unit": "vh",
+                "text_color": "ffffff",
+                "bg_type": "photo",
+                "bg_image": 860,
+                "bg_image_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/glenn-hansen-VW4xiLRr-do-unsplash-1-1920x1138-1.jpg",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_overlay_type": "gradient",
+                "bg_overlay_color": "rgba(16,42,67,0.9)",
+                "bg_overlay_gradient": {
+                    "type": "linear",
+                    "angle": "135",
+                    "position": "center center",
+                    "colors": [
+                        "rgba(16,42,67,0.9)",
+                        "rgba(16,42,67,0.46)"
+                    ],
+                    "stops": [
+                        "23",
+                        "94"
+                    ]
+                },
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": ""
+            }
+        },
+        "5e3b40d41474f": {
+            "node": "5e3b40d41474f",
+            "type": "column-group",
+            "parent": "5e3b40d414713",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b40d41478a": {
+            "node": "5e3b40d41478a",
+            "type": "column",
+            "parent": "5e3b40d41474f",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b40d4147c4": {
+            "node": "5e3b40d4147c4",
+            "type": "module",
+            "parent": "5e3b40d41478a",
+            "position": 0,
+            "settings": {
+                "heading": "We're making some exciting updates",
+                "tag": "h1",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "center",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_bottom": "10",
+                "type": "heading"
+            }
+        },
+        "5e3b40d4147e7": {
+            "node": "5e3b40d4147e7",
+            "type": "module",
+            "parent": "5e3b40d41478a",
+            "position": 2,
+            "settings": {
+                "text": "Get notified when we relaunch",
+                "icon": "dashicons dashicons-before dashicons-backup",
+                "icon_position": "after",
+                "align": "center",
+                "bg_color": "5cab7d",
+                "bg_hover_color": "4c8c67",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.2)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "padding_top": "15",
+                "padding_right": "30",
+                "padding_bottom": "15",
+                "padding_left": "30",
+                "type": "button"
+            }
+        }
+    },
+    "settings": {
+        "css": "",
+        "js": ""
+    }
+}

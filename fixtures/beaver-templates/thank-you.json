@@ -1,0 +1,1187 @@
+{
+    "name": "Thank You",
+    "nodes": {
+        "5e3b40152152f": {
+            "node": "5e3b40152152f",
+            "type": "module",
+            "parent": "5e3b401521954",
+            "position": 0,
+            "settings": {
+                "photo": 873,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/photo-1487412720507-e7ab37603c6f-768x768-2.jpg",
+                "crop": "circle",
+                "align": "left",
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b40152157c": {
+            "node": "5e3b40152157c",
+            "type": "module",
+            "parent": "5e3b40152198f",
+            "position": 0,
+            "settings": {
+                "text": "<b>Jane Doe<br /></b>Growth Consultant",
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_left_medium": "0",
+                "type": "rich-text"
+            }
+        },
+        "5e3b4015215dd": {
+            "node": "5e3b4015215dd",
+            "type": "row",
+            "parent": null,
+            "position": 0,
+            "settings": {
+                "width": "full",
+                "max_content_width": "760",
+                "full_height": "custom",
+                "min_height": "60",
+                "min_height_unit": "vh",
+                "min_height_medium": "50",
+                "min_height_medium_unit": "vh",
+                "min_height_responsive": "50",
+                "min_height_responsive_unit": "vh",
+                "text_color": "ffffff",
+                "bg_type": "photo",
+                "bg_image": 874,
+                "bg_image_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/austin-distel-RX_0vwSPiWs-unsplash-1920x1280-2.jpg",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_overlay_type": "gradient",
+                "bg_overlay_color": "rgba(16,42,67,0.8)",
+                "bg_overlay_gradient": {
+                    "type": "linear",
+                    "angle": "135",
+                    "position": "center center",
+                    "colors": [
+                        "rgba(16,42,67,0.95)",
+                        "rgba(56,190,201,0.75)"
+                    ],
+                    "stops": [
+                        "23",
+                        "94"
+                    ]
+                },
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b401521627": {
+            "node": "5e3b401521627",
+            "type": "column-group",
+            "parent": "5e3b4015215dd",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b401521669": {
+            "node": "5e3b401521669",
+            "type": "column",
+            "parent": "5e3b401521627",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b4015216ab": {
+            "node": "5e3b4015216ab",
+            "type": "module",
+            "parent": "5e3b401521669",
+            "position": 0,
+            "settings": {
+                "heading": "Excellent, you're one step closer to achieving your goals",
+                "tag": "h1",
+                "responsive_display": "",
+                "margin_bottom": "10",
+                "margin_bottom_responsive": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b4015216ec": {
+            "node": "5e3b4015216ec",
+            "type": "module",
+            "parent": "5e3b401521669",
+            "position": 1,
+            "settings": {
+                "text": "Hi, I hope you get a tonne of value from your free download.<strong><br />Check your inbox</strong> to lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b40152172d": {
+            "node": "5e3b40152172d",
+            "type": "row",
+            "parent": null,
+            "position": 1,
+            "settings": {
+                "width": "full",
+                "min_height_unit": "vh",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "6",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_top_responsive": "6",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "3"
+            }
+        },
+        "5e3b40152176f": {
+            "node": "5e3b40152176f",
+            "type": "column-group",
+            "parent": "5e3b40152172d",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b4015217af": {
+            "node": "5e3b4015217af",
+            "type": "column",
+            "parent": "5e3b40152176f",
+            "position": 0,
+            "settings": {
+                "size": "50",
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "reversed",
+                "padding_unit": "%",
+                "padding_right": "5",
+                "padding_right_medium": "0"
+            }
+        },
+        "5e3b4015217ea": {
+            "node": "5e3b4015217ea",
+            "type": "column",
+            "parent": "5e3b40152176f",
+            "position": 1,
+            "settings": {
+                "size": 50,
+                "size_responsive": "100",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "reversed"
+            }
+        },
+        "5e3b401521825": {
+            "node": "5e3b401521825",
+            "type": "module",
+            "parent": "5e3b4015217af",
+            "position": 0,
+            "settings": {
+                "heading": "Book a free consultation today... Take the next step",
+                "responsive_display": "",
+                "margin_bottom": "0",
+                "type": "heading"
+            }
+        },
+        "5e3b401521860": {
+            "node": "5e3b401521860",
+            "type": "module",
+            "parent": "5e3b4015217ea",
+            "position": 0,
+            "settings": {
+                "photo": 875,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/video-appointment-1024x683-1.jpg",
+                "crop": "landscape",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.25)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b4015218a1": {
+            "node": "5e3b4015218a1",
+            "type": "module",
+            "parent": "5e3b4015217af",
+            "position": 2,
+            "settings": {
+                "text": "Choose a date and time that suits you",
+                "icon": "fas fa-check-circle",
+                "icon_position": "after",
+                "bg_color": "5cab7d",
+                "bg_hover_color": "4C8C67",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "3",
+                        "top_right": "3",
+                        "bottom_left": "3",
+                        "bottom_right": "3"
+                    },
+                    "shadow": {
+                        "color": "rgba(0,0,0,0.2)",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "padding_top": "15",
+                "padding_right": "30",
+                "padding_bottom": "15",
+                "padding_left": "30",
+                "margin_bottom_responsive": "30",
+                "type": "button"
+            }
+        },
+        "5e3b4015218de": {
+            "node": "5e3b4015218de",
+            "type": "module",
+            "parent": "5e3b4015217af",
+            "position": 1,
+            "settings": {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis. Mauris non orci quis est hendrerit laoreet id eget purus. Vivamus id ex non urna pulvinar.",
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b401521919": {
+            "node": "5e3b401521919",
+            "type": "column-group",
+            "parent": "5e3b401521669",
+            "position": 2,
+            "settings": ""
+        },
+        "5e3b401521954": {
+            "node": "5e3b401521954",
+            "type": "column",
+            "parent": "5e3b401521919",
+            "position": 0,
+            "settings": {
+                "size": 15,
+                "size_responsive": "30",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b40152198f": {
+            "node": "5e3b40152198f",
+            "type": "column",
+            "parent": "5e3b401521919",
+            "position": 1,
+            "settings": {
+                "size": "85",
+                "size_responsive": "70",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b4015219ca": {
+            "node": "5e3b4015219ca",
+            "type": "column-group",
+            "parent": "5e3b401521df4",
+            "position": 1,
+            "settings": ""
+        },
+        "5e3b401521a05": {
+            "node": "5e3b401521a05",
+            "type": "column-group",
+            "parent": "5e3b401521df4",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b401521a3f": {
+            "node": "5e3b401521a3f",
+            "type": "column",
+            "parent": "5e3b4015219ca",
+            "position": 0,
+            "settings": {
+                "size": "50",
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_top_medium": "0",
+                "padding_medium_unit": "%"
+            }
+        },
+        "5e3b401521a7a": {
+            "node": "5e3b401521a7a",
+            "type": "column",
+            "parent": "5e3b4015219ca",
+            "position": 1,
+            "settings": {
+                "size": 50,
+                "size_responsive": "100",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521ab4": {
+            "node": "5e3b401521ab4",
+            "type": "column-group",
+            "parent": "5e3b401521a3f",
+            "position": 1,
+            "settings": ""
+        },
+        "5e3b401521aef": {
+            "node": "5e3b401521aef",
+            "type": "module",
+            "parent": "5e3b401521a3f",
+            "position": 0,
+            "settings": {
+                "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur aliquet quam id dui posuere blandit Cras ultricies ligula sed magna dictum porta.",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "italic",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b401521b29": {
+            "node": "5e3b401521b29",
+            "type": "column",
+            "parent": "5e3b401521ab4",
+            "position": 0,
+            "settings": {
+                "size": 20,
+                "size_medium": "30",
+                "size_responsive": "30",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521b68": {
+            "node": "5e3b401521b68",
+            "type": "column",
+            "parent": "5e3b401521ab4",
+            "position": 1,
+            "settings": {
+                "size": "80",
+                "size_medium": "70",
+                "size_responsive": "70",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_responsive_unit": "%"
+            }
+        },
+        "5e3b401521ba8": {
+            "node": "5e3b401521ba8",
+            "type": "module",
+            "parent": "5e3b401521b29",
+            "position": 0,
+            "settings": {
+                "photo": 876,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/photo-1558403194-611308249627-1-768x768-7.jpg",
+                "crop": "circle",
+                "align": "left",
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b401521be3": {
+            "node": "5e3b401521be3",
+            "type": "module",
+            "parent": "5e3b401521b68",
+            "position": 0,
+            "settings": {
+                "text": "<strong>Vivamus magna<br /></strong>Lacinia eget",
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_left_medium": "0",
+                "type": "rich-text"
+            }
+        },
+        "5e3b401521c1e": {
+            "node": "5e3b401521c1e",
+            "type": "module",
+            "parent": "5e3b401521a7a",
+            "position": 0,
+            "settings": {
+                "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur aliquet quam id dui posuere blandit Cras ultricies ligula sed magna dictum porta.",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "italic",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "type": "rich-text"
+            }
+        },
+        "5e3b401521c58": {
+            "node": "5e3b401521c58",
+            "type": "column-group",
+            "parent": "5e3b401521a7a",
+            "position": 1,
+            "settings": ""
+        },
+        "5e3b401521c93": {
+            "node": "5e3b401521c93",
+            "type": "column",
+            "parent": "5e3b401521c58",
+            "position": 0,
+            "settings": {
+                "size": "20",
+                "size_medium": "30",
+                "size_responsive": "30",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521ccd": {
+            "node": "5e3b401521ccd",
+            "type": "column",
+            "parent": "5e3b401521c58",
+            "position": 1,
+            "settings": {
+                "size": 80,
+                "size_medium": "70",
+                "size_responsive": "70",
+                "equal_height": "yes",
+                "content_alignment": "center",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default",
+                "padding_responsive_unit": "%"
+            }
+        },
+        "5e3b401521d08": {
+            "node": "5e3b401521d08",
+            "type": "module",
+            "parent": "5e3b401521c93",
+            "position": 0,
+            "settings": {
+                "photo": 877,
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/photo-1552664730-d307ca884978-768x768-7.jpg",
+                "crop": "circle",
+                "align": "left",
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b401521d43": {
+            "node": "5e3b401521d43",
+            "type": "module",
+            "parent": "5e3b401521ccd",
+            "position": 0,
+            "settings": {
+                "text": "<strong>Vivamus magna<br /></strong>Lacinia eget",
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_left_medium": "0",
+                "type": "rich-text"
+            }
+        },
+        "5e3b401521d7f": {
+            "node": "5e3b401521d7f",
+            "type": "column",
+            "parent": "5e3b401521a05",
+            "position": 0,
+            "settings": {
+                "size": 100,
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521db9": {
+            "node": "5e3b401521db9",
+            "type": "module",
+            "parent": "5e3b401521d7f",
+            "position": 0,
+            "settings": {
+                "heading": "Testimonials",
+                "typography": {
+                    "font_family": "Default",
+                    "font_weight": "default",
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "center",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "typography_responsive": {
+                    "font_size": {
+                        "length": "",
+                        "unit": "px"
+                    },
+                    "line_height": {
+                        "length": "",
+                        "unit": ""
+                    },
+                    "text_align": "left",
+                    "letter_spacing": {
+                        "length": ""
+                    },
+                    "text_transform": "",
+                    "text_decoration": "",
+                    "font_style": "",
+                    "font_variant": "",
+                    "text_shadow": {
+                        "color": "",
+                        "horizontal": "",
+                        "vertical": "",
+                        "blur": ""
+                    }
+                },
+                "responsive_display": "",
+                "margin_unit": "%",
+                "margin_bottom": "6",
+                "type": "heading"
+            }
+        },
+        "5e3b401521df4": {
+            "node": "5e3b401521df4",
+            "type": "row",
+            "parent": null,
+            "position": 2,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": "",
+                "padding_top": "3",
+                "padding_unit": "%",
+                "padding_medium_unit": "%",
+                "padding_responsive_unit": "%",
+                "padding_bottom": "6"
+            }
+        },
+        "5e3b401521e32": {
+            "node": "5e3b401521e32",
+            "type": "column-group",
+            "parent": "5e3b40152213e",
+            "position": 0,
+            "settings": ""
+        },
+        "5e3b401521e73": {
+            "node": "5e3b401521e73",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 0,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521eb2": {
+            "node": "5e3b401521eb2",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 1,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521ef2": {
+            "node": "5e3b401521ef2",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 3,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521f2e": {
+            "node": "5e3b401521f2e",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 4,
+            "settings": {
+                "size": 16.665,
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521f68": {
+            "node": "5e3b401521f68",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 5,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521fa3": {
+            "node": "5e3b401521fa3",
+            "type": "column",
+            "parent": "5e3b401521e32",
+            "position": 2,
+            "settings": {
+                "size": "16.667",
+                "size_medium": "33",
+                "size_responsive": "50",
+                "bg_repeat": "no-repeat",
+                "responsive_display": "",
+                "responsive_order": "default"
+            }
+        },
+        "5e3b401521fdd": {
+            "node": "5e3b401521fdd",
+            "type": "module",
+            "parent": "5e3b401521e73",
+            "position": 0,
+            "settings": {
+                "photo": "808",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-mountain-dams.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b401522018": {
+            "node": "5e3b401522018",
+            "type": "module",
+            "parent": "5e3b401521eb2",
+            "position": 0,
+            "settings": {
+                "photo": "809",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-jett-3.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b401522053": {
+            "node": "5e3b401522053",
+            "type": "module",
+            "parent": "5e3b401521ef2",
+            "position": 0,
+            "settings": {
+                "photo": "810",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-travel-7.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b40152208d": {
+            "node": "5e3b40152208d",
+            "type": "module",
+            "parent": "5e3b401521f2e",
+            "position": 0,
+            "settings": {
+                "photo": "811",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-justin-3.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b4015220c8": {
+            "node": "5e3b4015220c8",
+            "type": "module",
+            "parent": "5e3b401521f68",
+            "position": 0,
+            "settings": {
+                "photo": "812",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-atr.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b401522102": {
+            "node": "5e3b401522102",
+            "type": "module",
+            "parent": "5e3b401521fa3",
+            "position": 0,
+            "settings": {
+                "photo": "813",
+                "photo_src": "https://lite.demos.wpbeaverbuilder.com/wp-content/uploads/sites/28/2020/02/logo-youngs-coffee-1.png",
+                "width": "160",
+                "border": {
+                    "style": "",
+                    "color": "",
+                    "width": {
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                        "left": ""
+                    },
+                    "radius": {
+                        "top_left": "",
+                        "top_right": "",
+                        "bottom_left": "",
+                        "bottom_right": ""
+                    },
+                    "shadow": {
+                        "color": "",
+                        "horizontal": "5",
+                        "vertical": "5",
+                        "blur": "20",
+                        "spread": "0"
+                    }
+                },
+                "responsive_display": "",
+                "type": "photo",
+                "data": null
+            }
+        },
+        "5e3b40152213e": {
+            "node": "5e3b40152213e",
+            "type": "row",
+            "parent": null,
+            "position": 3,
+            "settings": {
+                "width": "full",
+                "bg_type": "color",
+                "bg_repeat": "no-repeat",
+                "bg_parallax_speed": "2",
+                "bg_color": "f7f9fb",
+                "top_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "bottom_edge_transform": {
+                    "scaleXSign": "",
+                    "scaleYSign": "",
+                    "skewX": "",
+                    "skewY": "",
+                    "scaleX": "1",
+                    "rotate": "",
+                    "scaleY": "1"
+                },
+                "responsive_display": ""
+            }
+        }
+    },
+    "settings": {
+        "css": "",
+        "js": ""
+    }
+}
