@@ -116,8 +116,8 @@
                                                                 "icon": {
                                                                     "enable": "on",
                                                                     "settings": {
-                                                                        "type": "fa",
                                                                         "unicode": "&#xf138;",
+                                                                        "type": "fa",
                                                                         "weight": "900"
                                                                     },
                                                                     "placement": "right",

@@ -171,8 +171,8 @@
                                                                 "icon": {
                                                                     "enable": "on",
                                                                     "settings": {
-                                                                        "type": "fa",
                                                                         "unicode": "&#xf061;",
+                                                                        "type": "fa",
                                                                         "weight": "900"
                                                                     },
                                                                     "placement": "right",

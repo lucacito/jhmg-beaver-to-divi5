@@ -82,8 +82,8 @@
                                                         "value": {
                                                             "useIcon": "on",
                                                             "icon": {
-                                                                "type": "fa",
                                                                 "unicode": "&#xf095;",
+                                                                "type": "fa",
                                                                 "weight": "900"
                                                             }
                                                         }
@@ -147,8 +147,8 @@
                                                                 "icon": {
                                                                     "enable": "on",
                                                                     "settings": {
-                                                                        "type": "fa",
                                                                         "unicode": "&#xf095;",
+                                                                        "type": "fa",
                                                                         "weight": "900"
                                                                     },
                                                                     "placement": "right",

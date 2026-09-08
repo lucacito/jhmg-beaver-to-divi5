@@ -53,8 +53,8 @@
                                                 "innerContent": {
                                                     "desktop": {
                                                         "value": {
-                                                            "type": "fa",
                                                             "unicode": "&#xf5fc;",
+                                                            "type": "fa",
                                                             "weight": "900",
                                                             "linkUrl": "https://example.test/services"
                                                         }

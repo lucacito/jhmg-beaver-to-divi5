@@ -9,7 +9,7 @@ final class IconMapTest extends TestCase {
         $result = IconMap::fromClass( 'fas fa-chevron-circle-right' );
 
         $this->assertTrue( $result['exact'] );
-        $this->assertSame( [ 'type' => 'fa', 'unicode' => '&#xf138;', 'weight' => '900' ], $result['icon'] );
+        $this->assertSame( [ 'unicode' => '&#xf138;', 'type' => 'fa', 'weight' => '900' ], $result['icon'] );
         $this->assertSame( 'chevron-circle-right', $result['name'] );
     }
 

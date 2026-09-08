@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class IconMap {
 
-    const FALLBACK = [ 'type' => 'fa', 'unicode' => '&#xf005;', 'weight' => '900' ]; // fa-star, solid
+    const FALLBACK = [ 'unicode' => '&#xf005;', 'type' => 'fa', 'weight' => '900' ]; // fa-star, solid
 
     private static ?array $map = null;
 
@@ -55,7 +55,7 @@ class IconMap {
         $weight  = in_array( $wanted, $weights, true ) ? $wanted : (int) reset( $weights );
 
         return [
-            'icon'  => [ 'type' => 'fa', 'unicode' => (string) $entry['u'], 'weight' => (string) $weight ],
+            'icon'  => [ 'unicode' => (string) $entry['u'], 'type' => 'fa', 'weight' => (string) $weight ],
             'exact' => true,
             'name'  => $name,
         ];

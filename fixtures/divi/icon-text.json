@@ -66,8 +66,8 @@
                                                         "value": {
                                                             "useIcon": "on",
                                                             "icon": {
-                                                                "type": "fa",
                                                                 "unicode": "&#xf0e0;",
+                                                                "type": "fa",
                                                                 "weight": "400"
                                                             }
                                                         }
