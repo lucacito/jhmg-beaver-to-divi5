@@ -39,7 +39,8 @@ run "wp user update 1 --user_pass=$ADMIN_PASS --allow-root >/dev/null"
 run "wp option update permalink_structure '/%postname%/' --allow-root >/dev/null"
 
 echo "Installing Divi 5..."
-run "wp theme is-installed Divi --allow-root || wp theme install /tmp/Divi.zip --allow-root"
+# --force so a newer references/Divi.zip replaces an older installed Divi.
+run "wp theme install /tmp/Divi.zip --force --allow-root"
 run "wp theme activate Divi --allow-root"
 
 echo "Installing Beaver Builder Lite..."

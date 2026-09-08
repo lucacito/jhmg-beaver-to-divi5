@@ -22,24 +22,32 @@ if ( ! file_exists( $file ) ) {
     exit( 1 );
 }
 
-$decoded = json_decode( (string) file_get_contents( $file ) );
-if ( ! is_object( $decoded ) && ! is_array( $decoded ) ) {
+$decoded = json_decode( (string) file_get_contents( $file ), true );
+if ( ! is_array( $decoded ) ) {
     fwrite( STDERR, "Fixture is not valid JSON: {$file}\n" );
     exit( 1 );
 }
 
-$nodes = isset( $decoded->nodes ) ? (array) $decoded->nodes : (array) $decoded;
-foreach ( $nodes as $id => $node ) {
-    if ( is_object( $node ) && is_string( $node->settings ?? null ) && $node->settings === '' ) {
-        $node->settings = new stdClass();
+// Beaver Builder stores each node and its settings as stdClass, but every
+// compound value inside settings (typography, border, gradients, repeaters)
+// as a PHP array. Rebuild exactly that shape so Beaver Builder itself renders
+// the page too.
+$nodes = [];
+foreach ( ( $decoded['nodes'] ?? $decoded ) as $id => $node ) {
+    if ( ! is_array( $node ) ) {
+        continue;
     }
+    $settings          = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
+    $node['settings']  = (object) $settings;
+    $node['parent']    = $node['parent'] ?? null;
+    $nodes[ (string) $id ] = (object) $node;
 }
 
 update_post_meta( $page_id, '_fl_builder_enabled', true );
 update_post_meta( $page_id, '_fl_builder_data', $nodes );
 update_post_meta( $page_id, '_fl_builder_draft', $nodes );
-if ( isset( $decoded->settings ) ) {
-    update_post_meta( $page_id, '_fl_builder_data_settings', (object) $decoded->settings );
+if ( isset( $decoded['settings'] ) && is_array( $decoded['settings'] ) ) {
+    update_post_meta( $page_id, '_fl_builder_data_settings', (object) $decoded['settings'] );
 }
 
 echo "Set Beaver Builder layout on page {$page_id} (" . count( $nodes ) . " nodes)\n";

@@ -1,0 +1,13 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": { "bg_type": "color", "bg_color": "102a43", "text_color": "ffffff", "heading_color": "fde68a", "link_color": "38bdf8" } },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 50 } },
+    "col2": { "node": "col2", "type": "column", "parent": "grp1", "position": 1, "settings": { "size": 50, "text_color": "0f172a" } },
+    "h1":   { "node": "h1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "Inherits the heading colour", "tag": "h2" } },
+    "t1":   { "node": "t1", "type": "module", "parent": "col1", "position": 1, "settings": { "type": "rich-text", "text": "<p>Inherits white.</p>" } },
+    "t2":   { "node": "t2", "type": "module", "parent": "col1", "position": 2, "settings": { "type": "rich-text", "text": "<p>Keeps its own.</p>", "color": "ff0000" } },
+    "b1":   { "node": "b1", "type": "module", "parent": "col1", "position": 3, "settings": { "type": "button", "text": "Own colour", "link": "#", "bg_color": "22c55e" } },
+    "t3":   { "node": "t3", "type": "module", "parent": "col2", "position": 0, "settings": { "type": "rich-text", "text": "<p>Column overrides the row.</p>" } }
+  }
+}

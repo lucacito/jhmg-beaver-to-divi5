@@ -59,6 +59,10 @@ class ButtonConverter extends BaseBeaverConverter {
         if ( $bg !== null && ( $this->text( $settings, 'style' ) !== 'adv-gradient' ) ) {
             $attrs['button']['decoration']['background']['desktop']['value']['color'] = $bg;
             unset( $attrs['module']['decoration']['background'] );
+            // Beaver Builder paints white text on any custom button colour unless told otherwise.
+            if ( ! isset( $attrs['button']['decoration']['font']['font']['desktop']['value']['color'] ) ) {
+                $attrs['button']['decoration']['font']['font']['desktop']['value']['color'] = '#ffffff';
+            }
         }
         if ( $this->text( $settings, 'style' ) === 'adv-gradient' ) {
             $this->engine->logWarning( "Button {$id}: advanced gradient background not carried; flat colour used." );

@@ -75,7 +75,7 @@
                                             "css": {
                                                 "desktop": {
                                                     "value": {
-                                                        "freeForm": "selector { width: 37%; box-sizing: border-box; }"
+                                                        "freeForm": "selector { flex: 0 0 37%; max-width: 37%; min-width: 0; box-sizing: border-box; margin-left: 0; margin-right: 0; }"
                                                     }
                                                 }
                                             }
@@ -115,7 +115,7 @@
                                             "css": {
                                                 "desktop": {
                                                     "value": {
-                                                        "freeForm": "selector { width: 63%; box-sizing: border-box; }"
+                                                        "freeForm": "selector { flex: 0 0 63%; max-width: 63%; min-width: 0; box-sizing: border-box; margin-left: 0; margin-right: 0; }"
                                                     }
                                                 }
                                             }

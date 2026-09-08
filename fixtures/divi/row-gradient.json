@@ -1,0 +1,135 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "background": {
+                                "desktop": {
+                                    "value": {
+                                        "gradient": {
+                                            "enabled": "on",
+                                            "type": "radial",
+                                            "directionRadial": "top left",
+                                            "stops": [
+                                                {
+                                                    "color": "#ffffff",
+                                                    "position": "0"
+                                                },
+                                                {
+                                                    "color": "#e2e8f0",
+                                                    "position": "100"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "background": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "image": {
+                                                            "url": "https://example.test/bg.jpg"
+                                                        },
+                                                        "gradient": {
+                                                            "enabled": "on",
+                                                            "type": "linear",
+                                                            "direction": "135deg",
+                                                            "stops": [
+                                                                {
+                                                                    "color": "rgba(16,42,67,0.95)",
+                                                                    "position": "23"
+                                                                },
+                                                                {
+                                                                    "color": "rgba(56,190,201,0.75)",
+                                                                    "position": "94"
+                                                                }
+                                                            ],
+                                                            "overlaysImage": "on"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "h1",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Gradients"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

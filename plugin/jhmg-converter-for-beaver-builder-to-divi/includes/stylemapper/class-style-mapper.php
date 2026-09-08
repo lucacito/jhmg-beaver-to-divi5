@@ -46,7 +46,36 @@ class StyleMapper {
         '1_3' => 33.33,
         '1_4' => 25,
         '1_5' => 20,
+        '1_6' => 16.66,
     ];
+
+    /**
+     * Beaver Builder gradient position ("left top", "center center") ⇒ Divi
+     * radial direction keyword ("top left", "center"): vertical keyword first,
+     * "center" dropped, either input order accepted.
+     */
+    public static function radialDirection( string $position ): string {
+        $words      = preg_split( '/\s+/', strtolower( trim( $position ) ) ) ?: [];
+        $vertical   = 'center';
+        $horizontal = 'center';
+        foreach ( $words as $word ) {
+            if ( in_array( $word, [ 'top', 'bottom' ], true ) ) {
+                $vertical = $word;
+            } elseif ( in_array( $word, [ 'left', 'right' ], true ) ) {
+                $horizontal = $word;
+            }
+        }
+        if ( $vertical === 'center' && $horizontal === 'center' ) {
+            return 'center';
+        }
+        if ( $vertical === 'center' ) {
+            return $horizontal;
+        }
+        if ( $horizontal === 'center' ) {
+            return $vertical;
+        }
+        return $vertical . ' ' . $horizontal;
+    }
 
     /** Divi font decoration path per node kind (the primary text). */
     const FONT_PATH = [
@@ -533,12 +562,14 @@ class StyleMapper {
             if ( $color === null ) {
                 continue;
             }
+            // Divi appends the unit itself ("{color} {position}%"); a position
+            // carrying "%" fails its numeric check and the whole gradient is dropped.
             $stop    = $raw['stops'][ $i ] ?? ( $i === 0 ? '0' : '100' );
-            $stops[] = [ 'color' => $color, 'position' => ( is_numeric( $stop ) ? (string) $stop : '0' ) . '%' ];
+            $stops[] = [ 'color' => $color, 'position' => is_numeric( $stop ) ? (string) (float) $stop : '0' ];
         }
         if ( count( $stops ) < 2 ) {
             if ( count( $stops ) === 1 ) {
-                $stops[] = [ 'color' => $stops[0]['color'], 'position' => '100%' ];
+                $stops[] = [ 'color' => $stops[0]['color'], 'position' => '100' ];
             } else {
                 return;
             }
@@ -548,8 +579,8 @@ class StyleMapper {
         self::write( $attrs, "{$path}.enabled", 'on' );
         self::write( $attrs, "{$path}.type", $type );
         if ( $type === 'radial' ) {
-            $position = $raw['position'] ?? 'center center';
-            self::write( $attrs, "{$path}.directionRadial", is_string( $position ) && $position !== '' ? $position : 'center center' );
+            $position = is_string( $raw['position'] ?? null ) ? trim( $raw['position'] ) : '';
+            self::write( $attrs, "{$path}.directionRadial", self::radialDirection( $position ) );
         } else {
             $angle = $raw['angle'] ?? '180';
             self::write( $attrs, "{$path}.direction", ( is_numeric( $angle ) ? (string) $angle : '180' ) . 'deg' );

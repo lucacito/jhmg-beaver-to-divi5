@@ -29,7 +29,12 @@ class ColumnConverter extends BaseBeaverConverter {
             $attrs = $this->deepMergeSettings( [ 'module' => [ 'advanced' => [ 'type' => [ 'desktop' => [ 'value' => $fraction ] ] ] ] ], $attrs );
         }
 
-        $children = $this->convertStructureChildren( $node['children'] ?? [] );
+        $this->engine->pushInheritedColors( $this->containerColors( $settings, $id ) );
+        try {
+            $children = $this->convertStructureChildren( $node['children'] ?? [] );
+        } finally {
+            $this->engine->popInheritedColors();
+        }
 
         if ( empty( $children ) ) {
             $this->engine->logWarning( "Empty column after conversion: {$id}" );
@@ -57,12 +62,18 @@ class ColumnConverter extends BaseBeaverConverter {
 
         $size = $settings['size'] ?? null;
         if ( is_numeric( $size ) ) {
+            $pct   = (float) $size;
             $attrs = $this->deepMergeSettings( $attrs, [
-                'css' => [ 'desktop' => [ 'value' => [ 'freeForm' => 'selector { width: ' . (float) $size . '%; box-sizing: border-box; }' ] ] ],
+                'css' => [ 'desktop' => [ 'value' => [ 'freeForm' => "selector { flex: 0 0 {$pct}%; max-width: {$pct}%; min-width: 0; box-sizing: border-box; margin-left: 0; margin-right: 0; }" ] ] ],
             ] );
         }
 
-        $children = $this->convertStructureChildren( $node['children'] ?? [] );
+        $this->engine->pushInheritedColors( $this->containerColors( $settings, $id ) );
+        try {
+            $children = $this->convertStructureChildren( $node['children'] ?? [] );
+        } finally {
+            $this->engine->popInheritedColors();
+        }
 
         $this->engine->logConverted( 'group' );
         $this->logUnmappedSettings( $id, $settings, array_merge(

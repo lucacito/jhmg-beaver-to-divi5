@@ -50,6 +50,8 @@ class RowConverter extends BaseBeaverConverter {
         }
 
         $rows = [];
+        $this->engine->pushInheritedColors( $this->containerColors( $settings, $id ) );
+        try {
         foreach ( $groups as $index => $group ) {
             $row = $this->engine->convertNode( $group );
             if ( empty( $row ) || ( $row['name'] ?? '' ) !== 'divi/row' ) {
@@ -72,6 +74,9 @@ class RowConverter extends BaseBeaverConverter {
                     $this->ensureColumnChildren( $id, $blocks )
                 );
             }
+        }
+        } finally {
+            $this->engine->popInheritedColors();
         }
 
         if ( empty( $rows ) ) {

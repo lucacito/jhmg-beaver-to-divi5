@@ -128,7 +128,56 @@ abstract class BaseBeaverConverter implements ConverterInterface {
             $this->engine->logNotCarriedOver( $note['kind'], $node_id, $note['detail'] );
         }
 
-        return [ 'divi_attrs' => $result['divi_attrs'], 'handled_keys' => $result['handled_keys'] ];
+        $attrs = $this->applyInheritedColors( $kind, $result['divi_attrs'] );
+
+        return [ 'divi_attrs' => $attrs, 'handled_keys' => $result['handled_keys'] ];
+    }
+
+    /**
+     * Fills in the text colour a Beaver Builder row or column forced on this
+     * module, wherever the module set none of its own. Buttons keep their own
+     * colour: Beaver Builder's button rule outranks the row rule.
+     */
+    private function applyInheritedColors( string $kind, array $attrs ): array {
+        $text    = $this->engine->inheritedColor( 'text_color' );
+        $heading = $this->engine->inheritedColor( 'heading_color' ) ?? $text;
+        if ( $text === null && $heading === null ) {
+            return $attrs;
+        }
+
+        $targets = [
+            'heading' => [ 'title.decoration.font.font' => $heading ],
+            'text'    => [ 'content.decoration.bodyFont.body.font' => $text ],
+            'blurb'   => [ 'title.decoration.font.font' => $heading, 'content.decoration.bodyFont.body.font' => $text ],
+            'cta'     => [ 'title.decoration.font.font' => $heading, 'content.decoration.bodyFont.body.font' => $text ],
+            'counter' => [ 'number.decoration.font.font' => $text, 'title.decoration.font.font' => $text ],
+            'icon'    => [ 'icon.advanced.color' => $text ],
+        ][ $kind ] ?? [];
+
+        foreach ( $targets as $path => $color ) {
+            if ( $color === null ) {
+                continue;
+            }
+            $existing = $attrs;
+            foreach ( explode( '.', $path . '.desktop.value' ) as $key ) {
+                $existing = is_array( $existing ) && array_key_exists( $key, $existing ) ? $existing[ $key ] : null;
+            }
+            $has_color = $path === 'icon.advanced.color' ? $existing !== null : ( is_array( $existing ) && isset( $existing['color'] ) );
+            if ( ! $has_color ) {
+                StyleMapper::write( $attrs, $path . '.desktop.value' . ( $path === 'icon.advanced.color' ? '' : '.color' ), $color );
+            }
+        }
+
+        return $attrs;
+    }
+
+    /** The container colours a row or column forces on its descendants, normalised. */
+    protected function containerColors( array $settings, string $node_id ): array {
+        return [
+            'text_color'    => $this->color( $settings, 'text_color', $node_id ),
+            'heading_color' => $this->color( $settings, 'heading_color', $node_id ),
+            'link_color'    => $this->color( $settings, 'link_color', $node_id ),
+        ];
     }
 
     // -------------------------------------------------------------------------

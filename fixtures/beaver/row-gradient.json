@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": { "bg_type": "gradient", "bg_gradient": { "type": "radial", "angle": "90", "position": "left top", "colors": [ "ffffff", "e2e8f0" ], "stops": [ "0", "100" ] } } },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100, "bg_type": "photo", "bg_image_src": "https://example.test/bg.jpg", "bg_overlay_type": "gradient", "bg_overlay_gradient": { "type": "linear", "angle": "135", "position": "center center", "colors": [ "rgba(16,42,67,0.95)", "rgba(56,190,201,0.75)" ], "stops": [ "23", "94" ] } } },
+    "h1":   { "node": "h1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "Gradients", "tag": "h2" } }
+  }
+}

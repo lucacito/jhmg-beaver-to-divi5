@@ -83,7 +83,7 @@ final class ConverterEngineTest extends TestCase {
         $column = $row['elements'][0];
         $this->assertSame( 'flex', $column['settings']['module']['decoration']['layout']['desktop']['value']['display'] );
         $this->assertSame( 'divi/group', $column['elements'][0]['name'] );
-        $this->assertSame( 'selector { width: 37%; box-sizing: border-box; }', $column['elements'][0]['settings']['css']['desktop']['value']['freeForm'] );
+        $this->assertSame( 'selector { flex: 0 0 37%; max-width: 37%; min-width: 0; box-sizing: border-box; margin-left: 0; margin-right: 0; }', $column['elements'][0]['settings']['css']['desktop']['value']['freeForm'] );
         $this->assertSame( '#eeeeee', $column['elements'][0]['settings']['module']['decoration']['background']['desktop']['value']['color'] );
         $this->assertSame( 'Wide', $column['elements'][1]['elements'][0]['settings']['title']['innerContent']['desktop']['value'] );
         $this->assertStringContainsString( 'no Divi column fraction', $result['report']['warnings'][0] );

@@ -79,7 +79,8 @@ final class StyleMapperTest extends TestCase {
         $this->assertSame( 'on', $bg['gradient']['enabled'] );
         $this->assertSame( 'on', $bg['gradient']['overlaysImage'] );
         $this->assertSame( '135deg', $bg['gradient']['direction'] );
-        $this->assertSame( [ [ 'color' => 'rgba(16,42,67,0.95)', 'position' => '23%' ], [ 'color' => 'rgba(56,190,201,0.75)', 'position' => '94%' ] ], $bg['gradient']['stops'] );
+        // Divi appends the % itself; a position carrying a unit is rejected and the gradient dropped.
+        $this->assertSame( [ [ 'color' => 'rgba(16,42,67,0.95)', 'position' => '23' ], [ 'color' => 'rgba(56,190,201,0.75)', 'position' => '94' ] ], $bg['gradient']['stops'] );
         $this->assertContains( 'bg_image_src', $r['handled_keys'] );
         $this->assertSame( [], $r['notes'] );
     }
@@ -101,7 +102,7 @@ final class StyleMapperTest extends TestCase {
         $r = $this->map( 'column', [ 'bg_type' => 'gradient', 'bg_gradient' => [ 'type' => 'radial', 'angle' => '90', 'position' => 'top left', 'colors' => [ 'ffffff', '000000' ], 'stops' => [ '0', '100' ] ] ] );
         $g = $r['divi_attrs']['module']['decoration']['background']['desktop']['value']['gradient'];
         $this->assertSame( 'radial', $g['type'] );
-        $this->assertSame( 'top left', $g['directionRadial'] );
+        $this->assertSame( 'top left', $g['directionRadial'], 'Beaver Builder "left top" is Divi "top left"' );
         $this->assertSame( '#ffffff', $g['stops'][0]['color'] );
         $this->assertArrayNotHasKey( 'overlaysImage', $g );
     }

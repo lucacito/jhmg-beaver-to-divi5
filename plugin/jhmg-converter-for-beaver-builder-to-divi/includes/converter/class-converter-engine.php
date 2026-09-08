@@ -27,6 +27,8 @@ class ConverterEngine {
     private array $unresolvedGlobals  = [];
     private array $notCarriedOver     = [];
     private bool  $countingApproximate = false;
+    /** @var array<int,array<string,string>> Colours rows and columns force on their descendants. */
+    private array $inheritedColors = [];
 
     public function __construct() {
         $this->registry = new ConverterRegistry( $this );
@@ -168,6 +170,36 @@ class ConverterEngine {
             return [ $result ];
         }
         return array_values( array_filter( $result, static fn( $b ) => is_array( $b ) && ! empty( $b ) ) );
+    }
+
+    // -------------------------------------------------------------------------
+    // Inherited colours
+    // -------------------------------------------------------------------------
+
+    /**
+     * A Beaver Builder row or column can force a text, heading and link colour
+     * on everything inside it (`.fl-row-content-wrap *`). Divi sections have no
+     * such setting, so the converter pushes those colours here while converting
+     * the container's children and modules pick them up when they set none.
+     *
+     * @param array<string,string> $colors Any of text_color, heading_color, link_color (normalised).
+     */
+    public function pushInheritedColors( array $colors ): void {
+        $this->inheritedColors[] = array_filter( $colors, static fn( $c ) => is_string( $c ) && $c !== '' );
+    }
+
+    public function popInheritedColors(): void {
+        array_pop( $this->inheritedColors );
+    }
+
+    /** The nearest enclosing value for a colour key, or null. */
+    public function inheritedColor( string $key ): ?string {
+        for ( $i = count( $this->inheritedColors ) - 1; $i >= 0; $i-- ) {
+            if ( isset( $this->inheritedColors[ $i ][ $key ] ) ) {
+                return $this->inheritedColors[ $i ][ $key ];
+            }
+        }
+        return null;
     }
 
     // -------------------------------------------------------------------------
