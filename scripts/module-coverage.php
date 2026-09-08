@@ -12,7 +12,7 @@ require __DIR__ . '/../tests/bootstrap.php';
 $registry = ( new \BeaverDivi5Converter\Converter\ConverterEngine() )->registry();
 $all      = $registry->knownModuleSlugs();
 $approx   = $registry->approximateModuleSlugs();
-$lite_placeholders = [ 'widget', 'reusable-block', 'acf-block' ];
+$lite_placeholders = [ 'acf-block' ];
 $verified = array_values( array_diff( $all, $approx, $lite_placeholders ) );
 
 printf( "Source-verified handlers (%d): %s\n", count( $verified ), implode( ', ', $verified ) );

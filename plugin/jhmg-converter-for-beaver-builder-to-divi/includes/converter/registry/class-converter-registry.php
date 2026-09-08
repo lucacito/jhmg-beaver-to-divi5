@@ -130,6 +130,8 @@ class ConverterRegistry {
             'star-rating'    => Handlers\StarRatingConverter::class,
             'menu'           => Handlers\MenuConverter::class,
             'box'            => Handlers\BoxConverter::class,
+            'reusable-block' => Handlers\ReusableBlockConverter::class, // "WordPress Patterns" in the UI
+            'widget'         => Handlers\WidgetConverter::class,
         ];
         foreach ( $lite as $slug => $class ) {
             if ( class_exists( $class ) ) {
@@ -137,8 +139,8 @@ class ConverterRegistry {
             }
         }
 
-        // Lite modules with no Divi equivalent: a labelled placeholder keeps their place.
-        foreach ( [ 'widget', 'reusable-block', 'acf-block' ] as $slug ) {
+        // ACF blocks render through ACF's own block engine; a labelled placeholder keeps their place.
+        foreach ( [ 'acf-block' ] as $slug ) {
             $this->registerModule( $slug, $this->placeholder( $slug ) );
         }
 
@@ -176,11 +178,17 @@ class ConverterRegistry {
         // Beaver Builder Pro modules added after 2.6 and PowerPack (third-party)
         // modules — field names read from exported layouts; reported as approximate.
         $addons = [
-            'list'           => Handlers\ListConverter::class,
-            'progress-bar'   => Handlers\ProgressBarConverter::class,
-            'pp-heading'     => Handlers\PpHeadingConverter::class,
-            'pp-iconlist'    => Handlers\PpIconListConverter::class,
-            'pp-fluent-form' => Handlers\PpFluentFormConverter::class,
+            'list'                 => Handlers\ListConverter::class,
+            'progress-bar'         => Handlers\ProgressBarConverter::class,
+            'woocommerce'          => Handlers\WooCommerceConverter::class,
+            'loop'                 => Handlers\LoopConverter::class,
+            'popup'                => Handlers\PopupConverter::class,
+            'bigcommerce-products' => Handlers\BigCommerceProductsConverter::class,
+            'bigcommerce'          => Handlers\BigCommerceProductsConverter::class,
+            'north-commerce'       => Handlers\NorthCommerceConverter::class,
+            'pp-heading'           => Handlers\PpHeadingConverter::class,
+            'pp-iconlist'          => Handlers\PpIconListConverter::class,
+            'pp-fluent-form'       => Handlers\PpFluentFormConverter::class,
         ];
         foreach ( $addons as $slug => $class ) {
             if ( class_exists( $class ) ) {

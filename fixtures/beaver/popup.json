@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "pop1": { "node": "pop1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "popup", "popup_id": "newsletter", "show_on": ["delay", "exit"], "show_delay": "5", "show_once": "per_user", "close_button": "enabled", "position": "center", "width": "500", "width_unit": "px", "bg_type": "color", "bg_color": "ffffff" } },
+    "h1":   { "node": "h1", "type": "module", "parent": "pop1", "position": 0, "settings": { "type": "heading", "heading": "Join the list", "tag": "h2" } },
+    "t1":   { "node": "t1", "type": "module", "parent": "pop1", "position": 1, "settings": { "type": "rich-text", "text": "<p>Weekly tips, no spam.</p>" } }
+  }
+}

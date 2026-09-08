@@ -43,7 +43,35 @@
 | pp-heading (PowerPack Advanced Heading) | prefix `divi/text` + `divi/heading` (secondary title inline) + `divi/divider` / `divi/icon` separator + sub-title `divi/text` | approximate; each piece goes through the Lite handler |
 | pp-iconlist (PowerPack Icon List) | one `divi/blurb` per item, icon left | approximate |
 | pp-fluent-form (PowerPack Fluent Forms) | `divi/code` with `[fluentform id="…"]` + PowerPack's form styling as CSS on Fluent Forms' markup; custom title/description → heading + text | approximate; needs Fluent Forms on the Divi site |
+| woocommerce (Pro) | product grids → `divi/shop` (type, count, columns, order, categories by ID); every other layout keeps the WooCommerce shortcode Beaver Builder itself renders (`[product]`, `[product_page]`, `[add_to_cart]`, `[product_categories]`, `[woocommerce_cart]`, `[woocommerce_checkout]`, `[woocommerce_order_tracking]`, `[woocommerce_my_account]`) in `divi/code` | approximate; product IDs/tags and unresolved category slugs use `[products …]` |
+| loop (2.11, Beaver Themer) | outer `divi/group` (flex wrap, gap) › `divi/group` with `module.advanced.loop` (query type, post types, per page, offset, order) › the child modules | approximate; pagination and "no results" text reported |
+| popup (2.11) | `divi/group` hidden on every device holding the popup's content | approximate; trigger/schedule/dismiss reported under interactions — needs a popup plugin |
+| bigcommerce-products (Pro) | `divi/code` with the `[bigcommerce_product …]` shortcode Beaver Builder renders | approximate; needs BigCommerce for WordPress |
+| north-commerce (Pro) | labelled placeholder naming the layout and product slug (North Commerce's shortcodes are undocumented) | reported as integration |
+| reusable-block ("WordPress Patterns") | the `wp_block` pattern rendered with `do_blocks()` into `divi/code`; a reference comment when WordPress is not loaded | exact (Lite source); static copy — later pattern edits no longer sync, reported |
+| widget | the widget rendered with `the_widget()` into `divi/code`; a labelled placeholder when the widget class is missing | exact (Lite source); static copy, reported |
+| acf-block | `divi/code` placeholder | text kept, reported |
 | anything else | `divi/code` placeholder | reported as unsupported |
+
+Beaver Builder's module reference (docs.wpbeaverbuilder.com → Layouts → Modules, 2.11 list of 44) is covered end to
+end; `tests/DocumentedModulesTest.php` pins the list.
+
+## Field connections (Beaver Themer)
+
+A connection is stored inline as a `[wpbb object:field attr='…']` shortcode in any text setting. After conversion
+every string in the block tree is scanned (`Helpers\FieldConnections`, called from the engine) and each connection
+with a Divi 5 dynamic-content option becomes a `$variable({"type":"content","value":{"name":…,"settings":…}})$`
+token, which Divi resolves in place — inside a loop item, against that item:
+
+| Beaver Themer | Divi 5 dynamic content |
+|---|---|
+| `post:title` · `post:excerpt length` · `post:date format` · `post:modified format` · `post:url` · `post:link` | `post_title` · `post_excerpt` (`words`) · `post_date` / `post_modified_date` (`date_format: custom`, `custom_date_format`) · `post_link_url` · `post_link` |
+| `post:featured_image size` · `post:author_name type` · `post:author_bio` · `post:author_profile_picture` · `post:author_url` | `post_featured_image` (`thumbnail_size`) · `post_author` (`name_format`) · `post_author_bio` · `post_author_profile_picture` · `post_author_url` |
+| `post:custom_field key` · `acf name` | `post_meta_key` (`meta_key`) |
+| `site:title` · `site:tagline` · `site:year format` · `site:date format` | `site_title` · `site_tagline` · `current_date` (`custom_date_format`, `Y` by default) |
+
+Anything else (terms lists, archive fields, Themer-only objects) stays as text and is listed under `not_carried_over`
+(`integration`) with its block; the report's `field_connections` counts the ones translated.
 
 Design settings: see `docs/divi5-schema.md` for every attribute path and the spec §6 for the mapping table.
 

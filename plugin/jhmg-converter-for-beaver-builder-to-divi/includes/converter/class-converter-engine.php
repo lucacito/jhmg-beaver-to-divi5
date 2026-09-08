@@ -3,6 +3,7 @@
 namespace BeaverDivi5Converter\Converter;
 
 use BeaverDivi5Converter\Converter\Registry\ConverterRegistry;
+use BeaverDivi5Converter\Helpers\FieldConnections;
 use BeaverDivi5Converter\Parsers\BeaverDocumentParser;
 use BeaverDivi5Converter\Parsers\NodeTree;
 
@@ -28,6 +29,8 @@ class ConverterEngine {
     private array $notCarriedOver     = [];
     /** @var array<string, string[]> add-on family label => node ids that carried it at its defaults */
     private array $addonDefaults      = [];
+    /** Beaver Themer field connections rewritten as Divi dynamic content. */
+    private int $fieldConnectionsTranslated = 0;
     private bool  $countingApproximate = false;
     /** @var array<int,array<string,string>> Colours rows and columns force on their descendants. */
     private array $inheritedColors = [];
@@ -54,6 +57,7 @@ class ConverterEngine {
         foreach ( $this->convertChildren( $roots ) as $block ) {
             $elements[] = $this->ensureSection( $block );
         }
+        $this->translateFieldConnections( $elements );
 
         return [
             'divi'        => [ 'elements' => $elements ],
@@ -82,6 +86,42 @@ class ConverterEngine {
         }
 
         return [ $tree['roots'], $settings ];
+    }
+
+    /**
+     * Beaver Themer field connections (`[wpbb post:title]`…) sit inline in any
+     * text setting. After conversion every string in the block tree is scanned
+     * once: connections Divi can express become dynamic-content tokens, the
+     * rest stay as text and are reported against their block.
+     */
+    private function translateFieldConnections( array &$blocks ): void {
+        foreach ( $blocks as &$block ) {
+            if ( ! is_array( $block ) ) {
+                continue;
+            }
+            $block_id = (string) ( $block['id'] ?? '' );
+            if ( isset( $block['settings'] ) && is_array( $block['settings'] ) ) {
+                $this->translateStrings( $block['settings'], $block_id );
+            }
+            if ( isset( $block['elements'] ) && is_array( $block['elements'] ) ) {
+                $this->translateFieldConnections( $block['elements'] );
+            }
+        }
+    }
+
+    private function translateStrings( array &$value, string $block_id ): void {
+        foreach ( $value as &$item ) {
+            if ( is_array( $item ) ) {
+                $this->translateStrings( $item, $block_id );
+            } elseif ( is_string( $item ) && str_contains( $item, '[wpbb' ) ) {
+                $result = FieldConnections::translate( $item );
+                $item   = $result['text'];
+                $this->fieldConnectionsTranslated += count( $result['translated'] );
+                foreach ( $result['unmapped'] as $shortcode ) {
+                    $this->logNotCarriedOver( 'integration', $block_id, "field connection {$shortcode} has no Divi dynamic content equivalent; kept as text" );
+                }
+            }
+        }
     }
 
     /** Layout-level custom CSS/JS has no home in a Divi page; it is reported, never emitted. */
@@ -283,6 +323,7 @@ class ConverterEngine {
             'unresolved_globals'  => $this->unresolvedGlobals,
             'not_carried_over'    => $this->notCarriedOver,
             'addon_settings_ignored' => array_map( 'count', $this->addonDefaults ),
+            'field_connections'   => $this->fieldConnectionsTranslated,
             'quality'             => [
                 'module_coverage' => $all > 0 ? (int) round( $converted / $all * 100 ) : 100,
                 'settings_issues' => count( $this->skippedSettings ),

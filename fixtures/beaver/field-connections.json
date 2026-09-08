@@ -1,0 +1,9 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "h1":   { "node": "h1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "[wpbb post:title]", "tag": "h1" } },
+    "t1":   { "node": "t1", "type": "module", "parent": "col1", "position": 1, "settings": { "type": "rich-text", "text": "<p>© [wpbb site:year format='Y'] [wpbb site:title] · [wpbb post:custom_field key='tagline_override'] · [wpbb post:terms_list taxonomy='category']</p>" } }
+  }
+}

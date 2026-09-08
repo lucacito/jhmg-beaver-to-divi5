@@ -136,3 +136,20 @@ Runtime keys never listed: `responsive_display_filtered`, `undefined`, `bt_defau
 (dimension: `row_padding_top`… + `row_padding_unit`), `column_padding` blank, `module_margins` 20. Every blank
 row/column/module side is rendered with these values by `FLBuilder::render_global_css`, so the converter fills
 them in the same way (`StyleMapper\GlobalSettingsResolver`).
+
+## Modules from Beaver Builder's reference not covered above
+
+- **woocommerce** (Pro; wraps WooCommerce shortcodes): `layout` = `single_product | product_page | products | add_to_cart | categories | cart | checkout | order_tracking | my_account`; `product_id`; products: source (`products_source`: ids | category | tag | recent | featured | sale | best_selling | top_rated), ids, category/tag slugs, number of products, columns (1–6), sort by (default | popularity | rating | date | price | id), sort direction; categories: autoselect parent, parent category ID, category IDs, sort by, direction, columns. Field keys are read with several spellings (documentation names only).
+- **loop** (2.11, Beaver Themer; container module): query `source` (custom_query | main_query | taxonomy_query), post type, offset, exclude current post, authors, taxonomy + terms; layout: item sizing (columns | item size), number of columns (large/medium/small), min/max width, gap; pagination (numbers | scroll | none), posts per page, no-results message, show search. Children are modules whose `parent` is the loop node, with field connections in their settings.
+- **popup** (2.11; container module): `popup_id`, show on (delay | scroll | exit), show delay, scroll percent, show once, schedule dates, close on ESC/click outside, close button + styling, position, width/height, backdrop.
+- **bigcommerce-products** (Pro): use pagination, products per page, featured-only, sale-only, recent-only → `[bigcommerce_product]`.
+- **north-commerce** (Pro): `layout` (none | product_page | product_gallery | product_slider | cart | checkout), `product_slug`, button colours/border.
+- **reusable-block** (Lite; "WordPress Patterns" in the UI, source `modules/reusable-block`): `block_id` = `block-<wp_block id>`; rendered by `do_blocks('<!-- wp:block {"ref":id} /-->')`. Beaver Builder also registers an alias module per pattern (`fl-reusable-block-<id>`) whose saved type is still `reusable-block`.
+- **widget** (Lite, source `modules/widget`): `widget` (or `widget_class`) = widget PHP class, `widget_title`, `widget_key`, and the widget's own form values under `widget-<id_base>`; rendered by `the_widget()`.
+- **acf-block** (Lite): the block is rebuilt from `acf` settings through ACF's block engine — left as a placeholder.
+
+## Field connections
+
+Beaver Themer stores a connection inline in the setting value as `[wpbb object:field attr='value']`
+(`[wpbb post:title]`, `[wpbb site:year format='Y']`, `[wpbb post:featured_image size='large']`, `[wpbb acf name='x']`…);
+the `connections` map beside the settings only records which properties are connected.

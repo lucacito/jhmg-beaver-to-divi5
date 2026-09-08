@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "loop1": { "node": "loop1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "loop", "source": "custom_query", "post_type": "post", "posts_per_page": "6", "offset": "0", "order_by": "date", "order": "DESC", "exclude_current_post": "yes", "columns": "3", "columns_medium": "2", "columns_responsive": "1", "gap": "24", "gap_unit": "px", "pagination": "numbers", "no_results_message": "Nothing found." } },
+    "h1":    { "node": "h1", "type": "module", "parent": "loop1", "position": 0, "settings": { "type": "heading", "heading": "[wpbb post:title]", "tag": "h3", "link": "[wpbb post:url]" } },
+    "t1":    { "node": "t1", "type": "module", "parent": "loop1", "position": 1, "settings": { "type": "rich-text", "text": "<p>[wpbb post:excerpt length='20'] — [wpbb post:date format='F j, Y'] by [wpbb post:author_name]</p>" } }
+  }
+}

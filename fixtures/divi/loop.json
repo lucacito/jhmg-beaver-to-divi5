@@ -1,0 +1,249 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "20px",
+                                            "right": "20px",
+                                            "bottom": "20px",
+                                            "left": "20px",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    },
+                                    "spacing": {
+                                        "desktop": {
+                                            "value": {
+                                                "padding": {
+                                                    "top": "0px",
+                                                    "right": "0px",
+                                                    "bottom": "0px",
+                                                    "left": "0px",
+                                                    "syncVertical": "off",
+                                                    "syncHorizontal": "off"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "sizing": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "flexType": "24_24"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "rowGap": "0px"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "loop1",
+                                        "name": "divi/group",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "layout": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "flexWrap": "wrap",
+                                                                "columnGap": "24px",
+                                                                "rowGap": "24px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "loop1-item",
+                                                "name": "divi/group",
+                                                "settings": {
+                                                    "module": {
+                                                        "advanced": {
+                                                            "loop": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "enable": "on",
+                                                                        "queryType": "post_types",
+                                                                        "subTypes": [
+                                                                            {
+                                                                                "value": "post"
+                                                                            }
+                                                                        ],
+                                                                        "postPerPage": "6",
+                                                                        "orderBy": "date",
+                                                                        "order": "DESC",
+                                                                        "excludeCurrentPost": "on"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "css": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "freeForm": "selector { flex: 0 0 calc((100% - 24px * 2) / 3); max-width: calc((100% - 24px * 2) / 3); min-width: 0; }"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": [
+                                                    {
+                                                        "id": "h1",
+                                                        "name": "divi/heading",
+                                                        "settings": {
+                                                            "module": {
+                                                                "decoration": {
+                                                                    "spacing": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "margin": {
+                                                                                    "top": "20px",
+                                                                                    "right": "20px",
+                                                                                    "bottom": "20px",
+                                                                                    "left": "20px",
+                                                                                    "syncVertical": "off",
+                                                                                    "syncHorizontal": "off"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "advanced": {
+                                                                    "link": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "url": "$variable({\"type\":\"content\",\"value\":{\"name\":\"post_link_url\",\"settings\":{}}})$"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "title": {
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": "$variable({\"type\":\"content\",\"value\":{\"name\":\"post_title\",\"settings\":{}}})$"
+                                                                    }
+                                                                },
+                                                                "decoration": {
+                                                                    "font": {
+                                                                        "font": {
+                                                                            "desktop": {
+                                                                                "value": {
+                                                                                    "headingLevel": "h3"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    },
+                                                    {
+                                                        "id": "t1",
+                                                        "name": "divi/text",
+                                                        "settings": {
+                                                            "module": {
+                                                                "decoration": {
+                                                                    "spacing": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "margin": {
+                                                                                    "top": "20px",
+                                                                                    "right": "20px",
+                                                                                    "bottom": "20px",
+                                                                                    "left": "20px",
+                                                                                    "syncVertical": "off",
+                                                                                    "syncHorizontal": "off"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "content": {
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": "<p>$variable({\"type\":\"content\",\"value\":{\"name\":\"post_excerpt\",\"settings\":{\"words\":\"20\"}}})$ — $variable({\"type\":\"content\",\"value\":{\"name\":\"post_date\",\"settings\":{\"date_format\":\"custom\",\"custom_date_format\":\"F j, Y\"}}})$ by $variable({\"type\":\"content\",\"value\":{\"name\":\"post_author\",\"settings\":{\"name_format\":\"display_name\"}}})$</p>"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

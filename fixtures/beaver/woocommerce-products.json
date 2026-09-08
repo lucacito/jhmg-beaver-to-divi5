@@ -1,0 +1,12 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "woocommerce", "layout": "products", "products_source": "featured", "products_per_page": "8", "products_columns": "4", "products_order_by": "price", "products_order": "desc" } },
+    "mod2": { "node": "mod2", "type": "module", "parent": "col1", "position": 1, "settings": { "type": "woocommerce", "layout": "products", "products_source": "ids", "products_ids": "12, 15,  20", "products_per_page": "3", "products_columns": "3" } },
+    "mod3": { "node": "mod3", "type": "module", "parent": "col1", "position": 2, "settings": { "type": "woocommerce", "layout": "cart" } },
+    "mod4": { "node": "mod4", "type": "module", "parent": "col1", "position": 3, "settings": { "type": "woocommerce", "layout": "add_to_cart", "product_id": "42" } },
+    "mod5": { "node": "mod5", "type": "module", "parent": "col1", "position": 4, "settings": { "type": "woocommerce", "layout": "categories", "categories_autoselect_parent": "no", "categories_parent_id": "7", "categories_columns": "3", "categories_order_by": "name", "categories_order": "asc" } }
+  }
+}
