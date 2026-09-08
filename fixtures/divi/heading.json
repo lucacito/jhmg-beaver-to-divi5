@@ -1,0 +1,124 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "",
+                                                                    "right": "",
+                                                                    "bottom": "10px",
+                                                                    "left": "",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "link": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "url": "https://example.test/contact",
+                                                                "target": "_blank",
+                                                                "rel": [
+                                                                    "nofollow"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Contact us"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "family": "Poppins",
+                                                                    "weight": "700",
+                                                                    "size": "48px",
+                                                                    "lineHeight": "1.2",
+                                                                    "textAlign": "center",
+                                                                    "color": "#1e293b",
+                                                                    "headingLevel": "h1"
+                                                                }
+                                                            },
+                                                            "phone": {
+                                                                "value": {
+                                                                    "size": "32px"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

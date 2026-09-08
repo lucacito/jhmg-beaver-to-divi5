@@ -1,0 +1,183 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "h1",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Outer"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "grp2",
+                                        "name": "divi/row",
+                                        "settings": {
+                                            "module": {
+                                                "advanced": {
+                                                    "columnStructure": {
+                                                        "desktop": {
+                                                            "value": "1_2,1_2"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "col2",
+                                                "name": "divi/column",
+                                                "settings": {
+                                                    "module": {
+                                                        "advanced": {
+                                                            "type": {
+                                                                "desktop": {
+                                                                    "value": "1_2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": [
+                                                    {
+                                                        "id": "h2",
+                                                        "name": "divi/heading",
+                                                        "settings": {
+                                                            "title": {
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": "Inner left"
+                                                                    }
+                                                                },
+                                                                "decoration": {
+                                                                    "font": {
+                                                                        "font": {
+                                                                            "desktop": {
+                                                                                "value": {
+                                                                                    "headingLevel": "h3"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "id": "col3",
+                                                "name": "divi/column",
+                                                "settings": {
+                                                    "module": {
+                                                        "advanced": {
+                                                            "type": {
+                                                                "desktop": {
+                                                                    "value": "1_2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": [
+                                                    {
+                                                        "id": "h3",
+                                                        "name": "divi/heading",
+                                                        "settings": {
+                                                            "title": {
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": "Inner right"
+                                                                    }
+                                                                },
+                                                                "decoration": {
+                                                                    "font": {
+                                                                        "font": {
+                                                                            "desktop": {
+                                                                                "value": {
+                                                                                    "headingLevel": "h3"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

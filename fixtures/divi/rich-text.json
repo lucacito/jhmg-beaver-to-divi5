@@ -1,0 +1,115 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/text",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "margin": {
+                                                                    "top": "0px",
+                                                                    "right": "",
+                                                                    "bottom": "",
+                                                                    "left": "",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "text": {
+                                                        "text": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "orientation": "left"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "decoration": {
+                                                    "bodyFont": {
+                                                        "body": {
+                                                            "font": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "size": "1.1em",
+                                                                        "lineHeight": "1.7",
+                                                                        "color": "#475569"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Lorem ipsum <strong>dolor</strong> sit amet.</p>\n<p>Second paragraph.</p>"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

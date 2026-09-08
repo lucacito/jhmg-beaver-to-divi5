@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "rich-text", "text": "<p>Lorem ipsum <strong>dolor</strong> sit amet.</p>\n<p>Second paragraph.</p>", "color": "475569", "typography": { "font_family": "Default", "font_weight": "default", "font_size": { "length": "1.1", "unit": "em" }, "line_height": { "length": "1.7", "unit": "" }, "text_align": "left" }, "margin_top": "0", "margin_unit": "px" } }
+  }
+}

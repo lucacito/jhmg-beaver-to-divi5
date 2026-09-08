@@ -1,0 +1,122 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#f1f5f9"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "imageIcon": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "type": "fa",
+                                                                "unicode": "&#xf0e0;",
+                                                                "weight": "400"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#0c7489"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<h4>Email us</h4>"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "bodyFont": {
+                                                        "body": {
+                                                            "font": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "size": "18px",
+                                                                        "color": "#1e293b"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

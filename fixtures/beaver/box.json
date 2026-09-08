@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "box1": { "node": "box1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "box", "layout": "flex", "flex_direction": "row", "gap": "20", "gap_unit": "px", "bg_type": "color", "bg_color": "f8fafc", "padding_top": "24", "padding_bottom": "24", "padding_left": "24", "padding_right": "24", "padding_unit": "px" } },
+    "h1":   { "node": "h1", "type": "module", "parent": "box1", "position": 0, "settings": { "type": "heading", "heading": "Inside the box", "tag": "h3" } },
+    "t1":   { "node": "t1", "type": "module", "parent": "box1", "position": 1, "settings": { "type": "rich-text", "text": "<p>Boxed text.</p>" } }
+  }
+}

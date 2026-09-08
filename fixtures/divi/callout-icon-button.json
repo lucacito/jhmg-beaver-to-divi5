@@ -1,0 +1,191 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/blurb",
+                                        "settings": {
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "text": "Call us"
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h4"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Talk to a human.</p>"
+                                                    }
+                                                }
+                                            },
+                                            "imageIcon": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "useIcon": "on",
+                                                            "icon": {
+                                                                "type": "fa",
+                                                                "unicode": "&#xf095;",
+                                                                "weight": "900"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "placement": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    },
+                                                    "color": {
+                                                        "desktop": {
+                                                            "value": "#2563eb"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    },
+                                    {
+                                        "id": "mod1-button",
+                                        "name": "divi/button",
+                                        "settings": {
+                                            "button": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "12px",
+                                                                    "right": "24px",
+                                                                    "bottom": "12px",
+                                                                    "left": "24px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "color": "#ffffff"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#2563eb"
+                                                            }
+                                                        }
+                                                    },
+                                                    "button": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "icon": {
+                                                                    "enable": "on",
+                                                                    "settings": {
+                                                                        "type": "fa",
+                                                                        "unicode": "&#xf095;",
+                                                                        "weight": "900"
+                                                                    },
+                                                                    "placement": "right",
+                                                                    "onHover": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "text": "Call now",
+                                                            "linkUrl": "tel:+123"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "advanced": {
+                                                    "alignment": {
+                                                        "desktop": {
+                                                            "value": "left"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

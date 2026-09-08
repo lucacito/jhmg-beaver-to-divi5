@@ -1,0 +1,198 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/cta",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#0f172a"
+                                                            }
+                                                        }
+                                                    },
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "40px",
+                                                                    "right": "",
+                                                                    "bottom": "40px",
+                                                                    "left": "",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "text": {
+                                                        "text": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "orientation": "center"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "color": "#ffffff",
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Ready to find out more?"
+                                                    }
+                                                }
+                                            },
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p>Drop us a line today for a free quote!</p>"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "bodyFont": {
+                                                        "body": {
+                                                            "font": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "color": "#cbd5e1"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "button": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": {
+                                                            "text": "Click Here",
+                                                            "linkUrl": "https://example.test/quote",
+                                                            "linkTarget": "_blank"
+                                                        }
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#22c55e"
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "color": "#ffffff"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "14px",
+                                                                    "right": "28px",
+                                                                    "bottom": "14px",
+                                                                    "left": "28px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "button": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "icon": {
+                                                                    "enable": "on",
+                                                                    "settings": {
+                                                                        "type": "fa",
+                                                                        "unicode": "&#xf061;",
+                                                                        "weight": "900"
+                                                                    },
+                                                                    "placement": "right",
+                                                                    "onHover": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

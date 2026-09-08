@@ -1,0 +1,221 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/row",
+                                        "settings": {
+                                            "module": {
+                                                "advanced": {
+                                                    "columnStructure": {
+                                                        "desktop": {
+                                                            "value": "4_4"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "mod1-col",
+                                                "name": "divi/column",
+                                                "settings": {
+                                                    "module": {
+                                                        "advanced": {
+                                                            "type": {
+                                                                "desktop": {
+                                                                    "value": "4_4"
+                                                                }
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "layout": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "display": "flex",
+                                                                        "flexDirection": "row",
+                                                                        "flexWrap": "wrap",
+                                                                        "alignItems": "center",
+                                                                        "justifyContent": "flex-end",
+                                                                        "columnGap": "10px",
+                                                                        "rowGap": "10px"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": [
+                                                    {
+                                                        "id": "mod1-1",
+                                                        "name": "divi/button",
+                                                        "settings": {
+                                                            "button": {
+                                                                "decoration": {
+                                                                    "spacing": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "padding": {
+                                                                                    "top": "10px",
+                                                                                    "right": "20px",
+                                                                                    "bottom": "10px",
+                                                                                    "left": "20px",
+                                                                                    "syncVertical": "off",
+                                                                                    "syncHorizontal": "off"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "font": {
+                                                                        "font": {
+                                                                            "desktop": {
+                                                                                "value": {
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "background": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "color": "#111111"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "text": "One",
+                                                                            "linkUrl": "https://example.test/one"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    },
+                                                    {
+                                                        "id": "mod1-2",
+                                                        "name": "divi/button",
+                                                        "settings": {
+                                                            "button": {
+                                                                "decoration": {
+                                                                    "spacing": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "padding": {
+                                                                                    "top": "10px",
+                                                                                    "right": "20px",
+                                                                                    "bottom": "10px",
+                                                                                    "left": "20px",
+                                                                                    "syncVertical": "off",
+                                                                                    "syncHorizontal": "off"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "font": {
+                                                                        "font": {
+                                                                            "desktop": {
+                                                                                "value": {
+                                                                                    "color": "#ffffff"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "background": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "color": "#111111"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "button": {
+                                                                        "desktop": {
+                                                                            "value": {
+                                                                                "icon": {
+                                                                                    "enable": "on",
+                                                                                    "settings": {
+                                                                                        "type": "fa",
+                                                                                        "unicode": "&#xf061;",
+                                                                                        "weight": "900"
+                                                                                    },
+                                                                                    "placement": "right",
+                                                                                    "onHover": "off"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "innerContent": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "text": "Two",
+                                                                            "linkUrl": "https://example.test/two",
+                                                                            "linkTarget": "_blank"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "elements": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

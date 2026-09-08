@@ -1,0 +1,101 @@
+<?php
+/**
+ * Runs a conversion without committing it.
+ *
+ * The one engine behind both the "Check this page" report and the commit:
+ * the preview shows a plan, a commit writes one. run() performs no database
+ * writes — ConversionPreflightTest asserts it against the in-memory stores.
+ */
+
+namespace BeaverDivi5Converter\Conversion;
+
+use BeaverDivi5Converter\Converter\ConverterEngine;
+use BeaverDivi5Converter\Exporters\DiviBlockSerializer;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+class ConversionPreflight {
+
+    /**
+     * Free converts one item per run; Pro raises this. A quantity boundary,
+     * not a feature flag: the whole loop ships in the free plugin.
+     */
+    const LIMIT_FILTER  = 'bdc_direct_conversion_limit';
+    const DEFAULT_LIMIT = 1;
+
+    private ?ConverterEngine $engine;
+    private DiviBlockSerializer $serializer;
+
+    /**
+     * @param ConverterEngine|null $engine Injected only by tests that need to observe
+     *   the engine. Left null in production so each item gets a fresh one — the
+     *   engine accumulates report state across convert() calls.
+     */
+    public function __construct( ?ConverterEngine $engine = null, ?DiviBlockSerializer $serializer = null ) {
+        $this->engine     = $engine;
+        $this->serializer = $serializer ?? new DiviBlockSerializer();
+    }
+
+    public static function limit(): int {
+        if ( ! function_exists( 'apply_filters' ) ) {
+            return self::DEFAULT_LIMIT;
+        }
+        return max( 1, (int) apply_filters( self::LIMIT_FILTER, self::DEFAULT_LIMIT ) );
+    }
+
+    /** Plan up to the limit; report whether the source held more. */
+    public function run( ConversionSource $source ): ConversionPlan {
+        $limit     = self::limit();
+        $all       = $source->items();
+        $truncated = count( $all ) > $limit;
+        $items     = array_slice( $all, 0, $limit );
+
+        $planned = [];
+        foreach ( $items as $item ) {
+            $planned[] = $this->planItem( $item );
+        }
+
+        return new ConversionPlan( $planned, $limit, $truncated );
+    }
+
+    /** Plan every item regardless of the cap (the Pro upload path). */
+    public function runUnlimited( ConversionSource $source ): ConversionPlan {
+        $planned = [];
+        foreach ( $source->items() as $item ) {
+            $planned[] = $this->planItem( $item );
+        }
+        return new ConversionPlan( $planned, PHP_INT_MAX, false );
+    }
+
+    private function planItem( array $item ): array {
+        $base = [
+            'title'         => $item['title'] ?? '',
+            'post_type'     => $item['post_type'] ?? 'page',
+            'post_name'     => $item['post_name'] ?? '',
+            'template_type' => $item['template_type'] ?? '',
+            'source_ref'    => $item['source_ref'] ?? [],
+        ];
+
+        $incoming_error = (string) ( $item['error'] ?? '' );
+        if ( $incoming_error !== '' ) {
+            return ConversionPlan::item( $base + [ 'error' => $incoming_error ] );
+        }
+
+        try {
+            $engine    = $this->engine ?? new ConverterEngine();
+            $converted = $engine->convert( [ 'nodes' => $item['nodes'] ?? [], 'settings' => $item['settings'] ?? [] ] );
+
+            return ConversionPlan::item( $base + [
+                'blocks'      => $converted['divi'] ?? [],
+                'content'     => $this->serializer->serialize( $converted ),
+                'report'      => $converted['report'] ?? [],
+                'unsupported' => $converted['unsupported'] ?? [],
+                'outline'     => ConversionOutline::build( $converted['divi']['elements'] ?? [] ),
+            ] );
+        } catch ( \Throwable $e ) {
+            return ConversionPlan::item( $base + [ 'error' => $e->getMessage() ] );
+        }
+    }
+}

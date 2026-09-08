@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "video", "video_type": "media_library", "video": 901, "data": { "id": 901, "url": "https://example.test/wp-content/uploads/clip.mp4", "extension": "mp4" }, "video_webm": "", "poster": 902, "poster_src": "https://example.test/wp-content/uploads/poster.jpg", "video_lightbox": "yes", "autoplay": "1", "loop": "0" } }
+  }
+}

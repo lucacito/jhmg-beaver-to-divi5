@@ -1,0 +1,108 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/circle-counter",
+                                        "settings": {
+                                            "number": {
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "color": "#0f172a"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "75"
+                                                    }
+                                                },
+                                                "advanced": {
+                                                    "percentSign": {
+                                                        "desktop": {
+                                                            "value": "on"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Complete"
+                                                    }
+                                                }
+                                            },
+                                            "circle": {
+                                                "advanced": {
+                                                    "circle": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#2563eb",
+                                                                "backgroundColor": "#e2e8f0"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

@@ -1,0 +1,160 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "grp1-col",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "layout": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "flexWrap": "wrap",
+                                                        "alignItems": "stretch"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "col1",
+                                        "name": "divi/group",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#eeeeee"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector { width: 37%; box-sizing: border-box; }"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "h1",
+                                                "name": "divi/heading",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Narrow"
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "font": {
+                                                                "font": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "headingLevel": "h3"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "col2",
+                                        "name": "divi/group",
+                                        "settings": {
+                                            "css": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "freeForm": "selector { width: 63%; box-sizing: border-box; }"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "h2",
+                                                "name": "divi/heading",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Wide"
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "font": {
+                                                                "font": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "headingLevel": "h3"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

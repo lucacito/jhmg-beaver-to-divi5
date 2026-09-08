@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "callout", "title": "Fast delivery", "title_tag": "h3", "text": "We ship within 24 hours.", "image_type": "photo", "photo": 12, "photo_src": "https://example.test/truck.jpg", "photo_position": "above-title", "cta_type": "link", "cta_text": "Learn more", "link": "https://example.test/shipping", "link_target": "_self", "align": "center", "bg_color": "f8fafc", "padding_top": "20", "padding_bottom": "20", "padding_unit": "px", "title_color": "0f172a", "content_color": "475569", "title_typography": { "font_size": { "length": "22", "unit": "px" } } } }
+  }
+}

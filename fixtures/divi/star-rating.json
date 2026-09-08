@@ -1,0 +1,84 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/text",
+                                        "settings": {
+                                            "content": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "<p class=\"bdc-star-rating\" aria-label=\"4 out of 5\"><span class=\"bdc-star-rating-filled\">★★★★</span><span class=\"bdc-star-rating-empty\">☆</span></p>"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "bodyFont": {
+                                                        "body": {
+                                                            "font": {
+                                                                "desktop": {
+                                                                    "value": {
+                                                                        "color": "#fd0"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

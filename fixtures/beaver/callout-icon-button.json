@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "callout", "title": "Call us", "title_tag": "h4", "text": "Talk to a human.", "image_type": "icon", "icon": "fas fa-phone", "icon_position": "left-title", "icon_color": "2563eb", "cta_type": "button", "btn_text": "Call now", "link": "tel:+123", "link_target": "_self", "btn_bg_color": "2563eb", "btn_text_color": "ffffff", "btn_padding_top": "12", "btn_padding_bottom": "12", "btn_padding_left": "24", "btn_padding_right": "24", "btn_align": "left", "btn_icon": "fas fa-phone" } }
+  }
+}

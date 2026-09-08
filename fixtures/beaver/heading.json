@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "heading", "heading": "Contact us", "tag": "h1", "link": "https://example.test/contact", "link_target": "_blank", "link_nofollow": "yes", "color": "1e293b", "typography": { "font_family": "Poppins", "font_weight": "700", "font_size": { "length": "48", "unit": "px" }, "line_height": { "length": "1.2", "unit": "" }, "text_align": "center", "letter_spacing": { "length": "" }, "text_transform": "", "text_decoration": "", "font_style": "", "font_variant": "", "text_shadow": { "color": "", "horizontal": "", "vertical": "", "blur": "" } }, "typography_responsive": { "font_size": { "length": "32", "unit": "px" } }, "margin_bottom": "10", "margin_unit": "px", "responsive_display": "" } }
+  }
+}

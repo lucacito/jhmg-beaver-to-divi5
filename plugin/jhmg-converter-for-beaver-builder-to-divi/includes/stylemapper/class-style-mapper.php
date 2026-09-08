@@ -297,7 +297,8 @@ class StyleMapper {
      * Beaver Builder dimension field (`padding_top`… + `padding_unit`, per
      * breakpoint) → a Divi spacing value at $path.{bp}.value.$prop.
      */
-    public function applySpacing( array $settings, string $prop, string $path, array &$attrs, array &$handled ): void {
+    public function applySpacing( array $settings, string $prop, string $path, array &$attrs, array &$handled, ?string $write_as = null ): void {
+        $write_as = $write_as ?? $prop;
         foreach ( array_merge( self::BREAKPOINTS, [ '_large' => null ] ) as $suffix => $bp ) {
             $sides = [];
             foreach ( [ 'top', 'right', 'bottom', 'left' ] as $side ) {
@@ -314,7 +315,7 @@ class StyleMapper {
                 continue;
             }
 
-            self::write( $attrs, "{$path}.{$bp}.value.{$prop}", array_merge(
+            self::write( $attrs, "{$path}.{$bp}.value.{$write_as}", array_merge(
                 [ 'top' => '', 'right' => '', 'bottom' => '', 'left' => '' ],
                 $sides,
                 [ 'syncVertical' => 'off', 'syncHorizontal' => 'off' ]

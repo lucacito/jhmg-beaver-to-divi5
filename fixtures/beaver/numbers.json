@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "numbers", "layout": "default", "number": "250", "start_number": "0", "max_number": "500", "number_type": "standard", "number_prefix": "", "number_suffix": "+", "before_number_text": "Happy clients", "text_color": "475569", "number_color": "0f172a", "number_typography": { "font_size": { "length": "48", "unit": "px" } } } }
+  }
+}

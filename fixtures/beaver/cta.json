@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "cta", "title": "Ready to find out more?", "title_tag": "h3", "text": "Drop us a line today for a free quote!", "layout": "stacked", "alignment": "center", "bg_color": "0f172a", "text_color": "cbd5e1", "title_color": "ffffff", "btn_text": "Click Here", "btn_link": "https://example.test/quote", "btn_link_target": "_blank", "btn_bg_color": "22c55e", "btn_text_color": "ffffff", "btn_padding_top": "14", "btn_padding_bottom": "14", "btn_padding_left": "28", "btn_padding_right": "28", "btn_icon": "fas fa-arrow-right", "btn_icon_position": "after", "wrap_padding_top": "40", "wrap_padding_bottom": "40", "wrap_padding_unit": "px", "btn_bg_hover_color": "16a34a" } }
+  }
+}

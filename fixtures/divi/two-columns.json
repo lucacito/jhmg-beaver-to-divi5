@@ -1,0 +1,159 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": {
+                    "module": {
+                        "decoration": {
+                            "spacing": {
+                                "desktop": {
+                                    "value": {
+                                        "padding": {
+                                            "top": "60px",
+                                            "right": "",
+                                            "bottom": "60px",
+                                            "left": "",
+                                            "syncVertical": "off",
+                                            "syncHorizontal": "off"
+                                        }
+                                    }
+                                }
+                            },
+                            "background": {
+                                "desktop": {
+                                    "value": {
+                                        "color": "#102a43"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "2_3,1_3"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "2_3"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "h1",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Left"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "col2",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "1_3"
+                                                }
+                                            }
+                                        },
+                                        "decoration": {
+                                            "background": {
+                                                "desktop": {
+                                                    "value": {
+                                                        "color": "#ffffff"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "h2",
+                                        "name": "divi/heading",
+                                        "settings": {
+                                            "title": {
+                                                "innerContent": {
+                                                    "desktop": {
+                                                        "value": "Right"
+                                                    }
+                                                },
+                                                "decoration": {
+                                                    "font": {
+                                                        "font": {
+                                                            "desktop": {
+                                                                "value": {
+                                                                    "headingLevel": "h3"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

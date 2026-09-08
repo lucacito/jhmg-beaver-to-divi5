@@ -1,0 +1,90 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/divider",
+                                        "settings": {
+                                            "divider": {
+                                                "advanced": {
+                                                    "line": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "show": "on",
+                                                                "color": "#e2e8f0",
+                                                                "style": "dashed",
+                                                                "weight": "2px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "module": {
+                                                "decoration": {
+                                                    "sizing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "width": "60%",
+                                                                "alignment": "center"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

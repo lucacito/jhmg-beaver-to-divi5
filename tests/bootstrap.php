@@ -217,7 +217,8 @@ if ( ! function_exists( 'wp_trash_post' ) ) {
     }
 }
 if ( ! function_exists( 'get_term_by' ) ) {
-    // Tests seed $GLOBALS['__test_nav_menus'] = [ 'slug' => id ].
+    // Tests seed $GLOBALS['__test_nav_menus'] = [ 'slug' => id ]; one menu exists by default.
+    $GLOBALS['__test_nav_menus'] = [ 'main-menu' => 7 ];
     function get_term_by( $field, $value, $taxonomy ) {
         $menus = $GLOBALS['__test_nav_menus'] ?? [];
         if ( $field === 'slug' && isset( $menus[ $value ] ) ) {

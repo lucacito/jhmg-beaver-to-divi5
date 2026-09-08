@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "photo", "photo_source": "library", "photo": 845, "photo_src": "https://example.test/wp-content/uploads/2020/02/team.jpg", "data": { "id": 845, "alt": "Our team at work", "caption": "", "title": "team" }, "crop": "circle", "width": "300", "width_unit": "px", "align": "center", "link_type": "url", "link_url": "https://example.test/about", "link_url_target": "_blank", "link_url_nofollow": "no", "border": { "style": "", "color": "", "width": { "top": "", "right": "", "bottom": "", "left": "" }, "radius": { "top_left": "3", "top_right": "3", "bottom_left": "3", "bottom_right": "3" }, "shadow": { "color": "rgba(0,0,0,0.25)", "horizontal": "5", "vertical": "5", "blur": "20", "spread": "0" } } } }
+  }
+}

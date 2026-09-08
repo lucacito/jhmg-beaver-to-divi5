@@ -1,0 +1,8 @@
+{
+  "nodes": {
+    "row1": { "node": "row1", "type": "row", "parent": null, "position": 0, "settings": {} },
+    "grp1": { "node": "grp1", "type": "column-group", "parent": "row1", "position": 0, "settings": "" },
+    "col1": { "node": "col1", "type": "column", "parent": "grp1", "position": 0, "settings": { "size": 100 } },
+    "mod1": { "node": "mod1", "type": "module", "parent": "col1", "position": 0, "settings": { "type": "button-group", "button_group_label": "Actions", "layout": "horizontal", "items": [ { "text": "One", "link": "https://example.test/one", "link_target": "_self", "icon": "" }, { "text": "Two", "link": "https://example.test/two", "link_target": "_blank", "icon": "fas fa-arrow-right", "icon_position": "after" } ], "bg_color": "111111", "text_color": "ffffff", "align": "right", "button_padding_top": "10", "button_padding_bottom": "10", "button_padding_left": "20", "button_padding_right": "20" } }
+  }
+}

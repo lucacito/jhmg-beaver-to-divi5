@@ -1,0 +1,106 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "mod1",
+                                        "name": "divi/tabs",
+                                        "settings": [],
+                                        "elements": [
+                                            {
+                                                "id": "mod1-tab-1",
+                                                "name": "divi/tab",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Tab A"
+                                                            }
+                                                        }
+                                                    },
+                                                    "content": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "<p>Alpha</p>"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            },
+                                            {
+                                                "id": "mod1-tab-2",
+                                                "name": "divi/tab",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Tab B"
+                                                            }
+                                                        }
+                                                    },
+                                                    "content": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "<p>Beta</p>"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}

@@ -1,0 +1,139 @@
+{
+    "divi": {
+        "elements": [
+            {
+                "id": "row1",
+                "name": "divi/section",
+                "settings": [],
+                "elements": [
+                    {
+                        "id": "grp1",
+                        "name": "divi/row",
+                        "settings": {
+                            "module": {
+                                "decoration": {
+                                    "sizing": {
+                                        "desktop": {
+                                            "value": {
+                                                "maxWidth": "1100px"
+                                            }
+                                        }
+                                    }
+                                },
+                                "advanced": {
+                                    "columnStructure": {
+                                        "desktop": {
+                                            "value": "4_4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "elements": [
+                            {
+                                "id": "col1",
+                                "name": "divi/column",
+                                "settings": {
+                                    "module": {
+                                        "advanced": {
+                                            "type": {
+                                                "desktop": {
+                                                    "value": "4_4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "id": "box1",
+                                        "name": "divi/group",
+                                        "settings": {
+                                            "module": {
+                                                "decoration": {
+                                                    "spacing": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "padding": {
+                                                                    "top": "24px",
+                                                                    "right": "24px",
+                                                                    "bottom": "24px",
+                                                                    "left": "24px",
+                                                                    "syncVertical": "off",
+                                                                    "syncHorizontal": "off"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "background": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "color": "#f8fafc"
+                                                            }
+                                                        }
+                                                    },
+                                                    "layout": {
+                                                        "desktop": {
+                                                            "value": {
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "columnGap": "20px",
+                                                                "rowGap": "20px"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "id": "h1",
+                                                "name": "divi/heading",
+                                                "settings": {
+                                                    "title": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "Inside the box"
+                                                            }
+                                                        },
+                                                        "decoration": {
+                                                            "font": {
+                                                                "font": {
+                                                                    "desktop": {
+                                                                        "value": {
+                                                                            "headingLevel": "h3"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            },
+                                            {
+                                                "id": "t1",
+                                                "name": "divi/text",
+                                                "settings": {
+                                                    "content": {
+                                                        "innerContent": {
+                                                            "desktop": {
+                                                                "value": "<p>Boxed text.</p>"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "elements": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "unsupported": []
+}
