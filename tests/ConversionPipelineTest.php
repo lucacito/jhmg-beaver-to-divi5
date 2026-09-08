@@ -16,7 +16,7 @@ class FakeBeaverSource implements ConversionSource {
 final class ConversionPipelineTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         $GLOBALS['__test_posts']    = [];
         $GLOBALS['__test_postmeta'] = [];
     }
@@ -143,8 +143,8 @@ final class ConversionPipelineTest extends TestCase {
         $this->assertSame( 'page', $post->post_type );
         $this->assertStringContainsString( 'wp:divi/heading', $post->post_content );
         $this->assertSame( 'on', get_post_meta( $post->ID, '_et_pb_use_divi_5', true ) );
-        $this->assertSame( 'direct', get_post_meta( $post->ID, '_bdc_import_source', true ) );
-        $this->assertSame( 7, get_post_meta( $post->ID, '_bdc_source_post_id', true ) );
+        $this->assertSame( 'direct', get_post_meta( $post->ID, '_bbdc_import_source', true ) );
+        $this->assertSame( 7, get_post_meta( $post->ID, '_bbdc_source_post_id', true ) );
     }
 
     public function test_commit_keeps_failures_and_never_touches_the_source_post(): void {
@@ -173,7 +173,7 @@ final class ConversionPipelineTest extends TestCase {
             public function saveHeader( string $title, array $data, array $ref ): array { $this->calls[] = [ 'header', $title, $ref ]; return [ 'post_id' => 55, 'template_id' => 56, 'theme_builder_id' => 57, 'success' => true, 'error' => '' ]; }
             public function saveFooter( string $title, array $data, array $ref ): array { $this->calls[] = [ 'footer', $title, $ref ]; return [ 'post_id' => 65, 'template_id' => 66, 'theme_builder_id' => 67, 'success' => true, 'error' => '' ]; }
         };
-        add_filter( 'bdc_direct_conversion_limit', fn() => 5 );
+        add_filter( 'bbdc_direct_conversion_limit', fn() => 5 );
         $plan    = ( new ConversionPreflight() )->run( new FakeBeaverSource( [ $this->item( 'H', [ 'template_type' => 'header' ] ), $this->item( 'F', [ 'template_type' => 'footer' ] ) ] ) );
         $results = ( new ConversionCommitter( null, $exporter ) )->commit( $plan );
 

@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class RowConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_section_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_section_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style         = $this->mapStyle( 'row', $node );

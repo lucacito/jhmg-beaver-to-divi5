@@ -36,7 +36,7 @@ class GenericFallbackConverter extends BaseBeaverConverter {
     }
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_code_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_code_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $this->engine->logWarning(

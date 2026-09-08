@@ -95,7 +95,7 @@ class ProPage {
         $results   = $this->convert_layouts( $ids );
         $import_id = wp_generate_uuid4();
         ( new ImportHistory() )->record( $import_id, $results );
-        set_transient( 'bdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
+        set_transient( 'bbdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
         $this->redirect( add_query_arg( [ 'page' => AdminPage::MENU_SLUG, 'action' => 'batch_result', 'import_id' => $import_id ], admin_url( 'tools.php' ) ) );
     }
 

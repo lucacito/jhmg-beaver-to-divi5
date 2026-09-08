@@ -7,7 +7,7 @@ use BeaverDivi5Converter\Converter\ConverterEngine;
 final class ContentHandlersTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     private function convertModule( array $settings ): array {

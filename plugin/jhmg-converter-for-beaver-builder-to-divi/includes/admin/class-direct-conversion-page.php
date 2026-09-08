@@ -6,7 +6,7 @@
  * Two safety properties are enforced here rather than in markup:
  *  - The rendered picker is never trusted on the way back in. Every submitted
  *    post ID is re-verified as an existing Beaver Builder-built post.
- *  - The selection is capped server-side at bdc_direct_conversion_limit.
+ *  - The selection is capped server-side at bbdc_direct_conversion_limit.
  */
 
 namespace BeaverDivi5Converter\Admin;
@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class DirectConversionPage {
 
-    const CHECK_ACTION   = 'bdc_direct_check';
-    const CONVERT_ACTION = 'bdc_direct_convert';
-    const CHECK_NONCE    = 'bdc_direct_check_nonce';
-    const CONVERT_NONCE  = 'bdc_direct_convert_nonce';
+    const CHECK_ACTION   = 'bbdc_direct_check';
+    const CONVERT_ACTION = 'bbdc_direct_convert';
+    const CHECK_NONCE    = 'bbdc_direct_check_nonce';
+    const CONVERT_NONCE  = 'bbdc_direct_convert_nonce';
     const CAPABILITY     = 'manage_options';
 
     /** A checked selection lives here (per user) between the check step and the report render. */
-    const PLAN_IDS_TRANSIENT_PREFIX = 'bdc_direct_plan_ids_';
+    const PLAN_IDS_TRANSIENT_PREFIX = 'bbdc_direct_plan_ids_';
 
     private BeaverPageRepository $repo;
 
@@ -49,7 +49,7 @@ class DirectConversionPage {
      * @return int[] Post IDs that are real, Beaver Builder-built, and deduplicated.
      */
     public function verified_post_ids( array $request ): array {
-        $raw = $request['bdc_post_ids'] ?? [];
+        $raw = $request['bbdc_post_ids'] ?? [];
         if ( ! is_array( $raw ) ) {
             $raw = [ $raw ];
         }
@@ -114,7 +114,7 @@ class DirectConversionPage {
         }
 
         $input_type = $limit > 1 ? 'checkbox' : 'radio';
-        $name       = $limit > 1 ? 'bdc_post_ids[]' : 'bdc_post_ids';
+        $name       = $limit > 1 ? 'bbdc_post_ids[]' : 'bbdc_post_ids';
 
         $html .= '<form method="post" class="bdc-direct-picker">';
         $html .= wp_nonce_field( self::CHECK_ACTION, self::CHECK_NONCE, true, false );
@@ -142,7 +142,7 @@ class DirectConversionPage {
         return '<form method="get" class="bdc-direct-search">'
             . '<input type="hidden" name="page" value="' . esc_attr( AdminPage::MENU_SLUG ) . '">'
             . '<label class="screen-reader-text" for="bdc-direct-search-input">' . esc_html__( 'Search Beaver Builder pages', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</label>'
-            . '<input type="search" id="bdc-direct-search-input" name="bdc_s" value="' . esc_attr( $search ) . '" placeholder="' . esc_attr( __( 'Search by title…', 'jhmg-converter-for-beaver-builder-to-divi' ) ) . '">'
+            . '<input type="search" id="bdc-direct-search-input" name="bbdc_s" value="' . esc_attr( $search ) . '" placeholder="' . esc_attr( __( 'Search by title…', 'jhmg-converter-for-beaver-builder-to-divi' ) ) . '">'
             . '<button type="submit" class="button">' . esc_html__( 'Search', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</button></form>';
     }
 
@@ -152,7 +152,7 @@ class DirectConversionPage {
         }
         $base = [ 'page' => AdminPage::MENU_SLUG ];
         if ( $search !== '' ) {
-            $base['bdc_s'] = $search;
+            $base['bbdc_s'] = $search;
         }
         $html = '<p class="bdc-direct-pager">';
         if ( $paged > 1 ) {
@@ -205,7 +205,7 @@ class DirectConversionPage {
             $html .= '<form method="post" class="bdc-direct-convert">' . wp_nonce_field( self::CONVERT_ACTION, self::CONVERT_NONCE, true, false );
             $html .= '<input type="hidden" name="action" value="' . esc_attr( self::CONVERT_ACTION ) . '">';
             foreach ( $ids as $id ) {
-                $html .= '<input type="hidden" name="bdc_post_ids[]" value="' . esc_attr( (string) $id ) . '">';
+                $html .= '<input type="hidden" name="bbdc_post_ids[]" value="' . esc_attr( (string) $id ) . '">';
             }
             $html .= '<p><button type="submit" class="button button-primary">' . esc_html__( 'Convert to Divi 5', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</button></p>';
             $html .= '<p class="description">' . esc_html__( 'Creates a new Divi draft. Your Beaver Builder page is left exactly as it is.', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</p></form>';
@@ -227,16 +227,20 @@ class DirectConversionPage {
         }
         if ( $action === self::CHECK_ACTION ) {
             check_admin_referer( self::CHECK_ACTION, self::CHECK_NONCE );
-            $this->handle_check();
+            $this->handle_check( wp_unslash( $_POST ) );
             return;
         }
         check_admin_referer( self::CONVERT_ACTION, self::CONVERT_NONCE );
-        $this->handle_convert();
+        $this->handle_convert( wp_unslash( $_POST ) );
     }
 
-    /** Verified but uncapped, stashed per user; the report screen re-plans from the stash. */
-    protected function handle_check(): void {
-        $ids = $this->verified_post_ids( wp_unslash( $_POST ) );
+    /**
+     * Verified but uncapped, stashed per user; the report screen re-plans from the stash.
+     *
+     * @param array $request The nonce-verified, unslashed POST body.
+     */
+    protected function handle_check( array $request ): void {
+        $ids = $this->verified_post_ids( $request );
         if ( empty( $ids ) ) {
             wp_die( esc_html__( 'Pick a page to check first.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
@@ -244,9 +248,13 @@ class DirectConversionPage {
         $this->redirect( add_query_arg( [ 'page' => AdminPage::MENU_SLUG, 'action' => AdminPage::VIEW_DIRECT_REPORT ], admin_url( 'tools.php' ) ) );
     }
 
-    /** Commits the plan and lands on the batch result screen, recorded in ImportHistory so it can be undone. */
-    protected function handle_convert(): void {
-        $ids = $this->selected_post_ids( wp_unslash( $_POST ) );
+    /**
+     * Commits the plan and lands on the batch result screen, recorded in ImportHistory so it can be undone.
+     *
+     * @param array $request The nonce-verified, unslashed POST body.
+     */
+    protected function handle_convert( array $request ): void {
+        $ids = $this->selected_post_ids( $request );
         if ( empty( $ids ) ) {
             wp_die( esc_html__( 'No pages were selected to convert.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
@@ -256,7 +264,7 @@ class DirectConversionPage {
 
         $import_id = wp_generate_uuid4();
         ( new ImportHistory() )->record( $import_id, $results );
-        set_transient( 'bdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
+        set_transient( 'bbdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
 
         $this->redirect( add_query_arg( [ 'page' => AdminPage::MENU_SLUG, 'action' => 'batch_result', 'import_id' => $import_id ], admin_url( 'tools.php' ) ) );
     }

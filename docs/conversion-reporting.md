@@ -1,7 +1,7 @@
 # Conversion reporting
 
 Every conversion produces a report, shown on the check screen and the results screen and stored in
-`_bdc_conversion_report` on the new post.
+`_bbdc_conversion_report` on the new post.
 
 ```json
 {
@@ -30,4 +30,4 @@ Every conversion produces a report, shown on the check screen and the results sc
 | `unsupported` | Modules with no handler; each left a labelled placeholder. |
 | `quality.module_coverage` | converted ÷ (converted + approximate + unsupported), percent. |
 
-Read it back: `wp post meta get <id> _bdc_conversion_report`.
+Read it back: `wp post meta get <id> _bbdc_conversion_report`.

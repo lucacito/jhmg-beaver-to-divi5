@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class LoopConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_loop_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_loop_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style   = $this->mapStyle( 'group', $node );

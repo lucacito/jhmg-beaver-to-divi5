@@ -6,7 +6,7 @@ use BeaverDivi5Converter\Helpers\Color;
 final class ColorTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     public function test_bare_hex_gains_a_hash(): void {

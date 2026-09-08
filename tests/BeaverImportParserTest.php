@@ -10,7 +10,7 @@ final class BeaverImportParserTest extends TestCase {
     private const DIR = __DIR__ . '/../fixtures/beaver-import/';
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         $GLOBALS['__test_posts']    = [];
         $GLOBALS['__test_postmeta'] = [];
     }
@@ -110,13 +110,13 @@ final class BeaverImportParserTest extends TestCase {
 
         $this->assertCount( 2, $results );
         $this->assertTrue( $results[0]['success'] );
-        $this->assertSame( 'file_upload', get_post_meta( $results[0]['post_id'], '_bdc_import_source', true ) );
+        $this->assertSame( 'file_upload', get_post_meta( $results[0]['post_id'], '_bbdc_import_source', true ) );
         $this->assertTrue( $results[1]['skipped'] );
         $this->assertStringContainsString( '2 more pages', $results[1]['title'] );
     }
 
     public function test_batch_importer_converts_everything_when_the_limit_is_raised(): void {
-        add_filter( 'bdc_direct_conversion_limit', fn() => PHP_INT_MAX );
+        add_filter( 'bbdc_direct_conversion_limit', fn() => PHP_INT_MAX );
         $items   = ( new BeaverImportParser() )->parse( self::DIR . 'two-pages.xml', 'two-pages.xml' );
         $results = ( new BatchImporter() )->import( $items );
 

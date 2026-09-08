@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TestimonialsConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_testimonial_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_testimonial_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style  = $this->mapStyle( 'generic', $node );

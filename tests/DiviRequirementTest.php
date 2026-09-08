@@ -6,7 +6,7 @@ use BeaverDivi5Converter\Helpers\DiviRequirement;
 final class DiviRequirementTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     public function test_it_is_satisfied_by_divi_5(): void {
@@ -40,7 +40,7 @@ final class DiviRequirementTest extends TestCase {
         DiviRequirement::on_activation();
         $this->assertSame( 'missing', get_option( DiviRequirement::ACTIVATION_NOTICE_OPTION ) );
 
-        bdc_test_reset_divi();
+        bbdc_test_reset_divi();
         DiviRequirement::on_activation();
         $this->assertFalse( get_option( DiviRequirement::ACTIVATION_NOTICE_OPTION ) );
     }

@@ -14,12 +14,12 @@ use BeaverDivi5Converter\Telemetry\CoverageTelemetry;
 final class AdminSupportTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         $GLOBALS['__test_posts']     = [];
         $GLOBALS['__test_postmeta']  = [];
         $GLOBALS['__test_user_meta'] = [];
         $GLOBALS['__test_trashed']   = [];
-        $GLOBALS['bdc_test_http']    = [ 'queue' => [], 'log' => [] ];
+        $GLOBALS['bbdc_test_http']    = [ 'queue' => [], 'log' => [] ];
         unset( $GLOBALS['__test_caps'] );
     }
 
@@ -41,7 +41,7 @@ final class AdminSupportTest extends TestCase {
         $GLOBALS['__test_posts'][5] = (object) [ 'ID' => 5, 'post_title' => 'Home', 'post_type' => 'page', 'post_status' => 'publish', 'post_modified' => '2026-09-01' ];
         $GLOBALS['__test_posts'][6] = (object) [ 'ID' => 6, 'post_title' => '', 'post_type' => 'page', 'post_status' => 'draft', 'post_modified' => '2026-09-02' ];
         wp_insert_post( [ 'post_type' => 'page', 'post_title' => 'Converted copy' ] );
-        update_post_meta( 1000, '_bdc_source_post_id', 5 );
+        update_post_meta( 1000, '_bbdc_source_post_id', 5 );
 
         $rows = ( new BeaverPageRepository( fn() => [ $GLOBALS['__test_posts'][5], $GLOBALS['__test_posts'][6] ] ) )->find();
 
@@ -78,7 +78,7 @@ final class AdminSupportTest extends TestCase {
     public function test_rollback_trashes_only_posts_the_plugin_still_owns(): void {
         wp_insert_post( [ 'post_type' => 'page', 'ID' => 300 ] );
         wp_insert_post( [ 'post_type' => 'page', 'ID' => 301 ] );
-        update_post_meta( 300, '_bdc_import_source', 'direct' );
+        update_post_meta( 300, '_bbdc_import_source', 'direct' );
         $history = new ImportHistory();
         $history->record( 'run-a', [ [ 'success' => true, 'post_id' => 300 ], [ 'success' => true, 'post_id' => 301 ] ] );
 
@@ -108,18 +108,18 @@ final class AdminSupportTest extends TestCase {
 
         $telemetry = new CoverageTelemetry( $history, '2026-09-08' );
         $telemetry->maybe_send();
-        $this->assertSame( [], $GLOBALS['bdc_test_http']['log'], 'nothing leaves the site without consent' );
+        $this->assertSame( [], $GLOBALS['bbdc_test_http']['log'], 'nothing leaves the site without consent' );
 
         update_option( CoverageTelemetry::CONSENT_OPTION, '1' );
         $telemetry->maybe_send();
 
-        $this->assertCount( 1, $GLOBALS['bdc_test_http']['log'] );
-        $this->assertSame( CoverageTelemetry::ENDPOINT, $GLOBALS['bdc_test_http']['log'][0]['url'] );
-        $this->assertSame( [ 'product' => 'beaver-to-divi5', 'widget_types' => [ 'acf-block', 'wpforms' ] ], json_decode( $GLOBALS['bdc_test_http']['log'][0]['args']['body'], true ) );
+        $this->assertCount( 1, $GLOBALS['bbdc_test_http']['log'] );
+        $this->assertSame( CoverageTelemetry::ENDPOINT, $GLOBALS['bbdc_test_http']['log'][0]['url'] );
+        $this->assertSame( [ 'product' => 'beaver-to-divi5', 'widget_types' => [ 'acf-block', 'wpforms' ] ], json_decode( $GLOBALS['bbdc_test_http']['log'][0]['args']['body'], true ) );
         $this->assertSame( '2026-09-08', get_option( CoverageTelemetry::LAST_SENT_OPTION ) );
 
         $telemetry->maybe_send();
-        $this->assertCount( 1, $GLOBALS['bdc_test_http']['log'], 'not due again for a week' );
+        $this->assertCount( 1, $GLOBALS['bbdc_test_http']['log'], 'not due again for a week' );
         $this->assertTrue( ( new CoverageTelemetry( $history, '2026-09-15' ) )->due() );
     }
 
@@ -154,7 +154,7 @@ final class AdminSupportTest extends TestCase {
         $html = ( new CoveragePanel( $history ) )->markup();
         $this->assertStringContainsString( '<code>acf-block</code>', $html );
         $this->assertStringContainsString( 'Share these module names', $html );
-        $this->assertStringContainsString( 'bdc_rollback=run-x', $html );
+        $this->assertStringContainsString( 'bbdc_rollback=run-x', $html );
         delete_option( ImportHistory::OPTION );
         $this->assertSame( '', ( new CoveragePanel( new ImportHistory() ) )->markup(), 'nothing to show before the first run' );
     }
@@ -195,7 +195,7 @@ final class AdminSupportTest extends TestCase {
         $this->assertStringContainsString( '1 converted', $html );
         $this->assertStringContainsString( '1 failed', $html );
         $this->assertStringContainsString( 'Image missing alt text: p1', $html );
-        $this->assertStringContainsString( 'bdc_action=publish', $html );
+        $this->assertStringContainsString( 'bbdc_action=publish', $html );
         $this->assertStringContainsString( 'No layout', $html );
         $this->assertStringContainsString( 'Not converted', $html );
     }

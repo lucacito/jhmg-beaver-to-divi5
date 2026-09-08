@@ -12,7 +12,7 @@ use BeaverDivi5Converter\Helpers\FieldConnections;
 final class FieldConnectionsTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     private function token( string $text ): array {

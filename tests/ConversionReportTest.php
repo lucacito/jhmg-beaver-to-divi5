@@ -6,7 +6,7 @@ use BeaverDivi5Converter\Converter\ConverterEngine;
 final class ConversionReportTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     private function convert( array $row_settings, array $module_settings ): array {
@@ -43,7 +43,7 @@ final class ConversionReportTest extends TestCase {
     }
 
     public function test_resolved_global_colours_are_not_reported(): void {
-        add_filter( 'bdc_global_colors', fn() => [ 'brand' => '2b6cb0' ] );
+        add_filter( 'bbdc_global_colors', fn() => [ 'brand' => '2b6cb0' ] );
         $report = $this->convert( [ 'bg_type' => 'color', 'bg_color' => 'var(--fl-global-brand)' ], [ 'type' => 'heading', 'heading' => 'x' ] );
 
         $this->assertSame( [], $report['unresolved_globals'] );

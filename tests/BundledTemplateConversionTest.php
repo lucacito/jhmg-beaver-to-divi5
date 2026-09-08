@@ -26,7 +26,7 @@ final class BundledTemplateConversionTest extends TestCase {
 
     #[DataProvider( 'templateProvider' )]
     public function test_bundled_template_converts_to_valid_divi_5( string $file ): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
 
         $payload = json_decode( (string) file_get_contents( $file ), true );
         $engine  = new ConverterEngine();

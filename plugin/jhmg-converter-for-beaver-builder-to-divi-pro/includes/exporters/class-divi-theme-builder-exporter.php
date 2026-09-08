@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class DiviThemeBuilderExporter {
 
     /** Records which import a layout or template came from, so a re-import updates it. */
-    const SOURCE_META = '_bdc_tb_source';
+    const SOURCE_META = '_bbdc_tb_source';
 
     private DiviExporter $exporter;
 

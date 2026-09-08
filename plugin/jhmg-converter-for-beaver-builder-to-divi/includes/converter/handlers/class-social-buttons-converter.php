@@ -18,7 +18,7 @@ class SocialButtonsConverter extends BaseBeaverConverter {
     private const NETWORKS = [ 'facebook', 'twitter', 'linkedin', 'pinterest', 'email', 'reddit', 'tumblr', 'whatsapp', 'telegram', 'xing', 'buffer', 'digg', 'evernote', 'pocket' ];
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_social_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_social_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style    = $this->mapStyle( 'generic', $node );

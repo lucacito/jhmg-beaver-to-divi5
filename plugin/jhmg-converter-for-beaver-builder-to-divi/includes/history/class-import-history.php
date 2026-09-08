@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class ImportHistory {
 
-    const OPTION = 'bdc_import_history';
+    const OPTION = 'bbdc_import_history';
 
     /** Unbounded growth in wp_options is a common cause of slow-site reports. */
     const MAX_RUNS = 25;

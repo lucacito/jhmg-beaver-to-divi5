@@ -13,7 +13,7 @@ use BeaverDivi5Converter\StyleMapper\GlobalSettingsResolver;
 final class SpacingDefaultsTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         delete_option( GlobalSettingsResolver::OPTION );
     }
 

@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ReusableBlockConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_pattern_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_pattern_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'generic', $node );

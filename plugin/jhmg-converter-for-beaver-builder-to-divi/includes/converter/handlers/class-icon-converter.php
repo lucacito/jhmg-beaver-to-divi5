@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class IconConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_icon_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_icon_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $mapped = IconMap::fromClass( $this->text( $settings, 'icon' ) );

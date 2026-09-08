@@ -26,7 +26,7 @@ class Autoloader {
         $relative_class = ltrim( substr( $class, strlen( $prefix ) ), '\\' );
         $parts          = explode( '\\', $relative_class );
         $class_name     = array_pop( $parts );
-        $directory      = BDC_PLUGIN_DIR . 'includes/';
+        $directory      = BBDC_PLUGIN_DIR . 'includes/';
 
         if ( ! empty( $parts ) ) {
             $directory .= implode( '/', array_map( 'strtolower', $parts ) ) . '/';
@@ -36,7 +36,7 @@ class Autoloader {
         $path      = $directory . $file_name;
 
         if ( ! file_exists( $path ) && empty( $parts ) ) {
-            $path = BDC_PLUGIN_DIR . 'includes/helpers/' . $file_name;
+            $path = BBDC_PLUGIN_DIR . 'includes/helpers/' . $file_name;
         }
 
         if ( file_exists( $path ) ) {

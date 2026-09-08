@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ButtonGroupConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_buttons_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_buttons_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
         $items    = is_array( $settings['items'] ?? null ) ? $settings['items'] : [];
 

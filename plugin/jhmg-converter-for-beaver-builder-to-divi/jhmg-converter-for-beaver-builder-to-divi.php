@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'BDC_PLUGIN_FILE', __FILE__ );
-define( 'BDC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'BDC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'BBDC_PLUGIN_FILE', __FILE__ );
+define( 'BBDC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'BBDC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-defined( 'BDC_PLUGIN_VERSION' ) || define( 'BDC_PLUGIN_VERSION', '1.0.0' );
+defined( 'BBDC_PLUGIN_VERSION' ) || define( 'BBDC_PLUGIN_VERSION', '1.0.0' );
 
-require_once BDC_PLUGIN_DIR . 'includes/helpers/class-autoloader.php';
+require_once BBDC_PLUGIN_DIR . 'includes/helpers/class-autoloader.php';
 
 // Activation runs inside an admin request, so the theme is loaded and Divi's
 // version is readable — unlike at plugins_loaded, where it is not yet.

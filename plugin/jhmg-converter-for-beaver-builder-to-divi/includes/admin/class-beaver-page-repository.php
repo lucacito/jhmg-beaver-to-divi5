@@ -105,7 +105,7 @@ class BeaverPageRepository {
         $found = get_posts( [
             'post_type'      => 'any',
             'post_status'    => 'any',
-            'meta_key'       => '_bdc_source_post_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+            'meta_key'       => '_bbdc_source_post_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
             'meta_value'     => $source_post_id, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
             'posts_per_page' => 1,
             'fields'         => 'ids',

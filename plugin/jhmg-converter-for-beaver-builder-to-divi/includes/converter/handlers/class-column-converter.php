@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ColumnConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_column_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_column_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'column', $node );
@@ -75,7 +75,7 @@ class ColumnConverter extends BaseBeaverConverter {
      * whose column widths have no Divi fraction (see ColumnGroupConverter).
      */
     public function convertAsGroup( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_group_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_group_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'group', $node );

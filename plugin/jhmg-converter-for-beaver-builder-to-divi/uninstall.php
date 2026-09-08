@@ -8,6 +8,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     exit;
 }
 
-foreach ( [ 'bdc_import_history', 'bdc_telemetry_consent', 'bdc_telemetry_last_sent', 'bdc_divi_requirement_failed', 'bdc_conversions_total' ] as $option ) {
-    delete_option( $option );
-}
+array_map(
+    'delete_option',
+    [ 'bbdc_import_history', 'bbdc_telemetry_consent', 'bbdc_telemetry_last_sent', 'bbdc_divi_requirement_failed', 'bbdc_conversions_total' ]
+);

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class VideoConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_video_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_video_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style  = $this->mapStyle( 'generic', $node );

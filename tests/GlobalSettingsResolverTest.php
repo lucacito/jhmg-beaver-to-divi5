@@ -6,7 +6,7 @@ use BeaverDivi5Converter\StyleMapper\GlobalSettingsResolver;
 final class GlobalSettingsResolverTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     public function test_defaults_match_beaver_builder_when_nothing_is_stored(): void {

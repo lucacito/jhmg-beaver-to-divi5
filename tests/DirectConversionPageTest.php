@@ -6,7 +6,7 @@ use BeaverDivi5Converter\Admin\DirectConversionPage;
 final class DirectConversionPageTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         $GLOBALS['__test_posts']    = [];
         $GLOBALS['__test_postmeta'] = [];
     }
@@ -26,12 +26,12 @@ final class DirectConversionPageTest extends TestCase {
         $plain = $this->seed( 203, 'Plain', false );
         $page  = new DirectConversionPage();
 
-        $this->assertSame( [ 201, 202 ], $page->verified_post_ids( [ 'bdc_post_ids' => [ '201', '202', '203', 'abc', '-1', '999', '201', [ 'x' ] ] ] ) );
-        $this->assertSame( [ 201 ], $page->selected_post_ids( [ 'bdc_post_ids' => [ '201', '202' ] ] ), 'free converts one page per run' );
-        $this->assertSame( [ 202 ], $page->selected_post_ids( [ 'bdc_post_ids' => '202' ] ) );
+        $this->assertSame( [ 201, 202 ], $page->verified_post_ids( [ 'bbdc_post_ids' => [ '201', '202', '203', 'abc', '-1', '999', '201', [ 'x' ] ] ] ) );
+        $this->assertSame( [ 201 ], $page->selected_post_ids( [ 'bbdc_post_ids' => [ '201', '202' ] ] ), 'free converts one page per run' );
+        $this->assertSame( [ 202 ], $page->selected_post_ids( [ 'bbdc_post_ids' => '202' ] ) );
 
-        add_filter( 'bdc_direct_conversion_limit', fn() => 10 );
-        $this->assertSame( [ 201, 202 ], $page->selected_post_ids( [ 'bdc_post_ids' => [ '201', '202', (string) $plain ] ] ) );
+        add_filter( 'bbdc_direct_conversion_limit', fn() => 10 );
+        $this->assertSame( [ 201, 202 ], $page->selected_post_ids( [ 'bbdc_post_ids' => [ '201', '202', (string) $plain ] ] ) );
     }
 
     public function test_the_report_shows_the_outline_and_a_convert_button_and_writes_nothing(): void {
@@ -44,7 +44,7 @@ final class DirectConversionPageTest extends TestCase {
         $this->assertStringContainsString( 'Landing', $html );
         $this->assertStringContainsString( '4 modules converted.', $html );
         $this->assertStringContainsString( 'bdc-outline-node--section', $html );
-        $this->assertStringContainsString( 'name="bdc_post_ids[]" value="210"', $html );
+        $this->assertStringContainsString( 'name="bbdc_post_ids[]" value="210"', $html );
         $this->assertStringContainsString( 'Convert to Divi 5', $html );
         $this->assertCount( $posts_before, $GLOBALS['__test_posts'] );
     }
@@ -68,7 +68,7 @@ final class DirectConversionPageTest extends TestCase {
         $this->assertTrue( $results[0]['success'] );
         $this->assertSame( 'draft', get_post( $results[0]['post_id'] )->post_status );
         $this->assertSame( $before, (array) get_post( $id ) );
-        $this->assertSame( 220, get_post_meta( $results[0]['post_id'], '_bdc_source_post_id', true ) );
+        $this->assertSame( 220, get_post_meta( $results[0]['post_id'], '_bbdc_source_post_id', true ) );
     }
 
     public function test_check_handler_stashes_the_selection_and_redirects(): void {
@@ -76,10 +76,10 @@ final class DirectConversionPageTest extends TestCase {
         $page = new class() extends DirectConversionPage {
             public array $redirects = [];
             protected function redirect( string $location ): void { $this->redirects[] = $location; }
-            public function check( array $post ): void { $_POST = $post; $this->handle_check(); }
+            public function check( array $post ): void { $this->handle_check( $post ); }
         };
 
-        $page->check( [ 'bdc_post_ids' => [ '230' ] ] );
+        $page->check( [ 'bbdc_post_ids' => [ '230' ] ] );
 
         $this->assertSame( [ 230 ], get_transient( DirectConversionPage::PLAN_IDS_TRANSIENT_PREFIX . get_current_user_id() ) );
         $this->assertStringContainsString( 'action=direct_report', $page->redirects[0] );
@@ -90,24 +90,24 @@ final class DirectConversionPageTest extends TestCase {
         $page = new class() extends DirectConversionPage {
             public array $redirects = [];
             protected function redirect( string $location ): void { $this->redirects[] = $location; }
-            public function go( array $post ): void { $_POST = $post; $this->handle_convert(); }
+            public function go( array $post ): void { $this->handle_convert( $post ); }
         };
 
-        $page->go( [ 'bdc_post_ids' => [ '240' ] ] );
+        $page->go( [ 'bbdc_post_ids' => [ '240' ] ] );
 
         $this->assertStringContainsString( 'action=batch_result', $page->redirects[0] );
-        $runs = get_option( 'bdc_import_history' );
+        $runs = get_option( 'bbdc_import_history' );
         $this->assertCount( 1, $runs );
         $this->assertCount( 1, $runs[0]['post_ids'] );
-        $this->assertSame( 1, get_option( 'bdc_conversions_total' ) );
+        $this->assertSame( 1, get_option( 'bbdc_conversions_total' ) );
     }
 
     public function test_an_empty_selection_never_writes_a_junk_history_entry(): void {
         $page = new class() extends DirectConversionPage {
             protected function redirect( string $location ): void {}
-            public function go( array $post ): void { $_POST = $post; $this->handle_convert(); }
+            public function go( array $post ): void { $this->handle_convert( $post ); }
         };
         $this->expectException( \RuntimeException::class );
-        $page->go( [ 'bdc_post_ids' => [ '999' ] ] );
+        $page->go( [ 'bbdc_post_ids' => [ '999' ] ] );
     }
 }

@@ -11,7 +11,7 @@ use BeaverDivi5Converter\Converter\ConverterEngine;
 final class CommerceAndContainerModulesTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     private function convert( array $settings, array $children = [] ): array {

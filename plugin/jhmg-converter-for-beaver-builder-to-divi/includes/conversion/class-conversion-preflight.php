@@ -22,7 +22,7 @@ class ConversionPreflight {
      * Free converts one item per run; Pro raises this. A quantity boundary,
      * not a feature flag: the whole loop ships in the free plugin.
      */
-    const LIMIT_FILTER  = 'bdc_direct_conversion_limit';
+    const LIMIT_FILTER  = 'bbdc_direct_conversion_limit';
     const DEFAULT_LIMIT = 1;
 
     private ?ConverterEngine $engine;
@@ -42,7 +42,8 @@ class ConversionPreflight {
         if ( ! function_exists( 'apply_filters' ) ) {
             return self::DEFAULT_LIMIT;
         }
-        return max( 1, (int) apply_filters( self::LIMIT_FILTER, self::DEFAULT_LIMIT ) );
+        // Literal so Plugin Check can read the hook name; keep in step with self::LIMIT_FILTER.
+        return max( 1, (int) apply_filters( 'bbdc_direct_conversion_limit', self::DEFAULT_LIMIT ) );
     }
 
     /** Plan up to the limit; report whether the source held more. */

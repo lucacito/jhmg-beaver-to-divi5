@@ -11,10 +11,10 @@ use BeaverDivi5Converter\Pro\Plugin as ProPlugin;
 final class ProPluginTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         $GLOBALS['__test_posts']    = [];
         $GLOBALS['__test_postmeta'] = [];
-        $GLOBALS['bdc_test_http']   = [ 'queue' => [], 'log' => [] ];
+        $GLOBALS['bbdc_test_http']   = [ 'queue' => [], 'log' => [] ];
     }
 
     private function nodes(): array {
@@ -33,9 +33,9 @@ final class ProPluginTest extends TestCase {
     public function test_pro_raises_the_limit_declares_itself_and_registers_the_theme_builder_exporter(): void {
         ProPlugin::instance()->register_hooks();
 
-        $this->assertTrue( apply_filters( 'bdc_pro_active', false ) );
+        $this->assertTrue( apply_filters( 'bbdc_pro_active', false ) );
         $this->assertSame( PHP_INT_MAX, ConversionPreflight::limit() );
-        $this->assertInstanceOf( DiviThemeBuilderExporter::class, apply_filters( 'bdc_theme_builder_exporter', null ) );
+        $this->assertInstanceOf( DiviThemeBuilderExporter::class, apply_filters( 'bbdc_theme_builder_exporter', null ) );
         $this->assertSame( 'beaver-to-divi5-pro', BDCP_PRODUCT_SLUG );
     }
 
@@ -77,7 +77,7 @@ final class ProPluginTest extends TestCase {
         $this->assertSame( 'et_header_layout', $layout->post_type );
         $this->assertSame( 'publish', $layout->post_status );
         $this->assertStringContainsString( 'wp:divi/heading', $layout->post_content );
-        $this->assertSame( 'header:post-30', get_post_meta( $layout->ID, '_bdc_tb_source', true ) );
+        $this->assertSame( 'header:post-30', get_post_meta( $layout->ID, '_bbdc_tb_source', true ) );
 
         $template = get_post( $results[0]['template_id'] );
         $this->assertSame( 'et_template', $template->post_type );
@@ -106,19 +106,19 @@ final class ProPluginTest extends TestCase {
     }
 
     public function test_activation_stores_the_key_and_state_under_the_bdcp_prefix(): void {
-        bdc_test_http_queue( [ 'code' => 200, 'body' => [ 'status' => 'active', 'expires' => '2027-09-08' ] ] );
+        bbdc_test_http_queue( [ 'code' => 200, 'body' => [ 'status' => 'active', 'expires' => '2027-09-08' ] ] );
 
         $result = $this->client()->activate( 'KEY-123' );
 
         $this->assertTrue( $result['ok'] );
         $this->assertSame( 'KEY-123', get_option( 'bdcp_license_key' ) );
         $this->assertSame( 'active', get_option( 'bdcp_license_state' )['status'] );
-        $this->assertSame( 'https://license.test/api/license/activate', $GLOBALS['bdc_test_http']['log'][0]['url'] );
-        $this->assertSame( 'beaver-to-divi5-pro', json_decode( $GLOBALS['bdc_test_http']['log'][0]['args']['body'], true )['product'] );
+        $this->assertSame( 'https://license.test/api/license/activate', $GLOBALS['bbdc_test_http']['log'][0]['url'] );
+        $this->assertSame( 'beaver-to-divi5-pro', json_decode( $GLOBALS['bbdc_test_http']['log'][0]['args']['body'], true )['product'] );
     }
 
     public function test_a_rejected_key_is_reported_and_nothing_is_stored(): void {
-        bdc_test_http_queue( [ 'code' => 404, 'body' => [ 'error' => 'invalid_key' ] ] );
+        bbdc_test_http_queue( [ 'code' => 404, 'body' => [ 'error' => 'invalid_key' ] ] );
 
         $result = $this->client()->activate( 'BAD' );
 
@@ -129,13 +129,13 @@ final class ProPluginTest extends TestCase {
 
     public function test_update_check_injects_a_package_only_when_the_server_offers_one(): void {
         update_option( 'bdcp_license_key', 'KEY-123' );
-        bdc_test_http_queue( [ 'code' => 200, 'body' => [ 'update' => true, 'version' => '1.1.0', 'package' => 'https://license.test/pro-1.1.0.zip' ] ] );
+        bbdc_test_http_queue( [ 'code' => 200, 'body' => [ 'update' => true, 'version' => '1.1.0', 'package' => 'https://license.test/pro-1.1.0.zip' ] ] );
         $transient = $this->client()->inject_update( (object) [ 'response' => [] ] );
         $this->assertSame( '1.1.0', $transient->response['pro/pro.php']->new_version );
 
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
         update_option( 'bdcp_license_key', 'KEY-123' );
-        bdc_test_http_queue( [ 'code' => 200, 'body' => [ 'update' => true, 'version' => '1.1.0' ] ] );
+        bbdc_test_http_queue( [ 'code' => 200, 'body' => [ 'update' => true, 'version' => '1.1.0' ] ] );
         $blocked = $this->client()->inject_update( (object) [ 'response' => [] ] );
         $this->assertSame( [], $blocked->response );
         $this->assertSame( '1.1.0', get_option( 'bdcp_update_blocked' ) );

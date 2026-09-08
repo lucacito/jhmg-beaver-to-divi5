@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SubscribeFormConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_signup_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_signup_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'generic', $node );

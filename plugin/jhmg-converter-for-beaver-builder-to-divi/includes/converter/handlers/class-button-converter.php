@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ButtonConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        return $this->convertSettings( (string) ( $node['id'] ?? uniqid( 'bdc_button_' ) ), is_array( $node['settings'] ?? null ) ? $node['settings'] : [], $node );
+        return $this->convertSettings( (string) ( $node['id'] ?? uniqid( 'bbdc_button_' ) ), is_array( $node['settings'] ?? null ) ? $node['settings'] : [], $node );
     }
 
     /**

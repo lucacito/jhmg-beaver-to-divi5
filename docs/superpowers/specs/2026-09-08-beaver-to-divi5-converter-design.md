@@ -39,20 +39,20 @@ new Divi 5 page  (post_content = <!-- wp:divi/... --> blocks, Divi meta)
 |---|---|---|
 | Plugin dir / slug / text domain | `jhmg-converter-for-beaver-builder-to-divi` | `jhmg-converter-for-beaver-builder-to-divi-pro` |
 | PHP namespace | `BeaverDivi5Converter\` | `BeaverDivi5Converter\Pro\` |
-| Constants | `BDC_PLUGIN_FILE`, `BDC_PLUGIN_DIR`, `BDC_PLUGIN_URL`, `BDC_PLUGIN_VERSION` | `BDCP_*`, `BDCP_PRODUCT_SLUG = beaver-to-divi5-pro`, `BDCP_API_BASE` |
+| Constants | `BBDC_PLUGIN_FILE`, `BBDC_PLUGIN_DIR`, `BBDC_PLUGIN_URL`, `BBDC_PLUGIN_VERSION` | `BDCP_*`, `BDCP_PRODUCT_SLUG = beaver-to-divi5-pro`, `BDCP_API_BASE` |
 | Admin screen | `tools.php?page=bdc-converter` ("Beaver Builder → Divi 5") | `tools.php?page=bdcp-pro` |
 | Version | 1.0.0 | 1.0.0 |
 
 Hooks the free plugin exposes (Pro consumes them):
-`bdc_loaded`, `bdc_pro_active`, `bdc_direct_conversion_limit`,
-`bdc_theme_builder_exporter`, `bdc_global_settings`.
+`bbdc_loaded`, `bbdc_pro_active`, `bbdc_direct_conversion_limit`,
+`bbdc_theme_builder_exporter`, `bbdc_global_settings`.
 
-Post meta written on converted posts: `_bdc_divi_data`, `_bdc_conversion_report`,
-`_bdc_import_source` (`direct` | `file_upload`), `_bdc_source_post_id`, plus the
+Post meta written on converted posts: `_bbdc_divi_data`, `_bbdc_conversion_report`,
+`_bbdc_import_source` (`direct` | `file_upload`), `_bbdc_source_post_id`, plus the
 Divi meta (`_et_pb_use_builder=on`, `_et_pb_use_divi_5=on`, `_et_builder_version`).
 
-Options: `bdc_import_history`, `bdc_telemetry_consent`, `bdc_telemetry_last_sent`,
-`bdc_divi_requirement_failed`, review-prompt user meta. Telemetry product id:
+Options: `bbdc_import_history`, `bbdc_telemetry_consent`, `bbdc_telemetry_last_sent`,
+`bbdc_divi_requirement_failed`, review-prompt user meta. Telemetry product id:
 `beaver-to-divi5`. Product page: `https://divi5lab.com/plugins/beaver-builder-to-divi-5`.
 
 ## 3. Source format: what Beaver Builder stores (verified against BB Lite 2.10.3.2)
@@ -172,7 +172,7 @@ Colours are normalised by `Color::normalize()`: 3/4/6/8-digit hex gains `#`,
 Beaver Builder's global colour presets when the site has them and otherwise reported as
 unresolved (never replaced with an invented colour).
 
-Global settings (`bdc_global_settings` filter; `GlobalSettingsResolver`): read
+Global settings (`bbdc_global_settings` filter; `GlobalSettingsResolver`): read
 Beaver Builder's `_fl_builder_settings` option when present (row width, default row
 width mode); fall back to BB's documented defaults (row width 1100px, fixed). Only
 the row width is applied; per-node defaults (row padding 20px, module margins 20px)
@@ -206,7 +206,7 @@ Same shape as the Elementor engine, minus the settings-shape guessing:
   `_fl_builder_data`; DOM parsing with `LIBXML_NONET`, documents containing `<!DOCTYPE`
   or `<!ENTITY` are refused), BB `.dat` template packs, and JSON trees. The free plugin
   converts the first item and reports truncation; Pro converts all
-  (`bdc_direct_conversion_limit` governs both paths).
+  (`bbdc_direct_conversion_limit` governs both paths).
 
 ## 9. Admin flow (free)
 
@@ -221,11 +221,11 @@ telemetry of unsupported module names; review prompt after three clean runs; Pro
 
 ## 10. Pro add-on
 
-- Raises `bdc_direct_conversion_limit` to unlimited.
+- Raises `bbdc_direct_conversion_limit` to unlimited.
 - `DiviThemeBuilderExporter` (ported from the Elementor Pro): header/footer layouts →
   `et_header_layout`/`et_footer_layout` + `et_template` + Theme Builder container, keyed by
   source so re-imports update instead of duplicating. Registered through
-  `bdc_theme_builder_exporter`.
+  `bbdc_theme_builder_exporter`.
 - Themer tab: lists `fl-theme-layout` posts of type header/footer, converts them into the
   Theme Builder in one click.
 - License tab backed by the canonical JHMG `LicenseClient` (soft enforcement: notices

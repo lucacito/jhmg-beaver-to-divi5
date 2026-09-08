@@ -2,6 +2,7 @@
 
 namespace BeaverDivi5Converter\Converter;
 
+use BeaverDivi5Converter\Helpers\Arr;
 use BeaverDivi5Converter\Converter\Registry\ConverterRegistry;
 use BeaverDivi5Converter\Helpers\FieldConnections;
 use BeaverDivi5Converter\Parsers\BeaverDocumentParser;
@@ -73,7 +74,7 @@ class ConverterEngine {
         }
 
         // A list whose entries carry 'children' is already a tree.
-        if ( array_is_list( $document ) && isset( $document[0]['children'] ) ) {
+        if ( Arr::isList( $document ) && isset( $document[0]['children'] ) ) {
             return [ $document, [] ];
         }
 

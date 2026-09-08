@@ -13,7 +13,7 @@ use BeaverDivi5Converter\Helpers\AddonSettings;
 final class AddonSettingsTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     /** A row as Ultimate Addons + PowerPack leave it when none of their features are used. */

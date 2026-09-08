@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PpHeadingConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_pp_heading_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_pp_heading_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $align = $this->text( $settings, 'heading_alignment' );

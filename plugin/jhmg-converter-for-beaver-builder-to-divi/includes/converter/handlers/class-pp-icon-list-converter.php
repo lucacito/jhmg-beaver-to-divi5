@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PpIconListConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_pp_iconlist_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_pp_iconlist_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style   = $this->mapStyle( 'blurb', $node );

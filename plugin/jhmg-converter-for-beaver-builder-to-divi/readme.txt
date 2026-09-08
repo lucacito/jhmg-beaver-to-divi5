@@ -2,13 +2,13 @@
 Contributors: lucaslopvet
 Tags: divi migration, beaver builder, page builder converter, beaver builder to divi, divi 5
 Requires at least: 5.9
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.0.0
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Convert Beaver Builder pages into native Divi 5 layouts. Pick a page from your site, check the result before anything is written, convert with one click, undo any run.
+Convert Beaver Builder pages into native Divi 5 layouts. Check the result before anything is written, convert with one click, undo any run.
 
 == Description ==
 
@@ -89,9 +89,9 @@ Yes. The converter writes Divi 5 block content. On Divi 4 or without Divi it exp
 
 == Screenshots ==
 
-1. The converter — pick an installed Beaver Builder page, or upload an export
-2. The conversion report shown before anything is written
-3. Conversion results with per-page issues and one-click undo
+1. The converter — pick an installed Beaver Builder page or upload an export; recent runs can be undone with one click
+2. The conversion report shown before anything is written: the structure it will produce and what will not carry over
+3. Conversion results — per-page status and issues, with links to edit, view or publish the new Divi page
 
 == External services ==
 
@@ -106,7 +106,7 @@ commonly missing Beaver Builder modules get built first.
 * **When:** at most once a week, and only after you explicitly turn sharing on from
   the Conversion coverage panel. Sharing is opt-in, off by default, and nothing is sent until you enable it.
 * **Turning it off:** use "Stop sharing" on the same panel at any time.
-* Terms: https://divi5lab.com/terms — Privacy policy: https://divi5lab.com/privacy
+* Terms: https://divi5lab.com/license — Privacy policy: https://divi5lab.com/license#privacy
 
 == Changelog ==
 

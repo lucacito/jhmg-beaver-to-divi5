@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AdminPage {
 
     const MENU_SLUG           = 'bdc-converter';
-    const IMPORT_NONCE_NAME   = 'bdc_import_nonce';
-    const IMPORT_NONCE_ACTION = 'bdc_import';
+    const IMPORT_NONCE_NAME   = 'bbdc_import_nonce';
+    const IMPORT_NONCE_ACTION = 'bbdc_import';
     const VIEW_DIRECT_REPORT  = 'direct_report';
     const PRO_URL             = 'https://divi5lab.com/plugins/beaver-builder-to-divi-5';
     const PRO_PRICE           = '$25/yr';
@@ -36,7 +36,7 @@ class AdminPage {
         if ( ! $this->hook_is_styled( $hook ) ) {
             return;
         }
-        wp_register_style( 'bdc-admin', false, [], BDC_PLUGIN_VERSION );
+        wp_register_style( 'bdc-admin', false, [], BBDC_PLUGIN_VERSION );
         wp_enqueue_style( 'bdc-admin' );
         wp_add_inline_style( 'bdc-admin', $this->inline_css() );
     }
@@ -97,8 +97,8 @@ class AdminPage {
         if ( $action === self::IMPORT_NONCE_ACTION ) {
             $this->handle_import();
         }
-        $bdc_action = sanitize_key( $_GET['bdc_action'] ?? '' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        if ( $bdc_action === 'publish' ) {
+        $bbdc_action = sanitize_key( $_GET['bbdc_action'] ?? '' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        if ( $bbdc_action === 'publish' ) {
             $this->handle_publish();
         }
     }
@@ -109,7 +109,7 @@ class AdminPage {
         }
         check_admin_referer( self::IMPORT_NONCE_ACTION, self::IMPORT_NONCE_NAME );
 
-        $upload = isset( $_FILES['bdc_import_file'] ) && is_array( $_FILES['bdc_import_file'] ) ? $_FILES['bdc_import_file'] : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $upload = isset( $_FILES['bbdc_import_file'] ) && is_array( $_FILES['bbdc_import_file'] ) ? $_FILES['bbdc_import_file'] : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
         if ( ! $upload ) {
             wp_die( esc_html__( 'No file was uploaded.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
@@ -117,11 +117,11 @@ class AdminPage {
             wp_die( esc_html( $this->upload_error_message( (int) $upload['error'] ) ) );
         }
 
-        $post_type = sanitize_key( $_POST['bdc_post_type'] ?? 'page' );
+        $post_type = sanitize_key( $_POST['bbdc_post_type'] ?? 'page' );
         if ( ! in_array( $post_type, [ 'page', 'post' ], true ) ) {
             $post_type = 'page';
         }
-        $post_status = sanitize_key( $_POST['bdc_post_status'] ?? 'draft' );
+        $post_status = sanitize_key( $_POST['bbdc_post_status'] ?? 'draft' );
         if ( ! in_array( $post_status, [ 'draft', 'publish' ], true ) ) {
             $post_status = 'draft';
         }
@@ -137,7 +137,7 @@ class AdminPage {
         ( new ReviewPrompt() )->record_run( $results );
         $import_id = wp_generate_uuid4();
         ( new ImportHistory() )->record( $import_id, $results );
-        set_transient( 'bdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
+        set_transient( 'bbdc_batch_' . $import_id, $results, HOUR_IN_SECONDS );
 
         wp_safe_redirect( add_query_arg( [ 'page' => self::MENU_SLUG, 'action' => 'batch_result', 'import_id' => $import_id ], admin_url( 'tools.php' ) ) );
         exit;
@@ -149,9 +149,9 @@ class AdminPage {
         }
         $post_id   = absint( wp_unslash( $_GET['post_id'] ?? 0 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- nonce checked below
         $import_id = sanitize_key( $_GET['import_id'] ?? '' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        check_admin_referer( 'bdc_publish_' . $post_id );
+        check_admin_referer( 'bbdc_publish_' . $post_id );
 
-        if ( $post_id <= 0 || get_post_meta( $post_id, '_bdc_import_source', true ) === '' ) {
+        if ( $post_id <= 0 || get_post_meta( $post_id, '_bbdc_import_source', true ) === '' ) {
             wp_die( esc_html__( 'That page was not created by this converter.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
 
@@ -180,9 +180,9 @@ class AdminPage {
 
     private function render_landing(): void {
         $direct = new DirectConversionPage();
-        $search = sanitize_text_field( wp_unslash( $_GET['bdc_s'] ?? '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $search = sanitize_text_field( wp_unslash( $_GET['bbdc_s'] ?? '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $paged  = max( 1, absint( $_GET['paged'] ?? 1 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        $pro    = (bool) apply_filters( 'bdc_pro_active', false );
+        $pro    = (bool) apply_filters( 'bbdc_pro_active', false );
         ?>
         <div class="wrap bdc-wrap">
             <h1><?php esc_html_e( 'Beaver Builder to Divi 5 Converter', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></h1>
@@ -214,20 +214,20 @@ class AdminPage {
                     <input type="hidden" name="action" value="<?php echo esc_attr( self::IMPORT_NONCE_ACTION ); ?>">
                     <div class="bdc-import-fields">
                         <div class="bdc-import-field">
-                            <label for="bdc_import_file"><strong><?php esc_html_e( 'Export file', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
-                            <input type="file" id="bdc_import_file" name="bdc_import_file" accept=".xml,.dat,.json" required>
+                            <label for="bbdc_import_file"><strong><?php esc_html_e( 'Export file', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
+                            <input type="file" id="bbdc_import_file" name="bbdc_import_file" accept=".xml,.dat,.json" required>
                             <p class="description"><?php esc_html_e( 'WordPress export (.xml), Beaver Builder template (.dat) or layout JSON.', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></p>
                         </div>
                         <div class="bdc-import-field">
-                            <label for="bdc_post_type"><strong><?php esc_html_e( 'Create as', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
-                            <select id="bdc_post_type" name="bdc_post_type">
+                            <label for="bbdc_post_type"><strong><?php esc_html_e( 'Create as', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
+                            <select id="bbdc_post_type" name="bbdc_post_type">
                                 <option value="page"><?php esc_html_e( 'Page', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></option>
                                 <option value="post"><?php esc_html_e( 'Post', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></option>
                             </select>
                         </div>
                         <div class="bdc-import-field">
-                            <label for="bdc_post_status"><strong><?php esc_html_e( 'Status', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
-                            <select id="bdc_post_status" name="bdc_post_status">
+                            <label for="bbdc_post_status"><strong><?php esc_html_e( 'Status', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></strong></label>
+                            <select id="bbdc_post_status" name="bbdc_post_status">
                                 <option value="draft"><?php esc_html_e( 'Draft (recommended)', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></option>
                                 <option value="publish"><?php esc_html_e( 'Published', 'jhmg-converter-for-beaver-builder-to-divi' ); ?></option>
                             </select>
@@ -270,7 +270,7 @@ class AdminPage {
         if ( $import_id === '' ) {
             wp_die( esc_html__( 'No run ID provided.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
-        $results = get_transient( 'bdc_batch_' . $import_id );
+        $results = get_transient( 'bbdc_batch_' . $import_id );
         if ( ! is_array( $results ) ) {
             wp_die( esc_html__( 'Results not found or expired. Results are kept for one hour; the run itself is still listed under Recent conversions.', 'jhmg-converter-for-beaver-builder-to-divi' ) );
         }
@@ -356,7 +356,7 @@ class AdminPage {
                 $html   .= '<a href="' . esc_url( self::edit_link( $post_id ) ) . '" class="button button-small">' . esc_html__( 'Edit', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</a> ';
                 $html   .= '<a href="' . esc_url( self::view_link( $post_id ) ) . '" class="button button-small" target="_blank" rel="noopener">' . esc_html__( 'View', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</a> ';
                 if ( self::post_status( $post_id ) !== 'publish' ) {
-                    $publish_url = add_query_arg( [ 'page' => self::MENU_SLUG, 'action' => 'batch_result', 'import_id' => $import_id, 'bdc_action' => 'publish', 'post_id' => $post_id ], admin_url( 'tools.php' ) ) . '&_wpnonce=' . wp_create_nonce( 'bdc_publish_' . $post_id );
+                    $publish_url = add_query_arg( [ 'page' => self::MENU_SLUG, 'action' => 'batch_result', 'import_id' => $import_id, 'bbdc_action' => 'publish', 'post_id' => $post_id ], admin_url( 'tools.php' ) ) . '&_wpnonce=' . wp_create_nonce( 'bbdc_publish_' . $post_id );
                     $html       .= '<a href="' . esc_url( $publish_url ) . '" class="button button-small button-primary">' . esc_html__( 'Publish', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</a>';
                 } else {
                     $html .= '<span class="bdc-published-label">&#10003; ' . esc_html__( 'Published', 'jhmg-converter-for-beaver-builder-to-divi' ) . '</span>';

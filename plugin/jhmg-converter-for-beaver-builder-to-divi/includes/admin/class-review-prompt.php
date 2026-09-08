@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class ReviewPrompt {
 
-    const OPTION_COUNT      = 'bdc_conversions_total';
-    const USER_META_KEY     = 'bdc_review_prompt_state';
+    const OPTION_COUNT      = 'bbdc_conversions_total';
+    const USER_META_KEY     = 'bbdc_review_prompt_state';
     const STATE_DONE        = 'done';
     const STATE_SNOOZED     = 'snoozed:';
-    const QUERY_ACTION      = 'bdc_review_action';
-    const NONCE_ACTION      = 'bdc_review_prompt';
+    const QUERY_ACTION      = 'bbdc_review_action';
+    const NONCE_ACTION      = 'bbdc_review_prompt';
     const DEFAULT_THRESHOLD = 3;
     const SNOOZE_DAYS       = 14;
     const REVIEW_URL        = 'https://wordpress.org/support/plugin/jhmg-converter-for-beaver-builder-to-divi/reviews/#new-post';
@@ -47,7 +47,7 @@ class ReviewPrompt {
     }
 
     public function threshold(): int {
-        return (int) apply_filters( 'bdc_review_prompt_threshold', self::DEFAULT_THRESHOLD );
+        return (int) apply_filters( 'bbdc_review_prompt_threshold', self::DEFAULT_THRESHOLD );
     }
 
     /** @param array $results The run being displayed, so a failed run can veto the ask. */

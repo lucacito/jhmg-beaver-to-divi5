@@ -5,7 +5,7 @@
  *  - It trashes, never deletes — and only when trash is actually available.
  *    With `EMPTY_TRASH_DAYS` at 0, core's wp_trash_post() deletes permanently,
  *    so this class detects that first and skips the whole run.
- *  - It only touches posts still carrying the `_bdc_import_source` meta this
+ *  - It only touches posts still carrying the `_bbdc_import_source` meta this
  *    plugin wrote. A post the user has replaced or adopted by hand is skipped.
  */
 
@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class ImportRollback {
 
-    const QUERY_ACTION = 'bdc_rollback';
-    const NONCE_ACTION = 'bdc_rollback_import';
-    const NOTICE_TRANSIENT_PREFIX = 'bdc_rollback_notice_';
+    const QUERY_ACTION = 'bbdc_rollback';
+    const NONCE_ACTION = 'bbdc_rollback_import';
+    const NOTICE_TRANSIENT_PREFIX = 'bbdc_rollback_notice_';
 
     private ImportHistory $history;
 
@@ -47,7 +47,7 @@ class ImportRollback {
         $trashed = 0;
         $skipped = 0;
         foreach ( $run['post_ids'] ?? [] as $post_id ) {
-            if ( get_post_meta( (int) $post_id, '_bdc_import_source', true ) === '' ) {
+            if ( get_post_meta( (int) $post_id, '_bbdc_import_source', true ) === '' ) {
                 $skipped++;
                 continue;
             }

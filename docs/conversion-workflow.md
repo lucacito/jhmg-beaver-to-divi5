@@ -40,7 +40,7 @@ Other helpers: `set-beaver-data.php` (attach a fixture JSON to a page), `convert
 | `post_content` | `<!-- wp:divi/placeholder -->…` block markup |
 | `_et_pb_use_builder`, `_et_pb_use_divi_5` | `on` |
 | `_et_builder_version` | `VB\|Divi\|<version>` |
-| `_bdc_divi_data` | the intermediate block tree (JSON) |
-| `_bdc_conversion_report` | the report (JSON) |
-| `_bdc_import_source` | `direct` or `file_upload` |
-| `_bdc_source_post_id` | the Beaver Builder post it came from (direct conversions) |
+| `_bbdc_divi_data` | the intermediate block tree (JSON) |
+| `_bbdc_conversion_report` | the report (JSON) |
+| `_bbdc_import_source` | `direct` or `file_upload` |
+| `_bbdc_source_post_id` | the Beaver Builder post it came from (direct conversions) |

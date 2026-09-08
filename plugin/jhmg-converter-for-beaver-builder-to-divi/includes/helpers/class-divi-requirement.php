@@ -25,7 +25,7 @@ class DiviRequirement {
     const MINIMUM_DIVI_VERSION = '5.0.0';
 
     /** Set at activation so the first admin page load can explain a failed install. */
-    const ACTIVATION_NOTICE_OPTION = 'bdc_divi_requirement_failed';
+    const ACTIVATION_NOTICE_OPTION = 'bbdc_divi_requirement_failed';
 
     /**
      * The running Divi version, or null when Divi is not present.

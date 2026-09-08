@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Color {
 
     /** Filter name through which a site (or Pro) supplies global colour values: slug ⇒ colour. */
-    const GLOBALS_FILTER = 'bdc_global_colors';
+    const GLOBALS_FILTER = 'bbdc_global_colors';
 
     /**
      * A CSS colour Divi can use, or null when the value is empty or unknown.
@@ -78,7 +78,8 @@ class Color {
     /** Resolved colour for a global reference, or null when nothing on the site knows it. */
     public static function resolveGlobal( string $value ): ?string {
         $slug    = self::globalSlug( $value );
-        $globals = function_exists( 'apply_filters' ) ? apply_filters( self::GLOBALS_FILTER, [] ) : [];
+        // Literal so Plugin Check can read the hook name; keep in step with self::GLOBALS_FILTER.
+        $globals = function_exists( 'apply_filters' ) ? apply_filters( 'bbdc_global_colors', [] ) : [];
 
         if ( ! is_array( $globals ) ) {
             return null;

@@ -12,7 +12,7 @@ final class DiviExporterTest extends TestCase {
         $this->assertSame( 'on', $meta['_et_pb_use_builder'] );
         $this->assertSame( 'on', $meta['_et_pb_use_divi_5'] );
         $this->assertSame( 'VB|Divi|5.0.0', $meta['_et_builder_version'] );
-        $this->assertSame( [ [ 'id' => 'x' ] ], json_decode( $meta['_bdc_conversion_report'], true )['unsupported'] );
+        $this->assertSame( [ [ 'id' => 'x' ] ], json_decode( $meta['_bbdc_conversion_report'], true )['unsupported'] );
     }
 
     public function test_save_writes_slashed_block_content_and_meta(): void {
@@ -27,6 +27,6 @@ final class DiviExporterTest extends TestCase {
         $this->assertStringContainsString( 'Hello World', $post->post_content );
         $this->assertStringContainsString( '\\"builderVersion\\"', $post->post_content, 'content is slashed for wp_update_post' );
         $this->assertSame( 'on', get_post_meta( $post_id, '_et_pb_use_divi_5', true ) );
-        $this->assertSame( 1, json_decode( get_post_meta( $post_id, '_bdc_conversion_report', true ), true )['converted']['heading'] );
+        $this->assertSame( 1, json_decode( get_post_meta( $post_id, '_bbdc_conversion_report', true ), true )['converted']['heading'] );
     }
 }

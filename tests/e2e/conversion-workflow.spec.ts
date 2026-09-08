@@ -19,7 +19,7 @@ test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
     await expect(page.locator('h1')).toContainText('Beaver Builder to Divi 5 Converter');
 
     // Pick the page and check it.
-    await page.check(`input[name="bdc_post_ids"][value="${sourceId}"], input[name="bdc_post_ids[]"][value="${sourceId}"]`);
+    await page.check(`input[name="bbdc_post_ids"][value="${sourceId}"], input[name="bbdc_post_ids[]"][value="${sourceId}"]`);
     await page.click('button:has-text("Check this page")');
     await page.waitForURL(/action=direct_report/);
     await expect(page.locator('.bdc-direct-report')).toContainText('modules converted');
@@ -48,7 +48,7 @@ test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
     page.on('pageerror', (err) => { if (!isDiviNoise(err.message)) errors.push(err.message); });
 
     const rows = parseInt(wp(`wp eval ${shellEscape(`$d=get_post_meta(${sourceId},"_fl_builder_data",true);echo count(array_filter((array)$d,fn($n)=>($n->type??"")==="row"));`)} --allow-root`).trim(), 10);
-    const newId = wp(`wp post list --post_type=page --post_status=any --meta_key=_bdc_source_post_id --meta_value=${sourceId} --field=ID --allow-root`).trim().split('\n')[0];
+    const newId = wp(`wp post list --post_type=page --post_status=any --meta_key=_bbdc_source_post_id --meta_value=${sourceId} --field=ID --allow-root`).trim().split('\n')[0];
     expect(newId).toMatch(/^\d+$/);
 
     // Direct conversion creates a draft; a fresh (logged-out) browser context cannot view a draft.
@@ -61,7 +61,7 @@ test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
     await page.screenshot({ path: path.join(screenshotsDir, 'home-frontend.png'), fullPage: true });
     expect(errors).toEqual([]);
 
-    const report = JSON.parse(wp(`wp post meta get ${newId} _bdc_conversion_report --allow-root`).trim());
+    const report = JSON.parse(wp(`wp post meta get ${newId} _bbdc_conversion_report --allow-root`).trim());
     expect(report.converted.section).toBe(rows);
     expect(report.unsupported).toEqual([]);
     expect(report.skipped_settings).toEqual([]);

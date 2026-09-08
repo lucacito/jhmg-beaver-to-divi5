@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class TabsConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_tabs_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_tabs_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style    = $this->mapStyle( 'generic', $node );

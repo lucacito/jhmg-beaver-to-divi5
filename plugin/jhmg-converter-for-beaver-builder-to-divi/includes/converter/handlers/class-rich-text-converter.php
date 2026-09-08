@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class RichTextConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_text_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_text_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'text', $node );

@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ProgressBarConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_progress_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_progress_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $layout = strtolower( $this->text( $settings, 'layout' ) ) ?: 'horizontal';

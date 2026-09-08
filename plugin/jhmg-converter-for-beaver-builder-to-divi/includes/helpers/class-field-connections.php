@@ -104,14 +104,14 @@ final class FieldConnections {
                 case 'custom_field':
                 case 'acf':
                     $key = $atts['key'] ?? $atts['name'] ?? '';
-                    return $key !== '' ? [ 'post_meta_key', [ 'meta_key' => $key ] ] : null;
+                    return $key !== '' ? [ 'post_meta_key', [ 'meta_key' => $key ] ] : null; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Divi's dynamic-content setting name, not a query.
             }
             return null;
         }
 
         if ( $object === 'acf' ) {
             $key = $atts['name'] ?? $atts['key'] ?? '';
-            return $key !== '' ? [ 'post_meta_key', [ 'meta_key' => $key ] ] : null;
+            return $key !== '' ? [ 'post_meta_key', [ 'meta_key' => $key ] ] : null; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Divi's dynamic-content setting name, not a query.
         }
 
         if ( $object === 'site' ) {

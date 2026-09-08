@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class CoverageTelemetry {
 
-    const CONSENT_OPTION   = 'bdc_telemetry_consent';
-    const LAST_SENT_OPTION = 'bdc_telemetry_last_sent';
-    const QUERY_ACTION     = 'bdc_telemetry_consent_set';
-    const NONCE_ACTION     = 'bdc_telemetry_consent';
+    const CONSENT_OPTION   = 'bbdc_telemetry_consent';
+    const LAST_SENT_OPTION = 'bbdc_telemetry_last_sent';
+    const QUERY_ACTION     = 'bbdc_telemetry_consent_set';
+    const NONCE_ACTION     = 'bbdc_telemetry_consent';
     const PRODUCT          = 'beaver-to-divi5';
     const ENDPOINT         = 'https://divi5lab.com/api/plugin/coverage';
     const INTERVAL_DAYS    = 7;

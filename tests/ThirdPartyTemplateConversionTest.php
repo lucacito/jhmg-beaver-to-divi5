@@ -15,7 +15,7 @@ use Divi5Validator\Validator;
 final class ThirdPartyTemplateConversionTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     public static function templates(): array {

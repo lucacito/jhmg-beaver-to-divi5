@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ColumnGroupConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_row_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_row_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $column_nodes = [];

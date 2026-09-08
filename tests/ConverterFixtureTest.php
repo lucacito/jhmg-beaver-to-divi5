@@ -22,7 +22,7 @@ final class ConverterFixtureTest extends TestCase {
 
     #[DataProvider( 'fixtureProvider' )]
     public function test_converter_matches_expected_fixture( string $name ): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
 
         $expected_file = __DIR__ . "/../fixtures/divi/{$name}.json";
         $this->assertFileExists( $expected_file, "No expected output for fixture '{$name}'. Review scripts/render-fixture.php output, then run scripts/update-expected.php {$name}." );

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class IconGroupConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_icons_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_icons_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $shared = $settings;

@@ -32,22 +32,22 @@ if ( ! function_exists( 'wp_parse_url' ) ) {
 
 // --- hooks --------------------------------------------------------------
 
-$GLOBALS['bdc_test_hooks'] = [];
+$GLOBALS['bbdc_test_hooks'] = [];
 
-if ( ! function_exists( 'bdc_test_reset_hooks' ) ) {
-    function bdc_test_reset_hooks(): void {
-        $GLOBALS['bdc_test_hooks']   = [];
+if ( ! function_exists( 'bbdc_test_reset_hooks' ) ) {
+    function bbdc_test_reset_hooks(): void {
+        $GLOBALS['bbdc_test_hooks']   = [];
         $GLOBALS['__test_options']   = [];
         $GLOBALS['__test_redirects'] = [];
         $GLOBALS['__test_transients'] = [];
-        if ( function_exists( 'bdc_test_reset_divi' ) ) {
-            bdc_test_reset_divi();
+        if ( function_exists( 'bbdc_test_reset_divi' ) ) {
+            bbdc_test_reset_divi();
         }
     }
 }
 if ( ! function_exists( 'add_filter' ) ) {
     function add_filter( $tag, $callback, $priority = 10, $accepted_args = 1 ) {
-        $GLOBALS['bdc_test_hooks'][ $tag ][] = [ 'cb' => $callback, 'args' => $accepted_args ];
+        $GLOBALS['bbdc_test_hooks'][ $tag ][] = [ 'cb' => $callback, 'args' => $accepted_args ];
         return true;
     }
 }
@@ -58,7 +58,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 if ( ! function_exists( 'apply_filters' ) ) {
     function apply_filters( $tag, $value, ...$args ) {
-        foreach ( $GLOBALS['bdc_test_hooks'][ $tag ] ?? [] as $entry ) {
+        foreach ( $GLOBALS['bbdc_test_hooks'][ $tag ] ?? [] as $entry ) {
             $value = call_user_func_array( $entry['cb'], array_slice( array_merge( [ $value ], $args ), 0, max( 1, $entry['args'] ) ) );
         }
         return $value;
@@ -66,7 +66,7 @@ if ( ! function_exists( 'apply_filters' ) ) {
 }
 if ( ! function_exists( 'do_action' ) ) {
     function do_action( $tag, ...$args ) {
-        foreach ( $GLOBALS['bdc_test_hooks'][ $tag ] ?? [] as $entry ) {
+        foreach ( $GLOBALS['bbdc_test_hooks'][ $tag ] ?? [] as $entry ) {
             call_user_func_array( $entry['cb'], array_slice( $args, 0, max( 1, $entry['args'] ) ) );
         }
     }
@@ -282,8 +282,8 @@ if ( ! defined( 'MINUTE_IN_SECONDS' ) ) { define( 'MINUTE_IN_SECONDS', 60 ); }
 $GLOBALS['__test_divi_version'] = '5.7.4';
 $GLOBALS['__test_divi_present'] = true;
 
-if ( ! function_exists( 'bdc_test_reset_divi' ) ) {
-    function bdc_test_reset_divi(): void {
+if ( ! function_exists( 'bbdc_test_reset_divi' ) ) {
+    function bbdc_test_reset_divi(): void {
         $GLOBALS['__test_divi_version'] = '5.7.4';
         $GLOBALS['__test_divi_present'] = true;
     }
@@ -399,21 +399,21 @@ if ( ! function_exists( 'wp_generate_uuid4' ) ) {
 
 // --- HTTP (license client, telemetry) ---------------------------------------------
 
-$GLOBALS['bdc_test_http'] = [ 'queue' => [], 'log' => [] ];
+$GLOBALS['bbdc_test_http'] = [ 'queue' => [], 'log' => [] ];
 
-if ( ! function_exists( 'bdc_test_http_queue' ) ) {
-    function bdc_test_http_queue( $response ) { $GLOBALS['bdc_test_http']['queue'][] = $response; }
+if ( ! function_exists( 'bbdc_test_http_queue' ) ) {
+    function bbdc_test_http_queue( $response ) { $GLOBALS['bbdc_test_http']['queue'][] = $response; }
 }
 if ( ! function_exists( 'wp_remote_post' ) ) {
     function wp_remote_post( $url, $args = [] ) {
-        $GLOBALS['bdc_test_http']['log'][] = [ 'method' => 'POST', 'url' => $url, 'args' => $args ];
-        $r = array_shift( $GLOBALS['bdc_test_http']['queue'] );
+        $GLOBALS['bbdc_test_http']['log'][] = [ 'method' => 'POST', 'url' => $url, 'args' => $args ];
+        $r = array_shift( $GLOBALS['bbdc_test_http']['queue'] );
         if ( $r === null ) { return [ 'response' => [ 'code' => 200 ], 'body' => '{}' ]; }
         return $r instanceof WP_Error ? $r : [ 'response' => [ 'code' => $r['code'] ], 'body' => json_encode( $r['body'] ) ];
     }
     function wp_remote_get( $url, $args = [] ) {
-        $GLOBALS['bdc_test_http']['log'][] = [ 'method' => 'GET', 'url' => $url, 'args' => $args ];
-        $r = array_shift( $GLOBALS['bdc_test_http']['queue'] );
+        $GLOBALS['bbdc_test_http']['log'][] = [ 'method' => 'GET', 'url' => $url, 'args' => $args ];
+        $r = array_shift( $GLOBALS['bbdc_test_http']['queue'] );
         if ( $r === null ) { return new WP_Error( 'http', 'no queued response' ); }
         return $r instanceof WP_Error ? $r : [ 'response' => [ 'code' => $r['code'] ], 'body' => json_encode( $r['body'] ) ];
     }

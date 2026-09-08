@@ -39,7 +39,7 @@ class Plugin {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_styles' ] );
 
         // Extension point for the Pro add-on (and future companions).
-        do_action( 'bdc_loaded', $this );
+        do_action( 'bbdc_loaded', $this );
     }
 
     /**
@@ -68,9 +68,9 @@ class Plugin {
         }
         wp_enqueue_style(
             'bdc-frontend',
-            BDC_PLUGIN_URL . 'assets/css/frontend.css',
+            BBDC_PLUGIN_URL . 'assets/css/frontend.css',
             [],
-            BDC_PLUGIN_VERSION
+            BBDC_PLUGIN_VERSION
         );
     }
 }

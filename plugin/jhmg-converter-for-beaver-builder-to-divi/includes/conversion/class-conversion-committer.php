@@ -24,7 +24,7 @@ class ConversionCommitter {
     public function __construct( ?DiviExporter $exporter = null, ?object $themeBuilderExporter = null ) {
         $this->exporter             = $exporter ?? new DiviExporter();
         $this->themeBuilderExporter = $themeBuilderExporter
-            ?? ( function_exists( 'apply_filters' ) ? apply_filters( 'bdc_theme_builder_exporter', null ) : null );
+            ?? ( function_exists( 'apply_filters' ) ? apply_filters( 'bbdc_theme_builder_exporter', null ) : null );
     }
 
     /**
@@ -141,11 +141,11 @@ class ConversionCommitter {
 
     private function stampSource( int $post_id, array $item ): void {
         $kind = $item['source_ref']['kind'] ?? 'upload';
-        update_post_meta( $post_id, '_bdc_import_source', $kind === 'installed' ? 'direct' : 'file_upload' );
+        update_post_meta( $post_id, '_bbdc_import_source', $kind === 'installed' ? 'direct' : 'file_upload' );
 
         $source_post_id = $item['source_ref']['post_id'] ?? null;
         if ( $kind === 'installed' && $source_post_id ) {
-            update_post_meta( $post_id, '_bdc_source_post_id', (int) $source_post_id );
+            update_post_meta( $post_id, '_bbdc_source_post_id', (int) $source_post_id );
         }
     }
 

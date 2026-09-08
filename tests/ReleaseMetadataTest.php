@@ -10,10 +10,10 @@ final class ReleaseMetadataTest extends TestCase {
         $main   = (string) file_get_contents( self::FREE . '/jhmg-converter-for-beaver-builder-to-divi.php' );
         $readme = (string) file_get_contents( self::FREE . '/readme.txt' );
 
-        $this->assertMatchesRegularExpression( '/^\s*\*\s*Version:\s*' . preg_quote( BDC_PLUGIN_VERSION, '/' ) . '\s*$/m', $main );
-        $this->assertStringContainsString( "BDC_PLUGIN_VERSION', '" . BDC_PLUGIN_VERSION . "'", $main );
-        $this->assertMatchesRegularExpression( '/^Stable tag:\s*' . preg_quote( BDC_PLUGIN_VERSION, '/' ) . '\s*$/m', $readme );
-        $this->assertStringContainsString( '= ' . BDC_PLUGIN_VERSION . ' =', $readme );
+        $this->assertMatchesRegularExpression( '/^\s*\*\s*Version:\s*' . preg_quote( BBDC_PLUGIN_VERSION, '/' ) . '\s*$/m', $main );
+        $this->assertStringContainsString( "BBDC_PLUGIN_VERSION', '" . BBDC_PLUGIN_VERSION . "'", $main );
+        $this->assertMatchesRegularExpression( '/^Stable tag:\s*' . preg_quote( BBDC_PLUGIN_VERSION, '/' ) . '\s*$/m', $readme );
+        $this->assertStringContainsString( '= ' . BBDC_PLUGIN_VERSION . ' =', $readme );
     }
 
     public function test_readme_discloses_the_external_service_and_every_payload_key(): void {

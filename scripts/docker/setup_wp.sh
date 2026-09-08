@@ -47,6 +47,10 @@ echo "Installing Beaver Builder Lite..."
 run "wp plugin is-installed beaver-builder-lite-version --allow-root || wp plugin install /tmp/beaver-builder-lite.zip --allow-root"
 run "wp plugin activate beaver-builder-lite-version --allow-root"
 
+echo "Installing Plugin Check (PCP)..."
+run "wp plugin is-installed plugin-check --allow-root || wp plugin install plugin-check --allow-root"
+run "wp plugin activate plugin-check --allow-root"
+
 echo "Activating the converter plugins..."
 run "wp plugin activate jhmg-converter-for-beaver-builder-to-divi --allow-root"
 run "wp plugin activate jhmg-converter-for-beaver-builder-to-divi-pro --allow-root || true"

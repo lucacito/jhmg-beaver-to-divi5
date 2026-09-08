@@ -68,7 +68,7 @@ class IconMap {
     /** @return array<string,array{u:string,w:int[]}> */
     private static function map(): array {
         if ( self::$map === null ) {
-            $file      = BDC_PLUGIN_DIR . 'data/fa-icons.json';
+            $file      = BBDC_PLUGIN_DIR . 'data/fa-icons.json';
             $decoded   = is_file( $file ) ? json_decode( (string) file_get_contents( $file ), true ) : null;
             self::$map = is_array( $decoded ) ? $decoded : [];
         }

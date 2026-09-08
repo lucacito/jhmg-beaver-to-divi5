@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WidgetConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_widget_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_widget_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'generic', $node );
@@ -80,7 +80,7 @@ class WidgetConverter extends BaseBeaverConverter {
         $values   = is_object( $values ) ? get_object_vars( $values ) : ( is_array( $values ) ? $values : [] );
 
         ob_start();
-        the_widget( $class, $values, [ 'widget_id' => 'bdc_widget_' . substr( md5( $class . wp_json_encode( $values ) ), 0, 8 ) ] );
+        the_widget( $class, $values, [ 'widget_id' => 'bbdc_widget_' . substr( md5( $class . wp_json_encode( $values ) ), 0, 8 ) ] );
         $html = trim( (string) ob_get_clean() );
 
         return $html !== '' ? $html : null;

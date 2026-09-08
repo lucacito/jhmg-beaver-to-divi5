@@ -12,15 +12,15 @@
 
 ## Global Constraints
 
-- Plugin slugs/text domains: `jhmg-converter-for-beaver-builder-to-divi` (free), `jhmg-converter-for-beaver-builder-to-divi-pro` (Pro). Namespaces `BeaverDivi5Converter\` / `BeaverDivi5Converter\Pro\`. Constant prefixes `BDC_` / `BDCP_`.
+- Plugin slugs/text domains: `jhmg-converter-for-beaver-builder-to-divi` (free), `jhmg-converter-for-beaver-builder-to-divi-pro` (Pro). Namespaces `BeaverDivi5Converter\` / `BeaverDivi5Converter\Pro\`. Constant prefixes `BBDC_` / `BDCP_`.
 - Requires PHP 8.0, WordPress 5.9; converter output requires Divi ≥ 5.0.0 (`DiviRequirement`).
 - Never modify the source Beaver Builder post. Conversions always create a new post.
 - Never scrape HTML; read `_fl_builder_data` only. Only published layouts (`_fl_builder_data`, not `_fl_builder_draft`).
 - Every handler must call `logUnmappedSettings()`; nothing is dropped silently.
 - Colours never invented: unresolved global colour tokens are reported, not substituted.
-- Free converts one item per run (`bdc_direct_conversion_limit` default 1); Pro raises it.
+- Free converts one item per run (`bbdc_direct_conversion_limit` default 1); Pro raises it.
 - `wp_update_post`/`wp_insert_post` content must be `wp_slash()`ed.
-- Version lives in three places (plugin header, `BDC_PLUGIN_VERSION`, readme `Stable tag`) and a test asserts they agree.
+- Version lives in three places (plugin header, `BBDC_PLUGIN_VERSION`, readme `Stable tag`) and a test asserts they agree.
 - Divi attribute paths only as listed in the spec §5/§6 (verified against Divi 5.7.4 source).
 
 ---
@@ -78,11 +78,11 @@ Autoloader rule (same as the Elementor plugin): `BeaverDivi5Converter\Converter\
 - Create: `tests/bootstrap.php`, `tests/PluginBootstrapTest.php`, `tests/DiviRequirementTest.php`
 
 **Interfaces:**
-- Produces: `BDC_PLUGIN_DIR`, `BDC_PLUGIN_VERSION='1.0.0'`; `BeaverDivi5Converter\Helpers\DiviRequirement::{detected_version,is_satisfied,failure_reason,message,render_notice,on_activation}`; `BeaverDivi5Converter\Plugin::instance()->init()`.
-- Test bootstrap globals: `$GLOBALS['__test_posts']`, `__test_postmeta`, `__test_options`, `__test_transients`, `__test_redirects`, `__test_trashed`, `__test_divi_version`; helpers `bdc_test_reset_hooks()`, `bdc_test_reset_divi()`.
+- Produces: `BBDC_PLUGIN_DIR`, `BBDC_PLUGIN_VERSION='1.0.0'`; `BeaverDivi5Converter\Helpers\DiviRequirement::{detected_version,is_satisfied,failure_reason,message,render_notice,on_activation}`; `BeaverDivi5Converter\Plugin::instance()->init()`.
+- Test bootstrap globals: `$GLOBALS['__test_posts']`, `__test_postmeta`, `__test_options`, `__test_transients`, `__test_redirects`, `__test_trashed`, `__test_divi_version`; helpers `bbdc_test_reset_hooks()`, `bbdc_test_reset_divi()`.
 
 - [ ] **Step 1:** `composer.json` with `phpunit/phpunit ^13.2` and PSR-4 `BeaverDivi5Converter\\ → plugin/jhmg-converter-for-beaver-builder-to-divi/includes/`, `BeaverDivi5Converter\\Pro\\ → plugin/…-pro/includes/`, `Divi5Validator\\ → tests/support/divi5-validator/`. Run `composer install`.
-- [ ] **Step 2:** Port `tests/bootstrap.php` from the Elementor repo, renaming `edc_` helpers to `bdc_` and the required plugin files. Add `maybe_unserialize()` and `is_serialized()` stubs (WordPress functions the parser relies on).
+- [ ] **Step 2:** Port `tests/bootstrap.php` from the Elementor repo, renaming `edc_` helpers to `bbdc_` and the required plugin files. Add `maybe_unserialize()` and `is_serialized()` stubs (WordPress functions the parser relies on).
 - [ ] **Step 3:** Write `tests/DiviRequirementTest.php` (satisfied at 5.7.4; `too_old` at 4.27; `missing` when no Divi; activation stores/clears the option). Run: `vendor/bin/phpunit tests/DiviRequirementTest.php` → fails (class missing).
 - [ ] **Step 4:** Write bootstrap file + Autoloader + Plugin + DiviRequirement (ported, renamed). Run tests → pass.
 - [ ] **Step 5:** `git add -A && git commit -m "chore: scaffold free plugin, requirement guard, test harness"`.
@@ -111,9 +111,9 @@ Autoloader rule (same as the Elementor plugin): `BeaverDivi5Converter\Converter\
 - Test: `tests/ColorTest.php`, `tests/SizeTest.php`, `tests/GlobalSettingsResolverTest.php`
 
 **Interfaces:**
-- `Color::normalize( mixed $raw ): ?string` — `'64A6BD'`→`'#64A6BD'`, `'#fff'`→`'#fff'`, `'rgba(1,2,3,.5)'` passthrough, `''`/non-string → null, `'var(--fl-global-brand)'` → resolved via `Color::resolveGlobal()` (reads `bdc_global_colors` filter; null when unknown). `Color::isGlobalRef(string): bool`.
+- `Color::normalize( mixed $raw ): ?string` — `'64A6BD'`→`'#64A6BD'`, `'#fff'`→`'#fff'`, `'rgba(1,2,3,.5)'` passthrough, `''`/non-string → null, `'var(--fl-global-brand)'` → resolved via `Color::resolveGlobal()` (reads `bbdc_global_colors` filter; null when unknown). `Color::isGlobalRef(string): bool`.
 - `Size::withUnit( mixed $value, ?string $unit, string $default = 'px' ): string` — `'20'`+`'%'`→`'20%'`; `''`→`''`; numeric-with-unit strings pass through.
-- `GlobalSettingsResolver::rowWidth(): string` (`'1100px'` default; reads option `_fl_builder_settings` → `row_width` + `row_width_unit`), `::rowWidthDefault(): 'fixed'|'full'`, `::rowContentWidthDefault()`; all overridable by `bdc_global_settings` filter.
+- `GlobalSettingsResolver::rowWidth(): string` (`'1100px'` default; reads option `_fl_builder_settings` → `row_width` + `row_width_unit`), `::rowWidthDefault(): 'fixed'|'full'`, `::rowContentWidthDefault()`; all overridable by `bbdc_global_settings` filter.
 
 - [ ] Steps: tests first (each helper ≥ 6 cases), implement, run, commit `feat(helpers): colour, size and global-settings helpers`.
 
@@ -196,7 +196,7 @@ Autoloader rule (same as the Elementor plugin): `BeaverDivi5Converter\Converter\
 
 **Files:** `plugin/jhmg-converter-for-beaver-builder-to-divi-pro/**`; tests `ProPluginTest`, `LicenseClientTest`, `ThemerRepositoryTest`, `ThemeBuilderExporterTest`, `ThemeBuilderDedupeTest`.
 
-- [ ] `LicenseClient` copied verbatim from the canonical source (namespace changed only). `DiviThemeBuilderExporter` ported with `_bdc_tb_source`. `ProPage` tabs: License, Themer. Commit `feat(pro): licensed add-on with unlimited runs and Themer header/footer export`.
+- [ ] `LicenseClient` copied verbatim from the canonical source (namespace changed only). `DiviThemeBuilderExporter` ported with `_bbdc_tb_source`. `ProPage` tabs: License, Themer. Commit `feat(pro): licensed add-on with unlimited runs and Themer header/footer export`.
 
 ### Task 13: Docker environment, WP-CLI helpers, Playwright e2e
 

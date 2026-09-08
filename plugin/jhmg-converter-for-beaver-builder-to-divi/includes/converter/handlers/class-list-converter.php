@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ListConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_list_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_list_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $items = [];

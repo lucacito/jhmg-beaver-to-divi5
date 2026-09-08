@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CalloutConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_blurb_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_blurb_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style   = $this->mapStyle( 'blurb', $node );

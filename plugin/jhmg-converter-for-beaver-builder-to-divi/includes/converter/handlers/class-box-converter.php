@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class BoxConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_group_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_group_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'group', $node );

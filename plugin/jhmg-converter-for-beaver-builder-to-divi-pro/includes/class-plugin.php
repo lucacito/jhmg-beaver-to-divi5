@@ -28,13 +28,13 @@ class Plugin {
             return;
         }
 
-        add_filter( 'bdc_pro_active', '__return_true' );
+        add_filter( 'bbdc_pro_active', '__return_true' );
 
         // Free converts one page per run; Pro converts as many as selected. A
         // quantity boundary, not a feature flag: the whole loop lives in free.
-        add_filter( 'bdc_direct_conversion_limit', static fn( $v ) => PHP_INT_MAX );
+        add_filter( 'bbdc_direct_conversion_limit', static fn( $v ) => PHP_INT_MAX );
 
-        add_filter( 'bdc_theme_builder_exporter', static function ( $v ) {
+        add_filter( 'bbdc_theme_builder_exporter', static function ( $v ) {
             return $v ?? new Exporters\DiviThemeBuilderExporter( new \BeaverDivi5Converter\Exporters\DiviExporter() );
         } );
 

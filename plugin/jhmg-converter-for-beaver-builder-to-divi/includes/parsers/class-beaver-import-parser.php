@@ -10,6 +10,7 @@
 
 namespace BeaverDivi5Converter\Parsers;
 
+use BeaverDivi5Converter\Helpers\Arr;
 use BeaverDivi5Converter\Conversion\InstalledPostSource;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -128,11 +129,11 @@ class BeaverImportParser {
     private function fromJson( string $raw, string $file_name ): array {
         $decoded = json_decode( $raw, true );
         if ( ! is_array( $decoded ) ) {
-            throw new \RuntimeException( 'Import file is not valid JSON: ' . json_last_error_msg() );
+            throw new \RuntimeException( 'Import file is not valid JSON: ' . esc_html( json_last_error_msg() ) );
         }
 
         // A list of documents, or one document.
-        $documents = array_is_list( $decoded ) && isset( $decoded[0]['nodes'] ) ? $decoded : [ $decoded ];
+        $documents = Arr::isList( $decoded ) && isset( $decoded[0]['nodes'] ) ? $decoded : [ $decoded ];
 
         $items = [];
         foreach ( $documents as $index => $document ) {

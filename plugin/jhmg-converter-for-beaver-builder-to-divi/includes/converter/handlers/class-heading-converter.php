@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class HeadingConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_heading_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_heading_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style = $this->mapStyle( 'heading', $node );

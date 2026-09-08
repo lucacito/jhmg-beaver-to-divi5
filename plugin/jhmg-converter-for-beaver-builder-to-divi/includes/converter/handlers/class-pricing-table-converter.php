@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class PricingTableConverter extends BaseBeaverConverter {
 
     public function convert( array $node ): array {
-        $id       = (string) ( $node['id'] ?? uniqid( 'bdc_pricing_' ) );
+        $id       = (string) ( $node['id'] ?? uniqid( 'bbdc_pricing_' ) );
         $settings = is_array( $node['settings'] ?? null ) ? $node['settings'] : [];
 
         $style    = $this->mapStyle( 'generic', $node );

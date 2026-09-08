@@ -25,10 +25,10 @@ class DiviExporter {
 
         $meta['_et_pb_use_builder']  = 'on';
         $meta['_et_builder_version'] = sprintf( 'VB|Divi|%s', defined( 'ET_BUILDER_VERSION' ) ? ET_BUILDER_VERSION : DiviRequirement::MINIMUM_DIVI_VERSION );
-        $meta['_bdc_divi_data']      = (string) wp_json_encode( $divi_data );
+        $meta['_bbdc_divi_data']      = (string) wp_json_encode( $divi_data );
 
         if ( isset( $divi_data['report'] ) ) {
-            $meta['_bdc_conversion_report'] = (string) wp_json_encode( array_merge(
+            $meta['_bbdc_conversion_report'] = (string) wp_json_encode( array_merge(
                 $divi_data['report'],
                 [ 'unsupported' => $divi_data['unsupported'] ?? [] ]
             ) );

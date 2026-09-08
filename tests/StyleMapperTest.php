@@ -6,7 +6,7 @@ use BeaverDivi5Converter\StyleMapper\StyleMapper;
 final class StyleMapperTest extends TestCase {
 
     protected function setUp(): void {
-        bdc_test_reset_hooks();
+        bbdc_test_reset_hooks();
     }
 
     private function map( string $kind, array $settings ): array {
