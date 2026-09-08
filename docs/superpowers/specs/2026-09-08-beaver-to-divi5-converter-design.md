@@ -249,8 +249,8 @@ telemetry of unsupported module names; review prompt after three clean runs; Pro
 ## 12. Local environment
 
 `docker-compose.yml`: `wordpress:php8.3-apache` on port 8010 + `mysql:8.0`. Mounts both
-plugin dirs, `fixtures/`, and the two reference zips (`references/Divi.zip`,
-`references/beaver-builder-lite-version.2.10.3.2.zip`, both gitignored).
+plugin dirs, `fixtures/`, and the two reference zips (`references/Divi.zip` — Divi 5.12.1 —
+and `references/beaver-builder-lite-version.2.10.3.2.zip`, both gitignored).
 `scripts/docker/setup_wp.sh` installs WP-CLI, core (admin/admin), Divi from the zip
 (activated), Beaver Builder Lite (activated), both converter plugins, then seeds and
 converts a fixture page. Helper scripts run through `wp eval-file`:

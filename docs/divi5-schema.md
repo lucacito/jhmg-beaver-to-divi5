@@ -1,6 +1,7 @@
 # Divi 5 block schema (the target)
 
-Read from Divi 5.7.4 (`includes/builder-5/visual-builder/packages/module-library/src/components/*/module.json`
+Read from Divi 5.7.4 and re-checked against Divi 5.12.1 (`references/Divi.zip`; the attribute paths
+below are unchanged between the two — `includes/builder-5/visual-builder/packages/module-library/src/components/*/module.json`
 and `server/Packages/StyleLibrary/Declarations/*`). Every path the converter writes is listed here.
 
 ## Storage
@@ -42,7 +43,7 @@ Every value is `{breakpoint: {value: …}}` with `desktop`, `tablet`, `phone`.
 | `module.decoration.spacing.{bp}.value.margin` / `.padding` | `{top,right,bottom,left,syncVertical,syncHorizontal}` (CSS lengths) |
 | `module.decoration.background.{bp}.value.color` | CSS colour |
 | `…background.{bp}.value.image` | `{url, position ("center center"), size (cover|contain|auto), repeat}` |
-| `…background.desktop.value.gradient` | `{enabled:"on", type: linear|radial, direction:"135deg" \| directionRadial:"center center", stops:[{color, position:"23%"}], overlaysImage:"on"}` |
+| `…background.desktop.value.gradient` | `{enabled:"on", type: linear|radial, direction:"135deg" \| directionRadial:"top left"|"center", stops:[{color, position:"23"}], overlaysImage:"on"}` — stop positions are bare numbers; Divi appends `%` itself and rejects a position carrying a unit |
 | `module.decoration.border.{bp}.value.styles.all` | `{style, color, width}` (or per side `styles.top…`) |
 | `…border.{bp}.value.radius` | `{topLeft, topRight, bottomRight, bottomLeft}` |
 | `module.decoration.boxShadow.{bp}.value` | `{style:"preset1", position: outer|inner, color, horizontal, vertical, blur, spread}` |
