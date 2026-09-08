@@ -5,7 +5,6 @@ import { BASE, copyHelperScript, isDiviNoise, login, screenshotsDir, shellEscape
 
 test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
   let sourceId: string;
-  let convertedId: string;
 
   test.beforeAll(() => {
     fs.mkdirSync(screenshotsDir, { recursive: true });
@@ -42,9 +41,6 @@ test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
     await page.goto(`${BASE}/wp-admin/tools.php?page=bdc-converter`);
     await expect(page.locator('a.button:has-text("Undo")').first()).toBeVisible();
 
-    // Resolve the converted post id from the Publish/Edit link for the frontend check.
-    const editHref = await page.goto(viewHref!).then(() => page.url());
-    convertedId = editHref;
   });
 
   test('the converted page renders every section on the frontend without JS errors', async ({ page }) => {
@@ -52,9 +48,11 @@ test.describe.serial('Full workflow on a real Beaver Builder layout', () => {
     page.on('pageerror', (err) => { if (!isDiviNoise(err.message)) errors.push(err.message); });
 
     const rows = parseInt(wp(`wp eval ${shellEscape(`$d=get_post_meta(${sourceId},"_fl_builder_data",true);echo count(array_filter((array)$d,fn($n)=>($n->type??"")==="row"));`)} --allow-root`).trim(), 10);
-    const newId = wp(`wp post list --post_type=page --meta_key=_bdc_source_post_id --meta_value=${sourceId} --field=ID --allow-root`).trim().split('\n')[0];
+    const newId = wp(`wp post list --post_type=page --post_status=any --meta_key=_bdc_source_post_id --meta_value=${sourceId} --field=ID --allow-root`).trim().split('\n')[0];
     expect(newId).toMatch(/^\d+$/);
 
+    // Direct conversion creates a draft; a fresh (logged-out) browser context cannot view a draft.
+    wp(`wp post update ${newId} --post_status=publish --allow-root`);
     await page.goto(`${BASE}/?page_id=${newId}`);
     await page.waitForSelector('.et_pb_section', { timeout: 20000 });
     expect(await page.locator('.et_pb_section').count()).toBe(rows);
