@@ -1,0 +1,15 @@
+node_modules/
+vendor/
+.DS_Store
+.phpunit.result.cache
+test-results/
+playwright-report/
+visual-diffs/*/
+!visual-diffs/.gitkeep
+
+# Commercial / third-party reference archives (placed by hand, never committed)
+references/
+!references/README.md
+
+# wp.org SVN working copy (recreated on demand)
+wporg-svn/
